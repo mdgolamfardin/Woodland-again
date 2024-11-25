@@ -55,7 +55,7 @@ const About = () => {
                     including the vibrant ecosystems of Halifax's St. Margaret’s Bay Area. Through 
                     sustainable practices and community engagement, we preserve the connection between nature 
                     and heritage, safeguarding unique species and inspiring action to ensure these cherished 
-                    spaces thrive for generations to come
+                    spaces thrive for future generations.
                     </p>
 
                     {/* Speaker Icon Button */}
