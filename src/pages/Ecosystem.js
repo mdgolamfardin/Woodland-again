@@ -32,21 +32,19 @@ return (
       darkMode ? "bg-gray-900 text-gray-100" : "bg-transparent text-gray-900"
     }`}
   >
-    {/* Dark Mode Toggle Button */}
-    <button
-      onClick={toggleDarkMode}
-      className={`fixed top-4 right-4 px-4 py-2 rounded-full shadow ${
-        darkMode
-          ? "bg-gray-100 text-gray-900 hover:bg-gray-200"
-          : "bg-gray-900 text-gray-100 hover:bg-gray-800"
-      }`}
-    >
-      {darkMode ? "Light Mode" : "Dark Mode"}
-    </button>
+    {/* Dark Mode Button */}
+  <div className="w-full flex justify-end p-4">
+      <button
+          onClick={toggleDarkMode}
+          className="bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition text-white"
+      >
+          {darkMode ? "Light Mode" : "Dark Mode"}
+      </button>
+  </div>
 
     {/* Main Title Section */}
     <div className="text-center py-8">
-    <h1 className="text-4xl font-bold text-[#103c84]">EcoSystem:A Living Testament to Nature and History</h1>
+    <h1 className="text-4xl font-bold text-[#103c84] no-shadow">EcoSystem:A Living Testament to Nature and History</h1>
     </div>
 
     {/* Content Section */}
@@ -120,7 +118,7 @@ return (
             or historical artifacts, there is something here for everyone.
         </p>
 
-                  {/* Speak Button */}
+          {/* Speak Button */}
                   <button
             onClick={() =>
               speak(
@@ -131,7 +129,22 @@ return (
           >
             Speak
           </button>
-          
+
+          <p className="text-lg mb-4" style={{ fontSize: "20px"  }}>The area is dotted with numerous pristine lakes, streams, and wetlands, including Birch Cove Lakes and Susie Lake. 
+            These water bodies are home to various fish species, such as trout, and provide habitat for amphibians like the wood frog 
+            and spotted salamander.Wetlands in the region are crucial for water filtration, flood regulation, and serving as breeding grounds
+             for many species. They also host a wide variety of bird species, including waterfowl such as ducks and herons.</p>
+            {/* Speak Button */}
+                  <button
+            onClick={() =>
+              speak(
+                "The area is dotted with numerous pristine lakes, streams, and wetlands, including Birch Cove Lakes and Susie Lake. These water bodies are home to various fish species, such as trout, and provide habitat for amphibians like the wood frog and spotted salamander.Wetlands in the region are crucial for water filtration, flood regulation, and serving as breeding grounds for many species. They also host a wide variety of bird species, including waterfowl such as ducks and herons."
+              )
+            }
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Speak
+          </button>
       </div>
     </div>
 
@@ -140,7 +153,7 @@ return (
   {/* Scroll to Top Button */}
   <button
     onClick={scrollToTop}
-    className={`fixed bottom-4 right-4 px-4 py-2 rounded-full shadow ${
+    className={`fixed bottom-4 right-4 bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition text-white${
       darkMode
         ? "bg-gray-100 text-gray-900 hover:bg-gray-200"
         : "bg-gray-900 text-gray-100 hover:bg-gray-800"

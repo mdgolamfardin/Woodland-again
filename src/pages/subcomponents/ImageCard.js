@@ -75,7 +75,7 @@ function ImageCard(props) {
           onClick={handleCloseModal} // Close modal on clicking outside
         >
           <div
-            className="bg-white w-[1100px] h-[700px] rounded-2xl flex flex-row items-stretch shadow-2xl transition-all duration-300"
+            className="bg-white w-[1100px] h-[700px] rounded-2xl flex lg:flex-row flex-column items-stretch shadow-2xl transition-all duration-300"
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
           >
             {/* Left Black Section */}
@@ -88,7 +88,7 @@ function ImageCard(props) {
             </div>
 
             {/* Right White Section */}
-            <div className="bg-bgClr basis-1/3 h-full rounded-r-2xl p-6 flex flex-col justify-between">
+            <div className="bg-bgClr basis-1/3 h-full rounded-r-2xl p-6 flex flex-col justify-between overflow-hidden">
               {/* Top Right "X" Button */}
               <div className="flex justify-end">
                 <button
