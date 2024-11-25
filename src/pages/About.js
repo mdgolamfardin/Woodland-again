@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaVolumeUp } from "react-icons/fa"; // Importing volume up icon from react-icons
 
 const About = () => {
     const testimonials = [
@@ -19,6 +18,8 @@ const About = () => {
     ];
 
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
+    const [socialMediaText, setSocialMediaText] = useState(""); // For hover text
+    const [isHovering, setIsHovering] = useState(false); // Track hover state
 
     const nextTestimonial = () => {
         setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -30,12 +31,35 @@ const About = () => {
         );
     };
 
-    // Function to read out the mission statement
-    const readMissionStatement = () => {
-        const msg = new SpeechSynthesisUtterance(
-            "At Woodland Conservation, we protect biodiversity and historic woodlands, including those around graveyards. Through sustainable practices and community engagement, we honor the connection between nature and heritage, inspiring action to preserve these sacred spaces for future generations."
-        );
-        window.speechSynthesis.speak(msg);
+    // Function to handle hover on social media icons
+    const handleHover = (platform) => {
+        setIsHovering(true);
+        switch (platform) {
+            case "facebook":
+                setSocialMediaText("Follow us on Facebook!");
+                break;
+            case "twitter":
+                setSocialMediaText("Follow us on Twitter!");
+                break;
+            case "instagram":
+                setSocialMediaText("Follow us on Instagram!");
+                break;
+            default:
+                setSocialMediaText("");
+        }
+    };
+
+    const handleLeave = () => {
+        setIsHovering(false);
+        setSocialMediaText("");
+    };
+
+    // Function to read aloud the hovered platform
+    const readOutLoud = () => {
+        if (socialMediaText) {
+            const msg = new SpeechSynthesisUtterance(socialMediaText);
+            window.speechSynthesis.speak(msg);
+        }
     };
 
     return (
@@ -53,13 +77,16 @@ const About = () => {
                         engagement, we honor the connection between nature and heritage, inspiring action
                         to preserve these sacred spaces for future generations.
                     </p>
-                    {/* Icon to read mission statement aloud */}
                     <button
-                        onClick={readMissionStatement}
-                        className="flex items-center space-x-2 text-[#103c84] hover:scale-110 transition-transform"
+                        className="mt-4 p-2 text-[#103c84] border-2 border-[#103c84] rounded-full"
+                        onClick={() => {
+                            const msg = new SpeechSynthesisUtterance(
+                                "At Woodland Conservation, we protect biodiversity and historic woodlands, including those around graveyards. Through sustainable practices and community engagement, we honor the connection between nature and heritage, inspiring action to preserve these sacred spaces for future generations."
+                            );
+                            window.speechSynthesis.speak(msg);
+                        }}
                     >
-                        <FaVolumeUp size={24} />
-                        <span>Read aloud</span>
+                        Read Aloud
                     </button>
                 </div>
                 <div className="relative w-[600px] h-[250px] overflow-hidden rounded-lg shadow-md mt-6 md:mt-0">
@@ -111,7 +138,7 @@ const About = () => {
                         <p className="mt-4 text-lg font-semibold">Himshree</p>
                         <p className="text-gray-500">Developer</p>
                     </div>
-                    <div className="text-center" style={{ gridColumn: "2 / span 2", gridRow: "2" }} >
+                    <div className="text-center" style={{ gridColumn: "2 / span 2", gridRow: "2" }}>
                         <img
                             src="/imagesforaboutpage/member5.png"
                             alt="Team Member 5"
@@ -191,16 +218,45 @@ const About = () => {
                 <div className="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-bold text-[#103c84] mb-8">Follow Us!</h2>
                     <div className="flex justify-center space-x-14">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-[#103c84] text-3xl">
-                            <i className="fab fa-facebook"></i>
+                        <a
+                            href="https://facebook.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#103c84] text-3xl"
+                            onMouseEnter={() => handleHover("facebook")}
+                            onMouseLeave={handleLeave}
+                            onClick={readOutLoud}
+                            aria-label="Follow us on Facebook"
+                        >
+                            <FaFacebook size={40} />
                         </a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-[#103c84] text-3xl">
-                            <i className="fab fa-twitter"></i>
+                        <a
+                            href="https://twitter.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#103c84] text-3xl"
+                            onMouseEnter={() => handleHover("twitter")}
+                            onMouseLeave={handleLeave}
+                            onClick={readOutLoud}
+                            aria-label="Follow us on Twitter"
+                        >
+                            <FaTwitter size={40} />
                         </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-[#103c84] text-3xl">
-                            <i className="fab fa-instagram"></i>
+                        <a
+                            href="https://instagram.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#103c84] text-3xl"
+                            onMouseEnter={() => handleHover("instagram")}
+                            onMouseLeave={handleLeave}
+                            onClick={readOutLoud}
+                            aria-label="Follow us on Instagram"
+                        >
+                            <FaInstagram size={40} />
                         </a>
                     </div>
+                    {/* Display hover text below icons */}
+                    {isHovering && <p className="mt-4 text-lg text-[#103c84]">{socialMediaText}</p>}
                 </div>
             </section>
         </div>
