@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 function ImageCard(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageClass, setImageClass] = useState(""); // Dynamically apply `w-full` or `h-full`
