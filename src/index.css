@@ -49,17 +49,33 @@ nav {
 }
 
 /* Class to show and style the mobile navigation menu */
+/* Keyframes for slide-down animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%); /* Start above the viewport */
+    opacity: 0;                  /* Start fully transparent */
+  }
+  to {
+    transform: translateY(0);    /* End at the original position */
+    opacity: 1;                  /* Fully visible */
+  }
+}
+
+/* Menu styling with animation */
 .showMenuNav {
-    display: block;               /* Makes the menu visible */
-    position: absolute;           /* Positions the menu relative to its nearest positioned ancestor */
-    width: 100%;                  /* Menu takes the full width of the viewport */
-    height: 50vh;                 /* Menu height is 50% of the viewport */
-    top: 0;                       /* Positions the menu at the top of the viewport */
-    left: 0;                      /* Aligns the menu to the left edge */
-    background: lightgrey;        /* Sets a light grey background color */
-    color: black;                 /* Sets text color to black */
-    display: flex;                /* Uses flexbox for layout */
-    flex-direction: column;       /* Arranges child elements vertically */
+    display: block;                /* Makes the menu visible */
+    position: absolute;            /* Positions the menu relative to its nearest positioned ancestor */
+    width: 100%;                   /* Menu takes the full width of the viewport */
+    height: 40vh;                  /* Menu height is 40% of the viewport */
+    top: 0;                        /* Positions the menu at the top of the viewport */
+    left: 0;                       /* Aligns the menu to the left edge */
+    background: #0A3981;           /* Sets a light grey background color */
+    color: white;                  /* Sets text color to black */
+    display: flex;                 /* Uses flexbox for layout */
+    flex-direction: column;        /* Arranges child elements vertically */
     justify-content: space-evenly; /* Evenly spaces out child elements along the vertical axis */
-    align-items: center;          /* Centers child elements horizontally */
+    align-items: left;             /* Centers child elements horizontally */
+    z-index: 60;
+    padding-left: 70px;
+    animation: slideDown 0.3s ease-out; /* Apply the slide-down animation */
 }
