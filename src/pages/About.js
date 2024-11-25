@@ -1,6 +1,6 @@
 const About = () => {
     return (
-        <div className="p-8 space-y-12 flex flex-col items-center">
+        <div className="p-8 flex flex-col items-center">
             {/* Mission Statement */}
             <section className="text-center space-y-4">
                 <h1 className="text-4xl font-bold text-blue-900">Our Mission</h1>
@@ -10,9 +10,15 @@ const About = () => {
             </section>
 
             {/* Team Members Section */}
-            <section className="space-y-8">
+            <section className="space-y-8 mt-10">
                 <h2 className="text-3xl font-bold text-gray-800 text-center">Meet Our Team</h2>
-                <div className="relative grid grid-cols-3 gap-y-12 items-center justify-items-center">
+                <div
+                    className="grid grid-cols-3 gap-y-10 gap-x-8 justify-items-center items-center"
+                    style={{
+                        gridTemplateRows: "auto auto", // Two rows
+                        gridTemplateColumns: "1fr 1fr 1fr", // Three columns
+                    }}
+                >
                     {/* Row 1: Team Members 1, 2, and 3 */}
                     <div className="text-center">
                         <img
@@ -45,34 +51,36 @@ const About = () => {
                     </div>
 
                     {/* Row 2: Team Members 4 and 5 */}
-                    <div className="col-span-2 flex justify-evenly w-full">
-                        {/* Alex (4) */}
-                        <div className="text-center -translate-x-8">
-                            <img
-                                src="team-member4.jpg" // Replace with actual image
-                                alt="Team Member 4"
-                                className="w-32 h-32 mx-auto rounded-full object-cover shadow-md"
-                            />
-                            <p className="mt-4 text-lg font-semibold">Alex</p>
-                            <p className="text-gray-500">UI/UX Designer</p>
-                        </div>
+                    <div
+                        className="text-center"
+                        style={{ gridColumn: "1 / span 2" }} // Alex spans columns 1 and 2
+                    >
+                        <img
+                            src="team-member4.jpg" // Replace with actual image
+                            alt="Team Member 4"
+                            className="w-32 h-32 mx-auto rounded-full object-cover shadow-md"
+                        />
+                        <p className="mt-4 text-lg font-semibold">Alex</p>
+                        <p className="text-gray-500">UI/UX Designer</p>
+                    </div>
 
-                        {/* Chris (5) */}
-                        <div className="text-center translate-x-8">
-                            <img
-                                src="team-member5.jpg" // Replace with actual image
-                                alt="Team Member 5"
-                                className="w-32 h-32 mx-auto rounded-full object-cover shadow-md"
-                            />
-                            <p className="mt-4 text-lg font-semibold">Chris</p>
-                            <p className="text-gray-500">Marketing Specialist</p>
-                        </div>
+                    <div
+                        className="text-center"
+                        style={{ gridColumn: "2 / span 2" }} // Chris spans columns 2 and 3
+                    >
+                        <img
+                            src="team-member5.jpg" // Replace with actual image
+                            alt="Team Member 5"
+                            className="w-32 h-32 mx-auto rounded-full object-cover shadow-md"
+                        />
+                        <p className="mt-4 text-lg font-semibold">Chris</p>
+                        <p className="text-gray-500">Marketing Specialist</p>
                     </div>
                 </div>
             </section>
 
             {/* Social Media Section */}
-            <section className="text-center space-y-4">
+            <section className="text-center space-y-4 mt-12">
                 <h2 className="text-3xl font-bold text-gray-800">Follow Us</h2>
                 <div className="flex justify-center space-x-6">
                     {/* Facebook */}
@@ -108,4 +116,5 @@ const About = () => {
 };
 
 export default About;
+
 
