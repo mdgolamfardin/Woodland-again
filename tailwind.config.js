@@ -7,7 +7,7 @@ module.exports = {
         navbarBg: '#0A3981',
         headingClr: '#0A3981',
         navClr: '#0A3981',
-        titleClr: "#EED3B1",
+        titleClr: "#ffe0c7",
         subClr: "#393E46",
         bgClr: "#eaf3f7"
       },
