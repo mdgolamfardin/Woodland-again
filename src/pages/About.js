@@ -13,9 +13,9 @@ const About = () => {
             {/* Team Members Section */}
             <section className="space-y-8">
                 <h2 className="text-3xl font-bold text-gray-800 text-center">Meet Our Team</h2>
-                <div className="grid grid-cols-5 gap-x-8 gap-y-12 items-center justify-center">
+                <div className="relative grid grid-cols-3 gap-y-12 items-center justify-items-center">
                     {/* Row 1: Team Members 1, 2, and 3 */}
-                    <div className="col-start-1 col-span-1 text-center">
+                    <div className="text-center">
                         <img
                             src="team-member1.jpg" // Replace with actual image
                             alt="Team Member 1"
@@ -25,7 +25,7 @@ const About = () => {
                         <p className="text-gray-500">Team Leader</p>
                     </div>
 
-                    <div className="col-start-2 col-span-1 text-center">
+                    <div className="text-center">
                         <img
                             src="team-member2.jpg" // Replace with actual image
                             alt="Team Member 2"
@@ -35,7 +35,7 @@ const About = () => {
                         <p className="text-gray-500">Frontend Developer</p>
                     </div>
 
-                    <div className="col-start-3 col-span-1 text-center">
+                    <div className="text-center">
                         <img
                             src="team-member3.jpg" // Replace with actual image
                             alt="Team Member 3"
@@ -46,7 +46,7 @@ const About = () => {
                     </div>
 
                     {/* Row 2: Team Members 4 and 5 */}
-                    <div className="col-start-2 col-span-1 text-center">
+                    <div className="col-start-2 text-center -translate-x-14">
                         <img
                             src="team-member4.jpg" // Replace with actual image
                             alt="Team Member 4"
@@ -56,7 +56,7 @@ const About = () => {
                         <p className="text-gray-500">UI/UX Designer</p>
                     </div>
 
-                    <div className="col-start-3 col-span-1 text-center">
+                    <div className="col-start-3 text-center -translate-x-14">
                         <img
                             src="team-member5.jpg" // Replace with actual image
                             alt="Team Member 5"
