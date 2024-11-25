@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const About = () => {
     const testimonials = [
@@ -105,71 +106,68 @@ const About = () => {
                 </div>
             </section>
 
-            import { Link } from 'react-router-dom';  // Import Link from React Router
+            {/* Testimonials Section */}
+            <section className="mt-12 p-8">
+                <div className="relative max-w-4xl mx-auto">
+                    {/* Left Arrow Outside Card */}
+                    <button
+                        onClick={prevTestimonial}
+                        className="absolute left-[-70px] top-1/2 transform -translate-y-1/2 flex items-center justify-center w-12 h-12 bg-[#103c84] text-white rounded-full hover:scale-110 transition-transform z-10"
+                        aria-label="Previous Testimonial"
+                    >
+                        <div className="w-0 h-0 border-t-[10px] border-b-[10px] border-r-[14px] border-t-transparent border-b-transparent border-r-white"></div>
+                    </button>
 
-{/* Testimonials Section */}
-<section className="mt-12 p-8">
-    <div className="relative max-w-4xl mx-auto">
-        {/* Left Arrow Outside Card */}
-        <button
-            onClick={prevTestimonial}
-            className="absolute left-[-70px] top-1/2 transform -translate-y-1/2 flex items-center justify-center w-12 h-12 bg-[#103c84] text-white rounded-full hover:scale-110 transition-transform z-10"
-            aria-label="Previous Testimonial"
-        >
-            <div
-                className="w-0 h-0 border-t-[10px] border-b-[10px] border-r-[14px] border-t-transparent border-b-transparent border-r-white"
-            ></div>
-        </button>
-
-        {/* White Card */}
-        <div className="bg-white rounded-lg shadow-md p-8 mx-8">
-            <h2 className="text-3xl font-bold text-[#103c84] text-center mb-6">Testimonials</h2>
-            <div className="overflow-hidden">
-                <div
-                    className="flex w-full transition-transform duration-500 ease-in-out"
-                    style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
-                >
-                    {testimonials.map((testimonial, index) => (
-                        <div
-                            key={index}
-                            className="flex-shrink-0 w-full flex items-center justify-center space-x-8"
-                        >
-                            <div className="w-1/3">
-                                <img
-                                    src={testimonial.image}
-                                    alt="Testimonial"
-                                    className="w-full h-auto rounded-lg object-cover"
-                                />
-                            </div>
-                            <div className="w-2/3">
-                                <p className="text-lg italic text-gray-700">
-                                    "{testimonial.quote}"
-                                </p>
-                                <p className="mt-4 text-sm text-gray-500">
-                                    {/* Link to the contact page */}
-                                    <Link to="/contact" className="text-[#103c84] hover:underline">
-                                        Add yours too!
-                                    </Link>
-                                </p>
+                    {/* White Card */}
+                    <div className="bg-white rounded-lg shadow-md p-8 mx-8">
+                        <h2 className="text-3xl font-bold text-[#103c84] text-center mb-6">Testimonials</h2>
+                        <div className="overflow-hidden">
+                            <div
+                                className="flex w-full transition-transform duration-500 ease-in-out"
+                                style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
+                            >
+                                {testimonials.map((testimonial, index) => (
+                                    <div
+                                        key={index}
+                                        className="flex-shrink-0 w-full flex items-center justify-center space-x-8"
+                                    >
+                                        <div className="w-1/3">
+                                            <img
+                                                src={testimonial.image}
+                                                alt="Testimonial"
+                                                className="w-full h-auto rounded-lg object-cover"
+                                            />
+                                        </div>
+                                        <div className="w-2/3">
+                                            <p className="text-lg italic text-gray-700">
+                                                "{testimonial.quote}"
+                                            </p>
+                                            <p className="mt-4 text-sm text-gray-500">
+                                                {/* Link to the contact page with rounded button */}
+                                                <Link
+                                                    to="/contact"
+                                                    className="inline-block px-8 py-3 mt-4 bg-[#103c84] text-white rounded-full text-xl font-bold hover:bg-[#092a5d] transition-colors"
+                                                >
+                                                    Add yours too!
+                                                </Link>
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
-                    ))}
-                </div>
-            </div>
-        </div>
+                    </div>
 
-        {/* Right Arrow Outside Card */}
-        <button
-            onClick={nextTestimonial}
-            className="absolute right-[-70px] top-1/2 transform -translate-y-1/2 flex items-center justify-center w-12 h-12 bg-[#103c84] text-white rounded-full hover:scale-110 transition-transform z-10"
-            aria-label="Next Testimonial"
-        >
-            <div
-                className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[14px] border-t-transparent border-b-transparent border-l-white"
-            ></div>
-        </button>
-    </div>
-</section>
+                    {/* Right Arrow Outside Card */}
+                    <button
+                        onClick={nextTestimonial}
+                        className="absolute right-[-70px] top-1/2 transform -translate-y-1/2 flex items-center justify-center w-12 h-12 bg-[#103c84] text-white rounded-full hover:scale-110 transition-transform z-10"
+                        aria-label="Next Testimonial"
+                    >
+                        <div className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[14px] border-t-transparent border-b-transparent border-l-white"></div>
+                    </button>
+                </div>
+            </section>
 
             {/* Social Media Section */}
             <section className="mt-20">
@@ -192,7 +190,7 @@ const About = () => {
                         </a>
                         <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/512px-Instagram_logo_2022.svg.png"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1024px-Instagram_logo_2022.svg.png"
                                 alt="Instagram"
                                 className="w-40 h-40 hover:scale-110 transition-transform"
                             />
@@ -205,6 +203,7 @@ const About = () => {
 };
 
 export default About;
+
 
 
 
