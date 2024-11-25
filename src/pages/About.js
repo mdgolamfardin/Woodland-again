@@ -26,9 +26,9 @@ const About = () => {
             {/* Mission Statement and Image Section */}
             <section className="flex flex-wrap md:flex-nowrap items-center justify-between space-x-10">
                 {/* Mission Statement */}
-                <div className="text-center space-y-4 max-w-3xl">
-                    <h1 className="text-4xl font-bold text-[#103c84]">Our Mission</h1>
-                    <p className="text-xl text-gray-700">
+                <div className="p-6 bg-white bg-opacity-70 rounded-lg shadow-md max-w-3xl">
+                    <h1 className="text-4xl font-bold text-[#103c84] text-center">Our Mission</h1>
+                    <p className="text-xl text-gray-700 mt-4">
                         At Woodland Conservation, we protect biodiversity and historic woodlands,
                         including those around graveyards. Through sustainable practices and community
                         engagement, we honor the connection between nature and heritage, inspiring action
@@ -37,7 +37,7 @@ const About = () => {
                 </div>
 
                 {/* Image Section with fade effect */}
-                <div className="relative w-96 h-60 overflow-hidden rounded-lg shadow-md">
+                <div className="relative w-[600px] h-72 overflow-hidden rounded-lg shadow-md">
                     {images.map((image, index) => (
                         <img
                             key={index}
