@@ -1,6 +1,3 @@
-// Import the Subcomponent component from the specified folder
-import Subcomponent from "./subcomponents/SubExample";
-
 // Define the About component as a functional component
 const About = () => {
     return (
@@ -16,9 +13,9 @@ const About = () => {
             {/* Team Members Section */}
             <section className="space-y-8">
                 <h2 className="text-3xl font-bold text-gray-800 text-center">Meet Our Team</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-3 gap-x-16 gap-y-12 items-center justify-center relative">
                     {/* Team Member 1 */}
-                    <div className="text-center">
+                    <div className="col-start-1 row-start-1 text-center">
                         <img
                             src="team-member1.jpg" // Replace with actual image
                             alt="Team Member 1"
@@ -29,7 +26,7 @@ const About = () => {
                     </div>
 
                     {/* Team Member 2 */}
-                    <div className="text-center">
+                    <div className="col-start-2 row-start-1 text-center">
                         <img
                             src="team-member2.jpg" // Replace with actual image
                             alt="Team Member 2"
@@ -40,7 +37,7 @@ const About = () => {
                     </div>
 
                     {/* Team Member 3 */}
-                    <div className="text-center">
+                    <div className="col-start-3 row-start-1 text-center">
                         <img
                             src="team-member3.jpg" // Replace with actual image
                             alt="Team Member 3"
@@ -51,7 +48,7 @@ const About = () => {
                     </div>
 
                     {/* Team Member 4 */}
-                    <div className="text-center">
+                    <div className="col-start-2 row-start-2 text-center">
                         <img
                             src="team-member4.jpg" // Replace with actual image
                             alt="Team Member 4"
@@ -62,7 +59,7 @@ const About = () => {
                     </div>
 
                     {/* Team Member 5 */}
-                    <div className="text-center">
+                    <div className="col-start-2 row-start-3 text-center">
                         <img
                             src="team-member5.jpg" // Replace with actual image
                             alt="Team Member 5"
@@ -112,3 +109,4 @@ const About = () => {
 
 // Export the About component so it can be used in other parts of the app
 export default About;
+
