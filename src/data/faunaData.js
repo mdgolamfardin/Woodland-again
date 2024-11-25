@@ -9,8 +9,13 @@ var loremIpsum = "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis inter
 
 var picsum = "https://picsum.photos/400/300"
 var picsum2 = "https://picsum.photos/500/400"
-var picsum3 = "https://picsum.photos/400/400"
-var picsum4 = "https://picsum.photos/200/250"
+var picsum3 = "https://tse4.mm.bing.net/th?id=OIP.Wxav-wso1ceDo4OzrnCiowHaFS&pid=Api"
+var picsum4 = "https://tse2.mm.bing.net/th?id=OIP.P17iIdxtgJywK622AA1tHgHaE7&pid=Api"
+var picsum5 = "https://tse3.mm.bing.net/th?id=OIP.t-M-ns7NAfUAnqcK2ZsKuQHaFb&pid=Api"
+var picsum6 = "https://tse4.mm.bing.net/th?id=OIP.Wxav-wso1ceDo4OzrnCiowHaFS&pid=Api"
+var picsum7 = "https://tse2.mm.bing.net/th?id=OIP.P17iIdxtgJywK622AA1tHgHaE7&pid=Api"
+var picsum8 = "https://tse2.mm.bing.net/th?id=OIP.tFqbsXPEpyCneU77bsuEvgHaE0&pid=Api"
+var picsum9 = "https://tse4.mm.bing.net/th?id=OIP.qlIiqLAz7GQefKj_oqUaPAHaLH&pid=Api"
 
 
 const faunaData = [
@@ -44,35 +49,35 @@ const faunaData = [
     },
     {
         id: 5,
-        url: picsum,
+        url: picsum5,
         aud: "",
         title: "title",
         description: loremIpsum,        
     },
     {
         id: 6,
-        url: picsum,
+        url: picsum6,
         aud: "",
         title: "title",
         description: loremIpsum,        
     },
     {
         id: 7,
-        url: picsum,
+        url: picsum7,
         aud: "",
         title: "title",
         description: loremIpsum,        
     },
     {
         id: 8,
-        url: picsum,
+        url: picsum8,
         aud: "",
         title: "title",
         description: loremIpsum,        
     },
     {
         id: 9,
-        url: picsum,
+        url: picsum9,
         aud: "",
         title: "title",
         description: loremIpsum,        
