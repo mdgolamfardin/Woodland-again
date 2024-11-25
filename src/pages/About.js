@@ -3,19 +3,19 @@ import React, { useEffect, useState } from "react";
 const About = () => {
     // Set up the state to handle the current image index
     const [currentImage, setCurrentImage] = useState(0);
-    
+
     // Array of image URLs for the slideshow
     const images = [
         "/imagesforaboutpage/nature1.png",
         "/imagesforaboutpage/nature2.png",
-        "/imagesforaboutpage/nature3.png"
+        "/imagesforaboutpage/nature3.png",
     ];
 
     // Change the image every 5 seconds
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentImage(prev => (prev + 1) % images.length);
-        }, 5000);
+            setCurrentImage((prev) => (prev + 1) % images.length);
+        }, 5000); // 5-second interval
 
         // Cleanup the interval on component unmount
         return () => clearInterval(interval);
@@ -24,26 +24,30 @@ const About = () => {
     return (
         <div className="p-8 flex flex-col items-center">
             {/* Mission Statement and Image Section */}
-            <section className="flex items-center justify-between space-x-10">
+            <section className="flex flex-wrap md:flex-nowrap items-center justify-between space-x-10">
                 {/* Mission Statement */}
                 <div className="text-center space-y-4 max-w-3xl">
                     <h1 className="text-4xl font-bold text-[#103c84]">Our Mission</h1>
                     <p className="text-xl text-gray-700">
-                        At Woodland Conservation, we protect biodiversity and historic woodlands, 
-                        including those around graveyards. Through sustainable practices and community 
-                        engagement, we honor the connection between nature and heritage, inspiring action 
+                        At Woodland Conservation, we protect biodiversity and historic woodlands,
+                        including those around graveyards. Through sustainable practices and community
+                        engagement, we honor the connection between nature and heritage, inspiring action
                         to preserve these sacred spaces for future generations.
                     </p>
                 </div>
 
                 {/* Image Section with fade effect */}
-                <div className="relative w-96 h-96">
-                    <img
-                        src={images[currentImage]} // Set the current image from the state
-                        alt="Mission Image"
-                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0"
-                        style={{ opacity: 1 }} // Ensure the image is visible
-                    />
+                <div className="relative w-96 h-60 overflow-hidden rounded-lg shadow-md">
+                    {images.map((image, index) => (
+                        <img
+                            key={index}
+                            src={image}
+                            alt={`Mission Image ${index + 1}`}
+                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1500 ease-in-out ${
+                                index === currentImage ? "opacity-100" : "opacity-0"
+                            }`}
+                        />
+                    ))}
                 </div>
             </section>
 
@@ -160,4 +164,3 @@ const About = () => {
 };
 
 export default About;
-
