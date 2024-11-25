@@ -6,9 +6,7 @@ const About = () => {
     
     // Array of image URLs for the slideshow
     const images = [
-        "nature1.png", // Replace with actual image paths
-        "image2.jpg",
-        "image3.jpg",
+        <img src="/imagesforaboutpage/nature1.png" alt="Nature Image" />
     ];
 
     // Change the image every 5 seconds
