@@ -59,7 +59,7 @@ thrive here, contributing to the ecosystem's balance.
         </p>
         <div className="relative">
           <img
-            src="https://via.placeholder.com/400x300"
+            src="/imgforecosys/eco2.webp"
             alt="Woodland"
             className="rounded-lg"
           />
@@ -73,7 +73,7 @@ thrive here, contributing to the ecosystem's balance.
       <div>
         <div className="relative mb-4">
           <img
-            src="https://via.placeholder.com/400x300"
+            src="/imgforecosys/eco1.webp"
             alt="EcoSystem Detail"
             className="rounded-lg"
           />
