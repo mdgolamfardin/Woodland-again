@@ -143,10 +143,10 @@ const About = () => {
                                                 "{testimonial.quote}"
                                             </p>
                                             <p className="mt-4 text-sm text-gray-500">
-                                                {/* Link to the contact page with rounded button */}
                                                 <Link
                                                     to="/contact"
-                                                    className="inline-block px-8 py-3 mt-4 bg-[#103c84] text-white rounded-full text-xl font-bold hover:bg-[#092a5d] transition-colors"
+                                                    className="inline-block py-2 px-6 bg-[#103c84] text-white rounded-full text-center transition-all hover:bg-[#1e4a99]"
+                                                    aria-label="Add your testimonial"
                                                 >
                                                     Add yours too!
                                                 </Link>
@@ -179,6 +179,10 @@ const About = () => {
                                 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
                                 alt="Facebook"
                                 className="w-40 h-40 hover:scale-110 transition-transform"
+                                onMouseEnter={() => {
+                                    const msg = new SpeechSynthesisUtterance("Follow us on Facebook");
+                                    window.speechSynthesis.speak(msg);
+                                }}
                             />
                         </a>
                         <a href="https://x.com" target="_blank" rel="noopener noreferrer">
@@ -186,13 +190,21 @@ const About = () => {
                                 src="https://freepnglogo.com/images/all_img/1729449055_twitter-logo-square%20shape-png.png"
                                 alt="X"
                                 className="w-40 h-40 hover:scale-110 transition-transform"
+                                onMouseEnter={() => {
+                                    const msg = new SpeechSynthesisUtterance("Follow us on Twitter");
+                                    window.speechSynthesis.speak(msg);
+                                }}
                             />
                         </a>
                         <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1024px-Instagram_logo_2022.svg.png"
+                                src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg"
                                 alt="Instagram"
                                 className="w-40 h-40 hover:scale-110 transition-transform"
+                                onMouseEnter={() => {
+                                    const msg = new SpeechSynthesisUtterance("Follow us on Instagram");
+                                    window.speechSynthesis.speak(msg);
+                                }}
                             />
                         </a>
                     </div>
@@ -203,6 +215,11 @@ const About = () => {
 };
 
 export default About;
+
+
+
+
+
 
 
 
