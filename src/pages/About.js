@@ -24,7 +24,7 @@ const About = () => {
                         <img
                             src="team-member1.jpg" // Replace with actual image
                             alt="Team Member 1"
-                            className="w-32 h-32 mx-auto rounded-full object-cover shadow-md"
+                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md" // Increased size to 40
                         />
                         <p className="mt-4 text-lg font-semibold">Fardin</p>
                         <p className="text-gray-500">Team Leader</p>
@@ -34,7 +34,7 @@ const About = () => {
                         <img
                             src="team-member2.jpg" // Replace with actual image
                             alt="Team Member 2"
-                            className="w-32 h-32 mx-auto rounded-full object-cover shadow-md"
+                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md" // Increased size to 40
                         />
                         <p className="mt-4 text-lg font-semibold">Mariam</p>
                         <p className="text-gray-500">Frontend Developer</p>
@@ -44,7 +44,7 @@ const About = () => {
                         <img
                             src="team-member3.jpg" // Replace with actual image
                             alt="Team Member 3"
-                            className="w-32 h-32 mx-auto rounded-full object-cover shadow-md"
+                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md" // Increased size to 40
                         />
                         <p className="mt-4 text-lg font-semibold">Yomama</p>
                         <p className="text-gray-500">Backend Developer</p>
@@ -61,7 +61,7 @@ const About = () => {
                         <img
                             src="team-member4.jpg" // Replace with actual image
                             alt="Team Member 4"
-                            className="w-32 h-32 mx-auto rounded-full object-cover shadow-md"
+                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md" // Increased size to 40
                         />
                         <p className="mt-4 text-lg font-semibold">Alex</p>
                         <p className="text-gray-500">UI/UX Designer</p>
@@ -77,7 +77,7 @@ const About = () => {
                         <img
                             src="team-member5.jpg" // Replace with actual image
                             alt="Team Member 5"
-                            className="w-32 h-32 mx-auto rounded-full object-cover shadow-md"
+                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md" // Increased size to 40
                         />
                         <p className="mt-4 text-lg font-semibold">Chris</p>
                         <p className="text-gray-500">Marketing Specialist</p>
