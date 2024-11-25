@@ -2,6 +2,13 @@
 import FloraFaunaFungi from "./subcomponents/FloraFaunaFungi";
 import ImgUpload from "./subcomponents/ImgUpload";
 
+const Contact = () => {
+    const [darkMode, setDarkMode] = useState(false);
+
+    // Toggle Light/Dark Mode
+    const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+    };
 // Define the Gallery component as a functional component
 const Gallery = () => {
     return (
