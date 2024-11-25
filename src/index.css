@@ -25,11 +25,12 @@ nav {
 }
 
 .example {
-  color: #eaf3f7;
+  color: #ffe0c7;
 }
 
 .highlight {
-  color:#dceed2;
+  color:#95b3c2;
+  border-bottom: solid 3px #95b3c2;
 }
 .custom-scale:hover {
   transform: scale(1.03);
