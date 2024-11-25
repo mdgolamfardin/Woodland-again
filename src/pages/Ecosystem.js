@@ -120,7 +120,7 @@ return (
             or historical artifacts, there is something here for everyone.
         </p>
 
-                  {/* Speak Button */}
+          {/* Speak Button */}
                   <button
             onClick={() =>
               speak(
@@ -131,7 +131,22 @@ return (
           >
             Speak
           </button>
-          
+
+          <p className="text-lg mb-4" style={{ fontSize: "20px"  }}>The area is dotted with numerous pristine lakes, streams, and wetlands, including Birch Cove Lakes and Susie Lake. 
+            These water bodies are home to various fish species, such as trout, and provide habitat for amphibians like the wood frog 
+            and spotted salamander.Wetlands in the region are crucial for water filtration, flood regulation, and serving as breeding grounds
+             for many species. They also host a wide variety of bird species, including waterfowl such as ducks and herons.</p>
+            {/* Speak Button */}
+                  <button
+            onClick={() =>
+              speak(
+                "The area is dotted with numerous pristine lakes, streams, and wetlands, including Birch Cove Lakes and Susie Lake. These water bodies are home to various fish species, such as trout, and provide habitat for amphibians like the wood frog and spotted salamander.Wetlands in the region are crucial for water filtration, flood regulation, and serving as breeding grounds for many species. They also host a wide variety of bird species, including waterfowl such as ducks and herons."
+              )
+            }
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Speak
+          </button>
       </div>
     </div>
 
