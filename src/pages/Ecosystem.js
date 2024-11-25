@@ -72,9 +72,6 @@ return (
             alt="Woodland"
             className="rounded-lg"
           />
-          <button className="absolute bottom-2 left-2 bg-black text-white px-2 py-1 text-sm rounded">
-            Click on image for more details
-          </button>
         </div>
       </div>
 
@@ -86,9 +83,6 @@ return (
             alt="EcoSystem Detail"
             className="rounded-lg"
           />
-          <button className="absolute bottom-2 left-2 bg-black text-white px-2 py-1 text-sm rounded">
-            Click on image for more details
-          </button>
         </div>
         <p className="text-lg mb-4" style={{ fontSize: "20px"  }}>
           Beyond its natural beauty, this conservation site also holds
