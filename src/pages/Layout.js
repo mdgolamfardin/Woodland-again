@@ -20,7 +20,9 @@ export default function Layout() {
       {/* Container for the navigation and main content */}
       <nav className="flex bg-navbarBg w-full">
         <h2 className="font-nunito text-titleClr text-3xl lg:text-4xl font-bold pl-6 lg:pl-32 w-full pt-6 pb-3">
-          Woodland Conservation
+          <Link to="/" className="" onClick={() => handleTabClick("/")}>
+            Woodland Conservation
+          </Link>
         </h2>
         {/* MOBILE MENU SECTION */}
         <section className="MOBILE-MENU flex lg:hidden flex justify-center">
@@ -56,28 +58,58 @@ export default function Layout() {
 
             {/* Mobile menu links */}
             <ul className="MENU-LINK-MOBILE-OPEN flex flex-col basis-3/5 space-y-5 text-xl ">
-              <li className="uppercase">
-                <Link to="/" onClick={() => setIsNavOpen(false)}>
+              <li>
+                <Link
+                  to="/about"
+                  className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
+                    activeTab === "/about" ? "highlight font-bold" : ""
+                  }`}
+                  onClick={() => handleTabClick("/about")}
+                >
                   About
                 </Link>
               </li>
-              <li className="uppercase">
-                <Link to="/gallery" onClick={() => setIsNavOpen(false)}>
+              <li>
+                <Link
+                  to="/gallery"
+                  className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
+                    activeTab === "/gallery" ? "highlight font-bold" : ""
+                  }`}
+                  onClick={() => handleTabClick("/gallery")}
+                >
                   Gallery
                 </Link>
               </li>
-              <li className="uppercase">
-                <Link to="/ecosystem" onClick={() => setIsNavOpen(false)}>
+              <li>
+                <Link
+                  to="/ecosystem"
+                  className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
+                    activeTab === "/ecosystem" ? "highlight font-bold" : ""
+                  }`}
+                  onClick={() => handleTabClick("/ecosystem")}
+                >
                   Ecosystem
                 </Link>
               </li>
-              <li className="uppercase">
-                <Link to="/sitemap" onClick={() => setIsNavOpen(false)}>
+              <li>
+                <Link
+                  to="/sitemap"
+                  className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
+                    activeTab === "/sitemap" ? "highlight font-bold" : ""
+                  }`}
+                  onClick={() => handleTabClick("/sitemap")}
+                >
                   Site Map
                 </Link>
               </li>
-              <li className="uppercase">
-                <Link to="/contact" onClick={() => setIsNavOpen(false)}>
+              <li>
+                <Link
+                  to="/contact"
+                  className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
+                    activeTab === "/contact" ? "highlight font-bold" : ""
+                  }`}
+                  onClick={() => handleTabClick("/contact")}
+                >
                   Contact
                 </Link>
               </li>
@@ -91,11 +123,11 @@ export default function Layout() {
           {/* Visible only on large screens */}
           <li>
             <Link
-              to="/"
-              className={`pb-1text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                activeTab === "/" ? "highlight font-bold " : "text-white"
+              to="/about"
+              className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
+                activeTab === "/about" ? "highlight font-bold" : ""
               }`}
-              onClick={() => handleTabClick("/")}
+              onClick={() => handleTabClick("/about")}
             >
               About
             </Link>
@@ -103,10 +135,8 @@ export default function Layout() {
           <li>
             <Link
               to="/gallery"
-              className={`pb-1text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                activeTab === "/gallery"
-                  ? "highlight text-xl font-bold "
-                  : "text-white"
+              className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
+                activeTab === "/gallery" ? "highlight font-bold" : ""
               }`}
               onClick={() => handleTabClick("/gallery")}
             >
@@ -116,10 +146,8 @@ export default function Layout() {
           <li>
             <Link
               to="/ecosystem"
-              className={`pb-1text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                activeTab === "/ecosystem"
-                  ? "highlight font-bold "
-                  : "text-white"
+              className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
+                activeTab === "/ecosystem" ? "highlight font-bold" : ""
               }`}
               onClick={() => handleTabClick("/ecosystem")}
             >
@@ -129,8 +157,8 @@ export default function Layout() {
           <li>
             <Link
               to="/sitemap"
-              className={`pb-1text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                activeTab === "/sitemap" ? "highlight font-bold " : "text-white"
+              className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
+                activeTab === "/sitemap" ? "highlight font-bold" : ""
               }`}
               onClick={() => handleTabClick("/sitemap")}
             >
@@ -140,8 +168,8 @@ export default function Layout() {
           <li>
             <Link
               to="/contact"
-              className={`pb-1text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                activeTab === "/contact" ? "highlight font-bold " : "text-white"
+              className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
+                activeTab === "/contact" ? "highlight font-bold" : ""
               }`}
               onClick={() => handleTabClick("/contact")}
             >
@@ -151,7 +179,7 @@ export default function Layout() {
         </ul>
       </nav>
       {/* Main content of the current route */}
-      <div className="pt-4 lg:px-28 2xl:px-52">
+      <div className="">
         <Outlet /> {/* Placeholder for the child route components */}
       </div>
     </div>

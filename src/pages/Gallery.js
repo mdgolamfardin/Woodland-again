@@ -6,7 +6,7 @@ import ImgUpload from "./subcomponents/ImgUpload";
 const Gallery = () => {
     return (
         // Return the JSX to render the Gallery component
-        <div className="flex-row items-center text-center">
+        <div className="flex-row items-center text-center lg:px-28 2xl:px-52">
             {/* A heading to describe the Gallery component */}
             <h1 className="break-normal font-semibold text-6xl text-headingClr mt-8 bm-4">
                 Gallery
