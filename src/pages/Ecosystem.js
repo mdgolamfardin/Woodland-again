@@ -17,6 +17,15 @@ const toggleDarkMode = () => {
   setDarkMode(!darkMode);
 };
 
+// Text-to-Speech function
+const speak = (text) => {
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-US"; // Set the language
+  speech.rate = 1; // Set the speed of speech
+  speech.pitch = 1; // Set the pitch
+  window.speechSynthesis.speak(speech); // Speak the text
+};
+
 return (
   <div
     className={`min-h-screen transition-colors duration-300 ${
@@ -47,25 +56,46 @@ return (
         <p className="text-lg mb-4" style={{ fontSize: "20px" }}>
         The Blue Mountain-Birch Cove Lakes Wilderness Area is a vital ecological treasure located near Halifax, Nova Scotia. Spanning over 1,767 hectares, this wilderness area is a mosaic of forests, lakes, wetlands, and rugged terrain, 
         making it a rich and biodiverse ecosystem. Its natural features and high ecological value make it both a crucial habitat for wildlife and an essential recreational area for the community.
-          </p>
+        </p>
+        {/* Speak Button */}
+        <button
+            onClick={() =>
+              speak(
+                "The Blue Mountain-Birch Cove Lakes Wilderness Area is a vital ecological treasure located near Halifax, Nova Scotia. Spanning over 1,767 hectares, this wilderness area is a mosaic of forests, lakes, wetlands, and rugged terrain, making it a rich and biodiverse ecosystem. Its natural features and high ecological value make it both a crucial habitat for wildlife and an essential recreational area for the community."
+              )
+            }
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mb-4"
+          >
+            Speak
+          </button>
       
         <p className="text-lg mb-4" style={{ fontSize: "20px" }} >
         The forests in the Blue Mountain-Birch Cove Lakes area are predominantly composed of mixed hardwood and softwood species.
          Key tree species include red spruce, balsam fir, yellow birch, and sugar maple. The undergrowth features a diverse range of 
          shrubs, mosses, ferns, and lichens, which play an essential role in maintaining soil stability and providing food and shelter for wildlife.
 
-The forest supports a variety of mammals, including white-tailed deer, red foxes, and snowshoe hares. Smaller mammals like squirrels, chipmunks, and voles also 
-thrive here, contributing to the ecosystem's balance.
+        The forest supports a variety of mammals, including white-tailed deer, red foxes, and snowshoe hares. Smaller mammals like squirrels, chipmunks, and voles also 
+        thrive here, contributing to the ecosystem's balance.
         </p>
+
+         {/* Speak Button */}
+         <button
+            onClick={() =>
+              speak(
+                "The forests in the Blue Mountain-Birch Cove Lakes area are predominantly composed of mixed hardwood and softwood species. Key tree species include red spruce, balsam fir, yellow birch, and sugar maple. The undergrowth features a diverse range of shrubs, mosses, ferns, and lichens, which play an essential role in maintaining soil stability and providing food and shelter for wildlife. The forest supports a variety of mammals, including white-tailed deer, red foxes, and snowshoe hares. Smaller mammals like squirrels, chipmunks, and voles also thrive here, contributing to the ecosystem's balance."
+              )
+            }
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Speak
+          </button>
+
         <div className="relative">
           <img
             src="/imgforecosys/eco2.webp"
             alt="Woodland"
             className="rounded-lg"
           />
-          <button className="absolute bottom-2 left-2 bg-black text-white px-2 py-1 text-sm rounded">
-            Click on image for more details
-          </button>
         </div>
       </div>
 
@@ -77,9 +107,6 @@ thrive here, contributing to the ecosystem's balance.
             alt="EcoSystem Detail"
             className="rounded-lg"
           />
-          <button className="absolute bottom-2 left-2 bg-black text-white px-2 py-1 text-sm rounded">
-            Click on image for more details
-          </button>
         </div>
         <p className="text-lg mb-4" style={{ fontSize: "20px"  }}>
           Beyond its natural beauty, this conservation site also holds
@@ -92,6 +119,19 @@ thrive here, contributing to the ecosystem's balance.
             in a truly unique way. Whether drawn by the Yellow Birch, wetlands,
             or historical artifacts, there is something here for everyone.
         </p>
+
+                  {/* Speak Button */}
+                  <button
+            onClick={() =>
+              speak(
+                "Beyond its natural beauty, this conservation site also holds historical significance. Evidence of a farmhouse and ancient wells provides a glimpse into the lives of those who lived here generations ago. These artifacts are a testament to the human connection with the land and serve as a reminder of the importance of preserving history alongside nature. Visitors can explore these relics, marveling at how the site weaves together past and present in a truly unique way. Whether drawn by the Yellow Birch, wetlands, or historical artifacts, there is something here for everyone."
+              )
+            }
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Speak
+          </button>
+          
       </div>
     </div>
 
