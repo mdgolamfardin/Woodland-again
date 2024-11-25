@@ -47,7 +47,7 @@ function ImageCard(props) {
   };
 
   return (
-    <div className="relative flex-row space-y-4 bg-white smshadow rounded-xl my-2">
+    <div className="relative flex-row space-y-4 bg-white smshadow rounded-xl my-2 ">
       {/* Main Image Container */}
       <div
         className="custom-scale relative group h-52 overflow-hidden rounded-xl transition-transform duration-300 hover:cursor-pointer"
