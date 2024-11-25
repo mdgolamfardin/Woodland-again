@@ -40,7 +40,7 @@ const About = () => {
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md" // Increased size to 40
                         />
                         <p className="mt-4 text-lg font-semibold">Mariam</p>
-                        <p className="text-gray-500">Frontend Developer</p>
+                        <p className="text-gray-500">Developer</p>
                     </div>
 
                     <div className="text-center">
@@ -49,8 +49,8 @@ const About = () => {
                             alt="Team Member 3"
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md" // Increased size to 40
                         />
-                        <p className="mt-4 text-lg font-semibold">Yomama</p>
-                        <p className="text-gray-500">Backend Developer</p>
+                        <p className="mt-4 text-lg font-semibold">Himshree</p>
+                        <p className="text-gray-500">Developer</p>
                     </div>
 
                     {/* Row 2: Team Members 4 and 5 */}
@@ -66,8 +66,8 @@ const About = () => {
                             alt="Team Member 4"
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md" // Increased size to 40
                         />
-                        <p className="mt-4 text-lg font-semibold">Alex</p>
-                        <p className="text-gray-500">UI/UX Designer</p>
+                        <p className="mt-4 text-lg font-semibold">Tenisha</p>
+                        <p className="text-gray-500">Developer</p>
                     </div>
 
                     <div
@@ -82,8 +82,8 @@ const About = () => {
                             alt="Team Member 5"
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md" // Increased size to 40
                         />
-                        <p className="mt-4 text-lg font-semibold">Chris</p>
-                        <p className="text-gray-500">Marketing Specialist</p>
+                        <p className="mt-4 text-lg font-semibold">Rwayange</p>
+                        <p className="text-gray-500">Developer</p>
                     </div>
                 </div>
             </section>
