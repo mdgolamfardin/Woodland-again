@@ -5,7 +5,7 @@ import { FaVolumeUp } from 'react-icons/fa';  // This should be at the top of yo
 const About = () => {
 
     const [selectedMember, setSelectedMember] = useState(null);
-    
+
     const testimonials = [
         {
             image: "/imagesforaboutpage/testimonial1.png",
@@ -51,10 +51,11 @@ const About = () => {
                 <div className="text-center md:text-left space-y-4 max-w-2xl">
                     <h1 className="text-4xl font-bold text-[#103c84]">Our Mission</h1>
                     <p className="text-xl text-gray-700">
-                        At Woodland Conservation, we protect biodiversity and historic woodlands,
-                        including those around graveyards. Through sustainable practices and community
-                        engagement, we honor the connection between nature and heritage, inspiring action
-                        to preserve these sacred spaces for future generations.
+                    At Woodland Conservation, we protect biodiversity and historic woodlands, 
+                    including the vibrant ecosystems of Halifax's St. Margaret’s Bay Area. Through 
+                    sustainable practices and community engagement, we preserve the connection between nature 
+                    and heritage, safeguarding unique species and inspiring action to ensure these cherished 
+                    spaces thrive for generations to come
                     </p>
 
                     {/* Speaker Icon Button */}
