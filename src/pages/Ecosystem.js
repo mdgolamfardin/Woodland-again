@@ -36,7 +36,9 @@ return (
   <div className="w-full flex justify-end p-4">
       <button
           onClick={toggleDarkMode}
-          className="bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition text-white"
+          className="bg-blue-600 px-4 py-2 rounded bg-blue-500 transition text-white"
+          style={{ boxShadow: "none" }}
+   
       >
           {darkMode ? "Light Mode" : "Dark Mode"}
       </button>

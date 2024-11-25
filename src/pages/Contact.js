@@ -71,10 +71,7 @@ const Contact = () => {
 
     return (
         <div className={`${darkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-black"} min-h-screen`}>
-            {/* Header */}
-            <header className="bg-blue-700 text-white text-center py-4">
-                <h1 className="text-4xl font-bold">Woodland Conservation</h1>
-            </header>
+            
 
             {/* Dark Mode Button */}
             <div className="flex justify-end p-4">
