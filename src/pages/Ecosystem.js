@@ -37,7 +37,7 @@ return (
 
     {/* Main Title Section */}
     <div className="text-center py-8">
-      <h1 className="text-2xl italic mt-2">EcoSystem:A Living Testament to Nature and History</h1>
+    <h1 className="text-4xl font-bold text-[#103c84]">EcoSystem:A Living Testament to Nature and History</h1>
     </div>
 
     {/* Content Section */}
