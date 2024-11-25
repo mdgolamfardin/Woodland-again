@@ -131,37 +131,37 @@ const About = () => {
             </section>
 
             {/* Social Media Section */}
-            <section className="text-center space-y-4 mt-12">
-                <h2 className="text-3xl font-bold text-[#103c84]">Follow Us</h2>
-                <div className="flex justify-center space-x-6">
-                    {/* Facebook */}
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="facebook-icon.png" // Replace with actual icon
-                            alt="Facebook"
-                            className="w-12 h-12 hover:scale-110 transition-transform"
-                        />
-                    </a>
+<section className="text-center space-y-4 mt-12">
+    <h2 className="text-3xl font-bold text-[#103c84]">Follow Us</h2>
+    <div className="flex justify-center space-x-6">
+        {/* Facebook */}
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <img
+                src="/imagesforaboutpage/facebook-favicon.ico" // Replace with the favicon
+                alt="Facebook"
+                className="w-12 h-12 hover:scale-110 transition-transform"
+            />
+        </a>
 
-                    {/* Twitter */}
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="twitter-icon.png" // Replace with actual icon
-                            alt="Twitter"
-                            className="w-12 h-12 hover:scale-110 transition-transform"
-                        />
-                    </a>
+        {/* Twitter */}
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <img
+                src="/imagesforaboutpage/twitter-favicon.ico" // Replace with the favicon
+                alt="Twitter"
+                className="w-12 h-12 hover:scale-110 transition-transform"
+            />
+        </a>
 
-                    {/* Instagram */}
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="instagram-icon.png" // Replace with actual icon
-                            alt="Instagram"
-                            className="w-12 h-12 hover:scale-110 transition-transform"
-                        />
-                    </a>
-                </div>
-            </section>
+        {/* Instagram */}
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <img
+                src="/imagesforaboutpage/instagram-favicon.ico" // Replace with the favicon
+                alt="Instagram"
+                className="w-12 h-12 hover:scale-110 transition-transform"
+            />
+        </a>
+    </div>
+</section>
         </div>
     );
 };
