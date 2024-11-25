@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaVolumeUp } from "react-icons/fa"; // Importing volume up icon from react-icons
 
 const About = () => {
     const testimonials = [
@@ -29,6 +30,14 @@ const About = () => {
         );
     };
 
+    // Function to read out the mission statement
+    const readMissionStatement = () => {
+        const msg = new SpeechSynthesisUtterance(
+            "At Woodland Conservation, we protect biodiversity and historic woodlands, including those around graveyards. Through sustainable practices and community engagement, we honor the connection between nature and heritage, inspiring action to preserve these sacred spaces for future generations."
+        );
+        window.speechSynthesis.speak(msg);
+    };
+
     return (
         <div className="p-8 flex flex-col items-center">
             {/* Mission Section */}
@@ -44,6 +53,14 @@ const About = () => {
                         engagement, we honor the connection between nature and heritage, inspiring action
                         to preserve these sacred spaces for future generations.
                     </p>
+                    {/* Icon to read mission statement aloud */}
+                    <button
+                        onClick={readMissionStatement}
+                        className="flex items-center space-x-2 text-[#103c84] hover:scale-110 transition-transform"
+                    >
+                        <FaVolumeUp size={24} />
+                        <span>Read aloud</span>
+                    </button>
                 </div>
                 <div className="relative w-[600px] h-[250px] overflow-hidden rounded-lg shadow-md mt-6 md:mt-0">
                     <img
@@ -85,7 +102,7 @@ const About = () => {
                         <p className="mt-4 text-lg font-semibold">Tenisha</p>
                         <p className="text-gray-500">Developer</p>
                     </div>
-                    <div className="text-center" style={{ gridColumn: "1 / span 2", gridRow: "2" }}>
+                    <div className="text-center" style={{ gridColumn: "1 / span 2", gridRow: "2" }} >
                         <img
                             src="/imagesforaboutpage/member4.png"
                             alt="Team Member 4"
@@ -94,7 +111,7 @@ const About = () => {
                         <p className="mt-4 text-lg font-semibold">Himshree</p>
                         <p className="text-gray-500">Developer</p>
                     </div>
-                    <div className="text-center" style={{ gridColumn: "2 / span 2", gridRow: "2" }}>
+                    <div className="text-center" style={{ gridColumn: "2 / span 2", gridRow: "2" }} >
                         <img
                             src="/imagesforaboutpage/member5.png"
                             alt="Team Member 5"
@@ -174,38 +191,14 @@ const About = () => {
                 <div className="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-bold text-[#103c84] mb-8">Follow Us!</h2>
                     <div className="flex justify-center space-x-14">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-                                alt="Facebook"
-                                className="w-40 h-40 hover:scale-110 transition-transform"
-                                onMouseEnter={() => {
-                                    const msg = new SpeechSynthesisUtterance("Follow us on Facebook");
-                                    window.speechSynthesis.speak(msg);
-                                }}
-                            />
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-[#103c84] text-3xl">
+                            <i className="fab fa-facebook"></i>
                         </a>
-                        <a href="https://x.com" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="https://freepnglogo.com/images/all_img/1729449055_twitter-logo-square%20shape-png.png"
-                                alt="X"
-                                className="w-40 h-40 hover:scale-110 transition-transform"
-                                onMouseEnter={() => {
-                                    const msg = new SpeechSynthesisUtterance("Follow us on Twitter");
-                                    window.speechSynthesis.speak(msg);
-                                }}
-                            />
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-[#103c84] text-3xl">
+                            <i className="fab fa-twitter"></i>
                         </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg"
-                                alt="Instagram"
-                                className="w-40 h-40 hover:scale-110 transition-transform"
-                                onMouseEnter={() => {
-                                    const msg = new SpeechSynthesisUtterance("Follow us on Instagram");
-                                    window.speechSynthesis.speak(msg);
-                                }}
-                            />
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-[#103c84] text-3xl">
+                            <i className="fab fa-instagram"></i>
                         </a>
                     </div>
                 </div>
