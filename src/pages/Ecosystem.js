@@ -44,7 +44,9 @@ return (
 
     {/* Main Title Section */}
     <div className="text-center py-8">
-    <h1 className="text-4xl font-bold text-[#103c84] no-shadow">EcoSystem:A Living Testament to Nature and History</h1>
+    <h1 className={`text-4xl font-bold  no-shadow ${
+      darkMode ? "text-white" : "text-[#103c84]"
+    }`}>EcoSystem:A Living Testament to Nature and History</h1>
     </div>
 
     {/* Content Section */}
