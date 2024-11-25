@@ -17,6 +17,15 @@ const toggleDarkMode = () => {
   setDarkMode(!darkMode);
 };
 
+// Text-to-Speech function
+const speak = (text) => {
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-US"; // Set the language
+  speech.rate = 1; // Set the speed of speech
+  speech.pitch = 1; // Set the pitch
+  window.speechSynthesis.speak(speech); // Speak the text
+};
+
 return (
   <div
     className={`min-h-screen transition-colors duration-300 ${
@@ -47,15 +56,15 @@ return (
         <p className="text-lg mb-4" style={{ fontSize: "20px" }}>
         The Blue Mountain-Birch Cove Lakes Wilderness Area is a vital ecological treasure located near Halifax, Nova Scotia. Spanning over 1,767 hectares, this wilderness area is a mosaic of forests, lakes, wetlands, and rugged terrain, 
         making it a rich and biodiverse ecosystem. Its natural features and high ecological value make it both a crucial habitat for wildlife and an essential recreational area for the community.
-          </p>
+        </p>
       
         <p className="text-lg mb-4" style={{ fontSize: "20px" }} >
         The forests in the Blue Mountain-Birch Cove Lakes area are predominantly composed of mixed hardwood and softwood species.
          Key tree species include red spruce, balsam fir, yellow birch, and sugar maple. The undergrowth features a diverse range of 
          shrubs, mosses, ferns, and lichens, which play an essential role in maintaining soil stability and providing food and shelter for wildlife.
 
-The forest supports a variety of mammals, including white-tailed deer, red foxes, and snowshoe hares. Smaller mammals like squirrels, chipmunks, and voles also 
-thrive here, contributing to the ecosystem's balance.
+        The forest supports a variety of mammals, including white-tailed deer, red foxes, and snowshoe hares. Smaller mammals like squirrels, chipmunks, and voles also 
+        thrive here, contributing to the ecosystem's balance.
         </p>
         <div className="relative">
           <img
