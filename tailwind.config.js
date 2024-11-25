@@ -4,9 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        navbarBg: '#1F4529',
+        navbarBg: '#0A3981',
         headingClr: '#47663B',
-        navClr: '#DCEEE1',
+        navClr: '#0A3981',
         titleClr: "#EED3B1",
         subClr: "#393E46",
         bgClr: "#edeeea"
