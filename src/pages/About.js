@@ -24,7 +24,7 @@ const About = () => {
     return (
         <div className="p-8 flex flex-col items-center">
             {/* Mission Statement and Image Section in a Card */}
-            <section className="bg-white bg-opacity-70 p-8 rounded-lg shadow-md flex flex-wrap md:flex-nowrap items-center space-x-0 md:space-x-10 w-full max-w-6xl">
+            <section className="bg-white bg-opacity-50 p-8 rounded-lg shadow-md flex flex-wrap md:flex-nowrap items-center space-x-0 md:space-x-10 w-full max-w-6xl">
                 {/* Mission Statement */}
                 <div className="text-center md:text-left space-y-4 max-w-2xl">
                     <h1 className="text-4xl font-bold text-[#103c84]">Our Mission</h1>
@@ -37,13 +37,13 @@ const About = () => {
                 </div>
 
                 {/* Image Section with fade effect */}
-                <div className="relative w-[500px] h-[300px] overflow-hidden rounded-lg shadow-md mt-6 md:mt-0">
+                <div className="relative w-[600px] h-[250px] overflow-hidden rounded-lg shadow-md mt-6 md:mt-0">
                     {images.map((image, index) => (
                         <img
                             key={index}
                             src={image}
                             alt={`Mission Image ${index + 1}`}
-                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1500 ease-in-out ${
+                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-3000 ease-in-out ${
                                 index === currentImage ? "opacity-100" : "opacity-0"
                             }`}
                         />
@@ -164,4 +164,5 @@ const About = () => {
 };
 
 export default About;
+
 
