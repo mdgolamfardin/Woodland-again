@@ -5,11 +5,11 @@ module.exports = {
     extend: {
       colors: {
         navbarBg: '#0A3981',
-        headingClr: '#47663B',
+        headingClr: '#0A3981',
         navClr: '#0A3981',
         titleClr: "#EED3B1",
         subClr: "#393E46",
-        bgClr: "#edeeea"
+        bgClr: "#eaf3f7"
       },
       fontFamily: {
         nunito: ['Nunito', 'sans-serif'],

@@ -10,7 +10,7 @@ The purpose of this file is to use some plain CSS to simplify the code.
 /* Global styles for the `body` element */
 
 body {
-  background-color: #edeeea;
+  background-color: #e7edf0;
   margin: 0;                      /* Removes default margin around the page */
   font-family:Arial, Helvetica, sans-serif;           /* Sets the font to Calibri */
 }
@@ -22,6 +22,10 @@ h1 {
 nav {
   display: fixed;
   padding-top: 5px;
+}
+
+.example {
+  color: #eaf3f7;
 }
 
 .highlight {
