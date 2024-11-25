@@ -2,19 +2,13 @@
 import FloraFaunaFungi from "./subcomponents/FloraFaunaFungi";
 import ImgUpload from "./subcomponents/ImgUpload";
 
+
 // Define the Gallery component as a functional component
 const Gallery = () => {
     return (
-        <div className={darkMode ? "dark gallery-container" : "gallery-container"}>
-            {/* Dark Mode Toggle */}
-            <button
-                onClick={toggleDarkMode}
-                className="p-2 mt-4 mb-4 bg-blue-500 text-white rounded hover:bg-blue-600"
-            >
-                {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-            </button>
-
-            {/* Heading */}
+        // Return the JSX to render the Gallery component
+        <div className="flex-row items-center text-center lg:px-28 2xl:px-52">
+            {/* A heading to describe the Gallery component */}
             <h1 className="break-normal text-4xl font-semibold lg:text-5xl text-headingClr mt-8 bm-4">
                 Gallery
             </h1>
