@@ -9,7 +9,7 @@ module.exports = {
         navClr: '#0A3981',
         titleClr: "#EED3B1",
         subClr: "#393E46",
-        bgClr: "#edeeea"
+        bgClr: "#eaf3f7"
       },
       fontFamily: {
         nunito: ['Nunito', 'sans-serif'],
