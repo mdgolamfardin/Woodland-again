@@ -53,7 +53,10 @@ const About = () => {
                     {/* Row 2: Team Members 4 and 5 */}
                     <div
                         className="text-center"
-                        style={{ gridColumn: "1 / span 2" }} // Alex spans columns 1 and 2
+                        style={{
+                            gridColumn: "1 / span 2", // Alex spans columns 1 and 2
+                            gridRow: "2", // Explicitly set to row 2
+                        }}
                     >
                         <img
                             src="team-member4.jpg" // Replace with actual image
@@ -66,7 +69,10 @@ const About = () => {
 
                     <div
                         className="text-center"
-                        style={{ gridColumn: "2 / span 2" }} // Chris spans columns 2 and 3
+                        style={{
+                            gridColumn: "2 / span 2", // Chris spans columns 2 and 3
+                            gridRow: "2", // Explicitly set to row 2
+                        }}
                     >
                         <img
                             src="team-member5.jpg" // Replace with actual image
