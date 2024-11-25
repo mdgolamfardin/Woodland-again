@@ -11,14 +11,22 @@ const Gallery = () => {
     };
 
     return (
-        <div className={darkMode ? "dark gallery-container" : "gallery-container"}>
-            {/* Dark Mode Toggle */}
-            <button
-                onClick={toggleDarkMode}
-                className="p-2 mt-4 mb-4 bg-blue-500 text-white rounded hover:bg-blue-600"
-            >
-                {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-            </button>
+        <div
+            className={`${
+                darkMode
+                    ? "bg-gray-900 text-yellow-200"
+                    : "bg-[#eceee2] text-black"
+            } min-h-screen flex flex-col items-center`}
+        >
+            {/* Dark Mode Button */}
+            <div className="w-full flex justify-end p-4">
+                <button
+                    onClick={toggleDarkMode}
+                    className="bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition text-white"
+                >
+                    {darkMode ? "Light Mode" : "Dark Mode"}
+                </button>
+            </div>
 
             {/* Heading */}
             <h1 className="break-normal text-4xl font-semibold lg:text-5xl text-headingClr mt-8 bm-4">
