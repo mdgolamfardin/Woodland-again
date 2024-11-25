@@ -9,7 +9,7 @@ const Gallery = () => {
         <div className="flex-row items-center text-center">
             {/* A heading to describe the Gallery component */}
             <h1 className="break-normal font-semibold text-6xl text-headingClr mt-8 bm-4">
-                Galleryyyyyy
+                Gallery
             </h1>
 
             {/* Render the FloraFaunaFungi subcomponent */}
