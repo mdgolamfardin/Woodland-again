@@ -28,7 +28,7 @@ const speak = (text) => {
 
 return (
   <div
-    className={`min-h-screen transition-colors duration-300 lg:px-28 ${
+    className={`min-h-screen transition-colors duration-300 ${
       darkMode ? "bg-gray-900 text-gray-100" : "bg-transparent text-gray-900"
     }`}
   >
@@ -37,8 +37,6 @@ return (
       <button
           onClick={toggleDarkMode}
           className="bg-blue-600 px-4 py-2 rounded bg-blue-500 transition text-white"
-          style={{ boxShadow: "none" }}
-   
       >
           {darkMode ? "Light Mode" : "Dark Mode"}
       </button>
@@ -54,14 +52,13 @@ return (
       {/* Left Content Block */}
       <div>
         <p className="text-lg mb-4" style={{ fontSize: "20px" }}>
-        The Blue Mountain-Birch Cove Lakes Wilderness Area is a vital ecological treasure located near Halifax, Nova Scotia. Spanning over 1,767 hectares, this wilderness area is a mosaic of forests, lakes, wetlands, and rugged terrain, 
-        making it a rich and biodiverse ecosystem. Its natural features and high ecological value make it both a crucial habitat for wildlife and an essential recreational area for the community.
+        Saint Bay Area Woodland Conservation Site is a notable example of community-led environmental preservation in action. Nestled within the larger Bay Area, this site encompasses a significant expanse of native woodland, offering a critical habitat for local flora and fauna. The conservation efforts focus on protecting the indigenous plant species and wildlife, while also maintaining the natural landscapes that are vital for ecological balance.
         </p>
         {/* Speak Button */}
         <button
             onClick={() =>
               speak(
-                "The Blue Mountain-Birch Cove Lakes Wilderness Area is a vital ecological treasure located near Halifax, Nova Scotia. Spanning over 1,767 hectares, this wilderness area is a mosaic of forests, lakes, wetlands, and rugged terrain, making it a rich and biodiverse ecosystem. Its natural features and high ecological value make it both a crucial habitat for wildlife and an essential recreational area for the community."
+                "Saint Bay Area Woodland Conservation Site is a notable example of community-led environmental preservation in action. Nestled within the larger Bay Area, this site encompasses a significant expanse of native woodland, offering a critical habitat for local flora and fauna. The conservation efforts focus on protecting the indigenous plant species and wildlife, while also maintaining the natural landscapes that are vital for ecological balance."
               )
             }
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mb-4"
@@ -70,19 +67,14 @@ return (
           </button>
       
         <p className="text-lg mb-4" style={{ fontSize: "20px" }} >
-        The forests in the Blue Mountain-Birch Cove Lakes area are predominantly composed of mixed hardwood and softwood species.
-         Key tree species include red spruce, balsam fir, yellow birch, and sugar maple. The undergrowth features a diverse range of 
-         shrubs, mosses, ferns, and lichens, which play an essential role in maintaining soil stability and providing food and shelter for wildlife.
-
-        The forest supports a variety of mammals, including white-tailed deer, red foxes, and snowshoe hares. Smaller mammals like squirrels, chipmunks, and voles also 
-        thrive here, contributing to the ecosystem's balance.
+        The site serves multiple purposes: it acts as a research area for scientists studying ecological restoration and conservation techniques, an educational resource for schools and community groups, and a recreational space for the public who can explore its trails and learn about local biodiversity. Volunteers play a key role in the ongoing maintenance and protection of the area, participating in regular clean-up days, planting native species, and monitoring wildlife activity.
         </p>
 
          {/* Speak Button */}
          <button
             onClick={() =>
               speak(
-                "The forests in the Blue Mountain-Birch Cove Lakes area are predominantly composed of mixed hardwood and softwood species. Key tree species include red spruce, balsam fir, yellow birch, and sugar maple. The undergrowth features a diverse range of shrubs, mosses, ferns, and lichens, which play an essential role in maintaining soil stability and providing food and shelter for wildlife. The forest supports a variety of mammals, including white-tailed deer, red foxes, and snowshoe hares. Smaller mammals like squirrels, chipmunks, and voles also thrive here, contributing to the ecosystem's balance."
+                "The site serves multiple purposes: it acts as a research area for scientists studying ecological restoration and conservation techniques, an educational resource for schools and community groups, and a recreational space for the public who can explore its trails and learn about local biodiversity. Volunteers play a key role in the ongoing maintenance and protection of the area, participating in regular clean-up days, planting native species, and monitoring wildlife activity."
               )
             }
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
