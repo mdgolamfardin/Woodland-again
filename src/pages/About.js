@@ -6,18 +6,56 @@ const About = () => {
     return (
         // Return the JSX for rendering the About component
         <div className="absolute left-10 top-20">
-            {/* A large heading with specific styles */}
-            <h1 className="break-normal font-semibold text-7xl text-blue-900">
-                This is the About component.
-            </h1>
-
-            {/* Another heading with the same styles, but different content */}
-            <h1 className="break-normal font-semibold text-7xl text-blue-900">
-                Mariam will work on this.
-            </h1>
-
             {/* Render the imported Subcomponent */}
             <Subcomponent />
+
+            {/* Section for displaying team members */}
+            <div className="mt-10">
+                {/* Team Member 1 */}
+                <div className="flex items-center space-x-4">
+                    <div className="relative">
+                        <img
+                            src="team-member1.jpg" /* Replace with actual image */
+                            alt="Team Member 1"
+                            className="w-24 h-24 rounded-full object-cover cursor-pointer"
+                        />
+                    </div>
+                    <div className="text-lg">
+                        <p className="font-semibold">Team Member 1</p>
+                        <p className="text-gray-500">Role Description</p>
+                    </div>
+                </div>
+
+                {/* Team Member 2 */}
+                <div className="flex items-center space-x-4 mt-6">
+                    <div className="relative">
+                        <img
+                            src="team-member2.jpg" /* Replace with actual image */
+                            alt="Team Member 2"
+                            className="w-24 h-24 rounded-full object-cover cursor-pointer"
+                        />
+                    </div>
+                    <div className="text-lg">
+                        <p className="font-semibold">Team Member 2</p>
+                        <p className="text-gray-500">Role Description</p>
+                    </div>
+                </div>
+
+                {/* Team Member 3 */}
+                <div className="flex items-center space-x-4 mt-6">
+                    <div className="relative">
+                        <img
+                            src="team-member3.jpg" /* Replace with actual image */
+                            alt="Team Member 3"
+                            className="w-24 h-24 rounded-full object-cover cursor-pointer"
+                        />
+                    </div>
+                    <div className="text-lg">
+                        <p className="font-semibold">Team Member 3</p>
+                        <p className="text-gray-500">Role Description</p>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
