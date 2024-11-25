@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaVolumeUp } from 'react-icons/fa';  // This should be at the top of your About.js file
 
 const About = () => {
+
+    const [selectedMember, setSelectedMember] = useState(null);
+    
     const testimonials = [
         {
             image: "/imagesforaboutpage/testimonial1.png",
@@ -18,8 +22,6 @@ const About = () => {
     ];
 
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
-    const [socialMediaText, setSocialMediaText] = useState(""); // For hover text
-    const [isHovering, setIsHovering] = useState(false); // Track hover state
 
     const nextTestimonial = () => {
         setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -31,35 +33,12 @@ const About = () => {
         );
     };
 
-    // Function to handle hover on social media icons
-    const handleHover = (platform) => {
-        setIsHovering(true);
-        switch (platform) {
-            case "facebook":
-                setSocialMediaText("Follow us on Facebook!");
-                break;
-            case "twitter":
-                setSocialMediaText("Follow us on Twitter!");
-                break;
-            case "instagram":
-                setSocialMediaText("Follow us on Instagram!");
-                break;
-            default:
-                setSocialMediaText("");
-        }
-    };
-
-    const handleLeave = () => {
-        setIsHovering(false);
-        setSocialMediaText("");
-    };
-
-    // Function to read aloud the hovered platform
-    const readOutLoud = () => {
-        if (socialMediaText) {
-            const msg = new SpeechSynthesisUtterance(socialMediaText);
-            window.speechSynthesis.speak(msg);
-        }
+    // Function to read the mission statement
+    const readMissionStatement = () => {
+        const msg = new SpeechSynthesisUtterance(
+            "At Woodland Conservation, we protect biodiversity and historic woodlands, including those around graveyards. Through sustainable practices and community engagement, we honor the connection between nature and heritage, inspiring action to preserve these sacred spaces for future generations."
+        );
+        window.speechSynthesis.speak(msg);
     };
 
     return (
@@ -77,16 +56,13 @@ const About = () => {
                         engagement, we honor the connection between nature and heritage, inspiring action
                         to preserve these sacred spaces for future generations.
                     </p>
+
+                    {/* Speaker Icon Button */}
                     <button
-                        className="mt-4 p-2 text-[#103c84] border-2 border-[#103c84] rounded-full"
-                        onClick={() => {
-                            const msg = new SpeechSynthesisUtterance(
-                                "At Woodland Conservation, we protect biodiversity and historic woodlands, including those around graveyards. Through sustainable practices and community engagement, we honor the connection between nature and heritage, inspiring action to preserve these sacred spaces for future generations."
-                            );
-                            window.speechSynthesis.speak(msg);
-                        }}
+                        onClick={readMissionStatement}
+                        className="text-xl text-[#103c84] hover:text-[#1e4a99] transition mt-4"
                     >
-                        Read Aloud
+                        <FaVolumeUp />  {/* React Icon */}
                     </button>
                 </div>
                 <div className="relative w-[600px] h-[250px] overflow-hidden rounded-lg shadow-md mt-6 md:mt-0">
@@ -98,57 +74,90 @@ const About = () => {
                 </div>
             </section>
 
+
             {/* Team Section */}
-            <section className="space-y-8 mt-10">
-                <h2 className="text-3xl font-bold text-[#103c84] text-center">Meet Our Team</h2>
-                <div className="grid grid-cols-3 gap-y-10 gap-x-16 justify-items-center items-center">
-                    <div className="text-center">
-                        <img
-                            src="/imagesforaboutpage/member1.png"
-                            alt="Team Member 1"
-                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
-                        />
-                        <p className="mt-4 text-lg font-semibold">Fardin</p>
-                        <p className="text-gray-500">Team Leader</p>
-                    </div>
-                    <div className="text-center">
-                        <img
-                            src="/imagesforaboutpage/member2.png"
-                            alt="Team Member 2"
-                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
-                        />
-                        <p className="mt-4 text-lg font-semibold">Mariam</p>
-                        <p className="text-gray-500">Developer</p>
-                    </div>
-                    <div className="text-center">
-                        <img
-                            src="/imagesforaboutpage/member3.png"
-                            alt="Team Member 3"
-                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
-                        />
-                        <p className="mt-4 text-lg font-semibold">Tenisha</p>
-                        <p className="text-gray-500">Developer</p>
-                    </div>
-                    <div className="text-center" style={{ gridColumn: "1 / span 2", gridRow: "2" }} >
-                        <img
-                            src="/imagesforaboutpage/member4.png"
-                            alt="Team Member 4"
-                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
-                        />
-                        <p className="mt-4 text-lg font-semibold">Himshree</p>
-                        <p className="text-gray-500">Developer</p>
-                    </div>
-                    <div className="text-center" style={{ gridColumn: "2 / span 2", gridRow: "2" }}>
-                        <img
-                            src="/imagesforaboutpage/member5.png"
-                            alt="Team Member 5"
-                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
-                        />
-                        <p className="mt-4 text-lg font-semibold">Kelly</p>
-                        <p className="text-gray-500">Developer</p>
-                    </div>
+<section className="space-y-8 mt-10">
+    <h2 className="text-3xl font-bold text-[#103c84] text-center">Meet Our Team</h2>
+    <div className="grid grid-cols-3 gap-y-10 gap-x-16 justify-items-center items-center">
+        {/* Team Leader (Fardin) with Description Card */}
+        <div className="text-center">
+            <img
+                src="/imagesforaboutpage/member1.png"
+                alt="Team Member 1"
+                className="w-40 h-40 mx-auto rounded-full object-cover shadow-md cursor-pointer"
+                onClick={() => setSelectedMember({
+                    name: "Fardin",
+                    role: "Team Leader",
+                    image: "/imagesforaboutpage/member1.png",
+                    achievements: "Fardin has led numerous successful conservation projects and has been a key figure in community engagement."
+                })}
+            />
+            <p className="mt-4 text-lg font-semibold">Fardin</p>
+            <p className="text-gray-500">Team Leader</p>
+        </div>
+        {/* Other Team Members */}
+        <div className="text-center">
+            <img
+                src="/imagesforaboutpage/member2.png"
+                alt="Team Member 2"
+                className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
+            />
+            <p className="mt-4 text-lg font-semibold">Mariam</p>
+            <p className="text-gray-500">Developer</p>
+        </div>
+        <div className="text-center">
+            <img
+                src="/imagesforaboutpage/member3.png"
+                alt="Team Member 3"
+                className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
+            />
+            <p className="mt-4 text-lg font-semibold">Tenisha</p>
+            <p className="text-gray-500">Developer</p>
+        </div>
+        <div className="text-center" style={{ gridColumn: "1 / span 2", gridRow: "2" }}>
+            <img
+                src="/imagesforaboutpage/member4.png"
+                alt="Team Member 4"
+                className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
+            />
+            <p className="mt-4 text-lg font-semibold">Himshree</p>
+            <p className="text-gray-500">Developer</p>
+        </div>
+        <div className="text-center" style={{ gridColumn: "2 / span 2", gridRow: "2" }}>
+            <img
+                src="/imagesforaboutpage/member5.png"
+                alt="Team Member 5"
+                className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
+            />
+            <p className="mt-4 text-lg font-semibold">Kelly</p>
+            <p className="text-gray-500">Developer</p>
+        </div>
+    </div>
+
+    {/* Modal for Team Member Description */}
+    {selectedMember && (
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
+            <div className="bg-white p-8 rounded-lg shadow-md max-w-sm w-full transition-transform transform scale-100">
+                <div className="flex justify-between items-center">
+                    <h3 className="text-2xl font-bold text-[#103c84]">{selectedMember.name}</h3>
+                    <button
+                        onClick={() => setSelectedMember(null)}
+                        className="text-[#103c84] hover:text-gray-700"
+                    >
+                        Close
+                    </button>
                 </div>
-            </section>
+                <img
+                    src={selectedMember.image}
+                    alt={selectedMember.name}
+                    className="w-32 h-32 mx-auto rounded-full object-cover mt-4 mb-4"
+                />
+                <p className="text-lg">{selectedMember.achievements}</p>
+            </div>
+        </div>
+    )}
+</section>
+
 
             {/* Testimonials Section */}
             <section className="mt-12 p-8">
@@ -191,6 +200,10 @@ const About = () => {
                                                     to="/contact"
                                                     className="inline-block py-2 px-6 bg-[#103c84] text-white rounded-full text-center transition-all hover:bg-[#1e4a99]"
                                                     aria-label="Add your testimonial"
+                                                    onMouseEnter={() => {
+                                                        const msg = new SpeechSynthesisUtterance("Add your testimonial");
+                                                        window.speechSynthesis.speak(msg);
+                                                    }}
                                                 >
                                                     Add yours too!
                                                 </Link>
@@ -214,49 +227,44 @@ const About = () => {
             </section>
 
             {/* Social Media Section */}
-            <section className="mt-20">
+            <section className="mt-10">
                 <div className="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-bold text-[#103c84] mb-8">Follow Us!</h2>
                     <div className="flex justify-center space-x-14">
-                        <a
-                            href="https://facebook.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-[#103c84] text-3xl"
-                            onMouseEnter={() => handleHover("facebook")}
-                            onMouseLeave={handleLeave}
-                            onClick={readOutLoud}
-                            aria-label="Follow us on Facebook"
-                        >
-                            <FaFacebook size={40} />
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                                alt="Facebook"
+                                className="w-40 h-40 hover:scale-110 transition-transform"
+                                onMouseEnter={() => {
+                                    const msg = new SpeechSynthesisUtterance("Follow us on Facebook");
+                                    window.speechSynthesis.speak(msg);
+                                }}
+                            />
                         </a>
-                        <a
-                            href="https://twitter.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-[#103c84] text-3xl"
-                            onMouseEnter={() => handleHover("twitter")}
-                            onMouseLeave={handleLeave}
-                            onClick={readOutLoud}
-                            aria-label="Follow us on Twitter"
-                        >
-                            <FaTwitter size={40} />
+                        <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src="https://freepnglogo.com/images/all_img/1729449055_twitter-logo-square%20shape-png.png"
+                                alt="X"
+                                className="w-40 h-40 hover:scale-110 transition-transform"
+                                onMouseEnter={() => {
+                                    const msg = new SpeechSynthesisUtterance("Follow us on Twitter");
+                                    window.speechSynthesis.speak(msg);
+                                }}
+                            />
                         </a>
-                        <a
-                            href="https://instagram.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-[#103c84] text-3xl"
-                            onMouseEnter={() => handleHover("instagram")}
-                            onMouseLeave={handleLeave}
-                            onClick={readOutLoud}
-                            aria-label="Follow us on Instagram"
-                        >
-                            <FaInstagram size={40} />
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg"
+                                alt="Instagram"
+                                className="w-40 h-40 hover:scale-110 transition-transform"
+                                onMouseEnter={() => {
+                                    const msg = new SpeechSynthesisUtterance("Follow us on Instagram");
+                                    window.speechSynthesis.speak(msg);
+                                }}
+                            />
                         </a>
                     </div>
-                    {/* Display hover text below icons */}
-                    {isHovering && <p className="mt-4 text-lg text-[#103c84]">{socialMediaText}</p>}
                 </div>
             </section>
         </div>
@@ -264,5 +272,6 @@ const About = () => {
 };
 
 export default About;
+
 
 
