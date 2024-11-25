@@ -1,0 +1,60 @@
+/*
+The purpose of this file is to use some plain CSS to simplify the code.
+*/
+
+/* Import Tailwind CSS base, components, and utilities */
+@tailwind base;          /* Loads base styles for consistency */
+@tailwind components;    /* Provides pre-built components */
+@tailwind utilities;     /* Includes utility classes for styling */
+
+/* Global styles for the `body` element */
+
+body {
+  background-color: #edeeea;
+  margin: 0;                      /* Removes default margin around the page */
+  font-family:Arial, Helvetica, sans-serif;           /* Sets the font to Calibri */
+}
+
+h1 {
+  text-shadow: 0 3px 5px rgb(207, 207, 207);
+}
+
+nav {
+  display: fixed;
+  padding-top: 5px;
+}
+
+.highlight {
+  color:#dceed2;
+}
+.custom-scale:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 8px rgb(148, 148, 148);
+}
+
+.shadow {
+  box-shadow: 0 6px 8px rgb(148, 148, 148);
+}
+
+
+
+/* Class to hide the mobile navigation menu */
+.hideMenuNav {
+    display: none;                /* Completely hides the menu */
+}
+
+/* Class to show and style the mobile navigation menu */
+.showMenuNav {
+    display: block;               /* Makes the menu visible */
+    position: absolute;           /* Positions the menu relative to its nearest positioned ancestor */
+    width: 100%;                  /* Menu takes the full width of the viewport */
+    height: 50vh;                 /* Menu height is 50% of the viewport */
+    top: 0;                       /* Positions the menu at the top of the viewport */
+    left: 0;                      /* Aligns the menu to the left edge */
+    background: lightgrey;        /* Sets a light grey background color */
+    color: black;                 /* Sets text color to black */
+    display: flex;                /* Uses flexbox for layout */
+    flex-direction: column;       /* Arranges child elements vertically */
+    justify-content: space-evenly; /* Evenly spaces out child elements along the vertical axis */
+    align-items: center;          /* Centers child elements horizontally */
+}
