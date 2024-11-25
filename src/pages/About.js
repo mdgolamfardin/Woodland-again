@@ -7,7 +7,7 @@ const About = () => {
         // Return the JSX for rendering the About component
         <div className="absolute left-10 top-20">
             {/* Render the imported Subcomponent */}
-            <Subcomponent />
+            
 
             {/* Section for displaying team members */}
             <div className="mt-10">
