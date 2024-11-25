@@ -5,7 +5,10 @@ const About = () => {
             <section className="text-center space-y-4">
                 <h1 className="text-4xl font-bold text-blue-900">Our Mission</h1>
                 <p className="text-xl text-gray-700 max-w-3xl">
-                    At Woodland Conservation, we aim to preserve and protect the natural beauty of our planet's woodlands while fostering community education and involvement in conservation efforts.
+                At Woodland Conservation, we protect biodiversity and historic woodlands, 
+                including those around graveyards. Through sustainable practices and community 
+                engagement, we honor the connection between nature and heritage, inspiring action 
+                to preserve these sacred spaces for future generations.
                 </p>
             </section>
 
