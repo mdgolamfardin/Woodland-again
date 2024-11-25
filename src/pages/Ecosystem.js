@@ -32,21 +32,19 @@ return (
       darkMode ? "bg-gray-900 text-gray-100" : "bg-transparent text-gray-900"
     }`}
   >
-    {/* Dark Mode Toggle Button */}
-    <button
-      onClick={toggleDarkMode}
-      className={`fixed top-4 right-4 px-4 py-2 rounded-full shadow ${
-        darkMode
-          ? "bg-gray-100 text-gray-900 hover:bg-gray-200"
-          : "bg-gray-900 text-gray-100 hover:bg-gray-800"
-      }`}
-    >
-      {darkMode ? "Light Mode" : "Dark Mode"}
-    </button>
+    {/* Dark Mode Button */}
+  <div className="w-full flex justify-end p-4">
+      <button
+          onClick={toggleDarkMode}
+          className="bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition text-white"
+      >
+          {darkMode ? "Light Mode" : "Dark Mode"}
+      </button>
+  </div>
 
     {/* Main Title Section */}
     <div className="text-center py-8">
-    <h1 className="text-4xl font-bold text-[#103c84]">EcoSystem:A Living Testament to Nature and History</h1>
+    <h1 className="text-4xl font-bold text-[#103c84] no-shadow">EcoSystem:A Living Testament to Nature and History</h1>
     </div>
 
     {/* Content Section */}
@@ -155,7 +153,7 @@ return (
   {/* Scroll to Top Button */}
   <button
     onClick={scrollToTop}
-    className={`fixed bottom-4 right-4 px-4 py-2 rounded-full shadow ${
+    className={`fixed bottom-4 right-4 bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition text-white${
       darkMode
         ? "bg-gray-100 text-gray-900 hover:bg-gray-200"
         : "bg-gray-900 text-gray-100 hover:bg-gray-800"
