@@ -8,14 +8,14 @@ const About = () => {
     const images = [
         "/imagesforaboutpage/nature1.png",
         "/imagesforaboutpage/nature2.png",
-        "/imagesforaboutpage/nature3.png",
+        "/imagesforaboutpage/nature3.png"
     ];
 
     // Change the image every 5 seconds
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentImage((prev) => (prev + 1) % images.length);
-        }, 5000); // 5-second interval
+            setCurrentImage(prev => (prev + 1) % images.length);
+        }, 5000);
 
         // Cleanup the interval on component unmount
         return () => clearInterval(interval);
@@ -23,8 +23,11 @@ const About = () => {
 
     return (
         <div className="p-8 flex flex-col items-center">
-            {/* Mission Statement and Image Section in a Card */}
-            <section className="bg-white bg-opacity-50 p-8 rounded-lg shadow-md flex flex-wrap md:flex-nowrap items-center space-x-0 md:space-x-10 w-full max-w-6xl">
+            {/* Mission Statement and Image Section */}
+            <section
+                className="p-8 rounded-lg shadow-md flex flex-wrap md:flex-nowrap items-center space-x-0 md:space-x-10 w-full max-w-6xl"
+                style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }} // Translucent background
+            >
                 {/* Mission Statement */}
                 <div className="text-center md:text-left space-y-4 max-w-2xl">
                     <h1 className="text-4xl font-bold text-[#103c84]">Our Mission</h1>
@@ -36,7 +39,7 @@ const About = () => {
                     </p>
                 </div>
 
-                {/* Image Section with fade effect */}
+                {/* Image Section */}
                 <div className="relative w-[600px] h-[250px] overflow-hidden rounded-lg shadow-md mt-6 md:mt-0">
                     {images.map((image, index) => (
                         <img
@@ -64,7 +67,7 @@ const About = () => {
                     {/* Row 1: Team Members 1, 2, and 3 */}
                     <div className="text-center">
                         <img
-                            src="team-member1.jpg" // Replace with actual image
+                            src="/imagesforaboutpage/member1.png" // Replace with actual image
                             alt="Team Member 1"
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
                         />
@@ -79,7 +82,7 @@ const About = () => {
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
                         />
                         <p className="mt-4 text-lg font-semibold">Mariam</p>
-                        <p className="text-gray-500">Frontend Developer</p>
+                        <p className="text-gray-500">Developer</p>
                     </div>
 
                     <div className="text-center">
@@ -88,15 +91,15 @@ const About = () => {
                             alt="Team Member 3"
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
                         />
-                        <p className="mt-4 text-lg font-semibold">Yomama</p>
-                        <p className="text-gray-500">Backend Developer</p>
+                        <p className="mt-4 text-lg font-semibold">Tenisha</p>
+                        <p className="text-gray-500">Developer</p>
                     </div>
 
                     {/* Row 2: Team Members 4 and 5 */}
                     <div
                         className="text-center"
                         style={{
-                            gridColumn: "1 / span 2", // Alex spans columns 1 and 2
+                            gridColumn: "1 / span 2", //spans columns 1 and 2
                             gridRow: "2", // Explicitly set to row 2
                         }}
                     >
@@ -105,14 +108,14 @@ const About = () => {
                             alt="Team Member 4"
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
                         />
-                        <p className="mt-4 text-lg font-semibold">Alex</p>
-                        <p className="text-gray-500">UI/UX Designer</p>
+                        <p className="mt-4 text-lg font-semibold">Himshree</p>
+                        <p className="text-gray-500">Developer</p>
                     </div>
 
                     <div
                         className="text-center"
                         style={{
-                            gridColumn: "2 / span 2", // Chris spans columns 2 and 3
+                            gridColumn: "2 / span 2", // spans columns 2 and 3
                             gridRow: "2", // Explicitly set to row 2
                         }}
                     >
@@ -121,8 +124,8 @@ const About = () => {
                             alt="Team Member 5"
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
                         />
-                        <p className="mt-4 text-lg font-semibold">Chris</p>
-                        <p className="text-gray-500">Marketing Specialist</p>
+                        <p className="mt-4 text-lg font-semibold">Kelly</p>
+                        <p className="text-gray-500">Developer</p>
                     </div>
                 </div>
             </section>
