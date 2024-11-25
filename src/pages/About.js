@@ -21,7 +21,7 @@ const About = () => {
                         />
                     </div>
                     <div className="text-lg">
-                        <p className="font-semibold">Team Member 1</p>
+                        <p className="font-semibold">Fardin</p>
                         <p className="text-gray-500">Role Description</p>
                     </div>
                 </div>
@@ -36,7 +36,7 @@ const About = () => {
                         />
                     </div>
                     <div className="text-lg">
-                        <p className="font-semibold">Team Member 2</p>
+                        <p className="font-semibold">mariam</p>
                         <p className="text-gray-500">Role Description</p>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ const About = () => {
                         />
                     </div>
                     <div className="text-lg">
-                        <p className="font-semibold">Team Member 3</p>
+                        <p className="font-semibold">yomama</p>
                         <p className="text-gray-500">Role Description</p>
                     </div>
                 </div>
