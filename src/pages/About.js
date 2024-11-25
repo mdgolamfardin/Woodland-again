@@ -23,12 +23,12 @@ const About = () => {
 
     return (
         <div className="p-8 flex flex-col items-center">
-            {/* Mission Statement and Image Section */}
-            <section className="flex flex-wrap md:flex-nowrap items-center justify-between space-x-10">
+            {/* Mission Statement and Image Section in a Card */}
+            <section className="bg-white bg-opacity-70 p-8 rounded-lg shadow-md flex flex-wrap md:flex-nowrap items-center space-x-0 md:space-x-10 w-full max-w-6xl">
                 {/* Mission Statement */}
-                <div className="p-6 bg-white bg-opacity-70 rounded-lg shadow-md max-w-3xl">
-                    <h1 className="text-4xl font-bold text-[#103c84] text-center">Our Mission</h1>
-                    <p className="text-xl text-gray-700 mt-4">
+                <div className="text-center md:text-left space-y-4 max-w-2xl">
+                    <h1 className="text-4xl font-bold text-[#103c84]">Our Mission</h1>
+                    <p className="text-xl text-gray-700">
                         At Woodland Conservation, we protect biodiversity and historic woodlands,
                         including those around graveyards. Through sustainable practices and community
                         engagement, we honor the connection between nature and heritage, inspiring action
@@ -37,7 +37,7 @@ const About = () => {
                 </div>
 
                 {/* Image Section with fade effect */}
-                <div className="relative w-[600px] h-72 overflow-hidden rounded-lg shadow-md">
+                <div className="relative w-[500px] h-[300px] overflow-hidden rounded-lg shadow-md mt-6 md:mt-0">
                     {images.map((image, index) => (
                         <img
                             key={index}
@@ -164,3 +164,4 @@ const About = () => {
 };
 
 export default About;
+
