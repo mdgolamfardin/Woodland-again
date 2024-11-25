@@ -61,7 +61,7 @@ const Contact = () => {
             className={`${
                 darkMode
                     ? "bg-gray-900 text-yellow-200"
-                    : "bg-[#eceee2] text-black"
+                    : " text-black"
             } min-h-screen flex flex-col items-center`}
         >
             {/* Dark Mode Button */}
@@ -79,10 +79,10 @@ const Contact = () => {
                 className={`w-full max-w-4xl ${
                     darkMode
                         ? "bg-gray-800 text-yellow-200"
-                        : "bg-[#eceee2] text-black"
+                        : "bg-white text-black"
                 } rounded-lg shadow-lg p-8 mt-8`}
             >
-                <h2 className="text-center text-3xl font-semibold mb-6">
+                <h2 className="text-center text-headingClr text-3xl font-semibold mb-6">
                     Contact Us
                 </h2>
                 <form
