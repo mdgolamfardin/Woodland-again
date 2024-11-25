@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 
 const About = () => {
+    // Set up the state to handle the current image index
+    const [currentImage, setCurrentImage] = useState(0);
+    
     // Array of image URLs for the slideshow
     const images = [
         "/imagesforaboutpage/nature1.png",
         "/imagesforaboutpage/nature2.png",
+        "/imagesforaboutpage/nature3.png"
     ];
 
     // Change the image every 5 seconds
