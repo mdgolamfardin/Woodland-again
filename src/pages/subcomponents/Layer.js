@@ -28,8 +28,8 @@ function Layer(props) {
   var baseHeight = 240;
 
   return (
-    <div className="mb-12 mt-2">
-      <h2 className="text-left text-4xl font-bold text-subClr mb-2 pl-4">
+    <div className="mb-12 px-8 mt-2 md:px-12 sm:px-8">
+      <h2 className="text-left text-3xl lg:text-4xl font-bold text-subClr mb-2 pl-4">
         {props.heading }
       </h2>
       
@@ -40,7 +40,7 @@ function Layer(props) {
         className="overflow-hidden "
       >
         <div
-          className="grid grid-cols-4 gap-x-3 gap-y-1 px-3 2xl:grid-cols-5 py-2 "
+          className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-x-3 gap-y-1 px-10 md:px-6 lg:px-3 2xl:grid-cols-5 py-2 "
         >
           {visibleData.map((imgInfo) => createImageCard(imgInfo))}
         </div>

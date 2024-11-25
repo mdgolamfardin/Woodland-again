@@ -11,6 +11,7 @@ import Ecosystem from "./pages/Ecosystem";
 import Gallery from "./pages/Gallery";
 import SiteMap from "./pages/SiteMap";
 import Contact from "./pages/Contact";
+import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
 
 // Define and export the main component for the app, which sets up routing
@@ -23,8 +24,9 @@ export default function MyPages() {
         {/* Main route for the application, with `Layout` as the parent component */}
         <Route path="/" element={<Layout />}>
           {/* Sub-route for the homepage (`index` represents the default path `/`) */}
-          <Route index element ={<About />} />
+          <Route index element ={<Home />} />
           {/* Route for the `/gallery` path, displaying the `Gallery` component */}
+          <Route path="about" element={<About />} />
           <Route path="gallery" element={<Gallery />} />
           {/* Route for the `/ecosystem` path, displaying the `Ecosystem` component */}
           <Route path="ecosystem" element={<Ecosystem />} />
