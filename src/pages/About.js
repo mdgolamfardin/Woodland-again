@@ -111,13 +111,16 @@ const About = () => {
         {/* Left Arrow Outside Card */}
         <button
             onClick={prevTestimonial}
-            className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 text-2xl text-[#103c84] hover:text-[#1e4a99] transition-all z-10"
+            className="absolute left-[-70px] top-1/2 transform -translate-y-1/2 flex items-center justify-center w-12 h-12 bg-[#103c84] text-white rounded-full hover:scale-110 transition-transform z-10"
+            aria-label="Previous Testimonial"
         >
-            &lt;
+            <div
+                className="w-0 h-0 border-t-[10px] border-b-[10px] border-r-[14px] border-t-transparent border-b-transparent border-r-white"
+            ></div>
         </button>
 
         {/* White Card */}
-        <div className="bg-white rounded-lg shadow-md p-8">
+        <div className="bg-white rounded-lg shadow-md p-8 mx-8">
             <h2 className="text-3xl font-bold text-[#103c84] text-center mb-6">Testimonials</h2>
             <div className="overflow-hidden">
                 <div
@@ -151,13 +154,15 @@ const About = () => {
         {/* Right Arrow Outside Card */}
         <button
             onClick={nextTestimonial}
-            className="absolute right-[-20px] top-1/2 transform -translate-y-1/2 text-2xl text-[#103c84] hover:text-[#1e4a99] transition-all z-10"
+            className="absolute right-[-70px] top-1/2 transform -translate-y-1/2 flex items-center justify-center w-12 h-12 bg-[#103c84] text-white rounded-full hover:scale-110 transition-transform z-10"
+            aria-label="Next Testimonial"
         >
-            &gt;
+            <div
+                className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[14px] border-t-transparent border-b-transparent border-l-white"
+            ></div>
         </button>
     </div>
 </section>
-
 
 
             {/* Social Media Section */}
