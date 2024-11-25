@@ -103,22 +103,14 @@ return (
           />
         </div>
         <p className="text-lg mb-4" style={{ fontSize: "20px"  }}>
-          Beyond its natural beauty, this conservation site also holds
-            historical significance. Evidence of a farmhouse and ancient wells
-            provides a glimpse into the lives of those who lived here
-            generations ago. These artifacts are a testament to the human
-            connection with the land and serve as a reminder of the importance
-            of preserving history alongside nature. Visitors can explore these
-            relics, marveling at how the site weaves together past and present
-            in a truly unique way. Whether drawn by the Yellow Birch, wetlands,
-            or historical artifacts, there is something here for everyone.
+        Conservation projects at the site often involve removing invasive plant species that threaten the native vegetation, restoring streams and wetlands that are crucial for the local water cycle, and creating barriers to prevent human encroachment into sensitive areas. Educational programs designed to engage the community focus on the importance of sustainable practices and the role each individual can play in preserving their local environment.
         </p>
 
           {/* Speak Button */}
                   <button
             onClick={() =>
               speak(
-                "Beyond its natural beauty, this conservation site also holds historical significance. Evidence of a farmhouse and ancient wells provides a glimpse into the lives of those who lived here generations ago. These artifacts are a testament to the human connection with the land and serve as a reminder of the importance of preserving history alongside nature. Visitors can explore these relics, marveling at how the site weaves together past and present in a truly unique way. Whether drawn by the Yellow Birch, wetlands, or historical artifacts, there is something here for everyone."
+                "Conservation projects at the site often involve removing invasive plant species that threaten the native vegetation, restoring streams and wetlands that are crucial for the local water cycle, and creating barriers to prevent human encroachment into sensitive areas. Educational programs designed to engage the community focus on the importance of sustainable practices and the role each individual can play in preserving their local environment."
               )
             }
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
