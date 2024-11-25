@@ -1,11 +1,10 @@
-// Define the About component as a functional component
 const About = () => {
     return (
-        <div className="p-8 space-y-12">
+        <div className="p-8 space-y-12 flex flex-col items-center">
             {/* Mission Statement */}
             <section className="text-center space-y-4">
                 <h1 className="text-4xl font-bold text-blue-900">Our Mission</h1>
-                <p className="text-xl text-gray-700">
+                <p className="text-xl text-gray-700 max-w-3xl">
                     At Woodland Conservation, we aim to preserve and protect the natural beauty of our planet's woodlands while fostering community education and involvement in conservation efforts.
                 </p>
             </section>
@@ -46,24 +45,28 @@ const About = () => {
                     </div>
 
                     {/* Row 2: Team Members 4 and 5 */}
-                    <div className="col-start-2 text-center -translate-x-14">
-                        <img
-                            src="team-member4.jpg" // Replace with actual image
-                            alt="Team Member 4"
-                            className="w-32 h-32 mx-auto rounded-full object-cover shadow-md"
-                        />
-                        <p className="mt-4 text-lg font-semibold">Alex</p>
-                        <p className="text-gray-500">UI/UX Designer</p>
-                    </div>
+                    <div className="col-span-2 flex justify-evenly w-full">
+                        {/* Alex (4) */}
+                        <div className="text-center -translate-x-8">
+                            <img
+                                src="team-member4.jpg" // Replace with actual image
+                                alt="Team Member 4"
+                                className="w-32 h-32 mx-auto rounded-full object-cover shadow-md"
+                            />
+                            <p className="mt-4 text-lg font-semibold">Alex</p>
+                            <p className="text-gray-500">UI/UX Designer</p>
+                        </div>
 
-                    <div className="col-start-3 text-center -translate-x-14">
-                        <img
-                            src="team-member5.jpg" // Replace with actual image
-                            alt="Team Member 5"
-                            className="w-32 h-32 mx-auto rounded-full object-cover shadow-md"
-                        />
-                        <p className="mt-4 text-lg font-semibold">Chris</p>
-                        <p className="text-gray-500">Marketing Specialist</p>
+                        {/* Chris (5) */}
+                        <div className="text-center translate-x-8">
+                            <img
+                                src="team-member5.jpg" // Replace with actual image
+                                alt="Team Member 5"
+                                className="w-32 h-32 mx-auto rounded-full object-cover shadow-md"
+                            />
+                            <p className="mt-4 text-lg font-semibold">Chris</p>
+                            <p className="text-gray-500">Marketing Specialist</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -104,6 +107,5 @@ const About = () => {
     );
 };
 
-// Export the About component so it can be used in other parts of the app
 export default About;
 
