@@ -1,14 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const About = () => {
-    const [currentImage, setCurrentImage] = useState(0);
-    const images = [
-        "/imagesforaboutpage/nature1.png",
-        "/imagesforaboutpage/nature2.png",
-        "/imagesforaboutpage/nature3.png"
-    ];
-
-    const [currentTestimonial, setCurrentTestimonial] = useState(0);
     const testimonials = [
         {
             image: "/imagesforaboutpage/testimonial1.png",
@@ -24,24 +16,21 @@ const About = () => {
         },
     ];
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImage(prev => (prev + 1) % images.length);
-        }, 5000);
+    const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-        return () => clearInterval(interval);
-    }, []);
+    const nextTestimonial = () => {
+        setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    };
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentTestimonial(prev => (prev + 1) % testimonials.length);
-        }, 5000);
-
-        return () => clearInterval(interval);
-    }, []);
+    const prevTestimonial = () => {
+        setCurrentTestimonial(
+            (prev) => (prev - 1 + testimonials.length) % testimonials.length
+        );
+    };
 
     return (
         <div className="p-8 flex flex-col items-center">
+            {/* Mission Section */}
             <section
                 className="p-8 rounded-lg shadow-md flex flex-wrap md:flex-nowrap items-center space-x-0 md:space-x-10 w-full max-w-6xl"
                 style={{ backgroundColor: "rgba(255, 255, 255, 1)" }}
@@ -56,22 +45,18 @@ const About = () => {
                     </p>
                 </div>
                 <div className="relative w-[600px] h-[250px] overflow-hidden rounded-lg shadow-md mt-6 md:mt-0">
-                    {images.map((image, index) => (
-                        <img
-                            key={index}
-                            src={image}
-                            alt={`Mission Image ${index + 1}`}
-                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-3000 ease-in-out ${index === currentImage ? "opacity-100" : "opacity-0"}`}
-                        />
-                    ))}
+                    <img
+                        src="/imagesforaboutpage/nature1.png"
+                        alt="Mission Image"
+                        className="absolute inset-0 w-full h-full object-cover"
+                    />
                 </div>
             </section>
 
             {/* Team Section */}
             <section className="space-y-8 mt-10">
                 <h2 className="text-3xl font-bold text-[#103c84] text-center">Meet Our Team</h2>
-                <div className="grid grid-cols-3 gap-y-10 gap-x-16 justify-items-center items-center" style={{ gridTemplateRows: "auto auto", gridTemplateColumns: "1fr 1fr 1fr" }}>
-                    {/* Team Members */}
+                <div className="grid grid-cols-3 gap-y-10 gap-x-16 justify-items-center items-center">
                     <div className="text-center">
                         <img
                             src="/imagesforaboutpage/member1.png"
@@ -99,8 +84,6 @@ const About = () => {
                         <p className="mt-4 text-lg font-semibold">Tenisha</p>
                         <p className="text-gray-500">Developer</p>
                     </div>
-
-                    {/* Row 2 */}
                     <div className="text-center" style={{ gridColumn: "1 / span 2", gridRow: "2" }}>
                         <img
                             src="/imagesforaboutpage/member4.png"
@@ -110,7 +93,6 @@ const About = () => {
                         <p className="mt-4 text-lg font-semibold">Himshree</p>
                         <p className="text-gray-500">Developer</p>
                     </div>
-
                     <div className="text-center" style={{ gridColumn: "2 / span 2", gridRow: "2" }}>
                         <img
                             src="/imagesforaboutpage/member5.png"
@@ -127,28 +109,45 @@ const About = () => {
             <section className="mt-12 p-8">
                 <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8">
                     <h2 className="text-3xl font-bold text-[#103c84] text-center mb-6">Testimonials</h2>
-                    <div className="flex items-center space-x-8">
-                        <div className="w-1/3">
-                            <img
-                                src={testimonials[currentTestimonial].image}
-                                alt="Testimonial"
-                                className="w-full h-auto rounded-lg object-cover"
-                            />
+                    <div className="flex items-center justify-between">
+                        <button
+                            onClick={prevTestimonial}
+                            className="p-2 bg-[#103c84] text-white rounded-full hover:bg-[#1e4a99] transition-all"
+                        >
+                            &#8592;
+                        </button>
+
+                        <div className="flex items-center space-x-8">
+                            <div className="w-1/3">
+                                <img
+                                    src={testimonials[currentTestimonial].image}
+                                    alt="Testimonial"
+                                    className="w-full h-auto rounded-lg object-cover"
+                                />
+                            </div>
+                            <div className="w-2/3">
+                                <p className="text-lg italic text-gray-700">
+                                    "{testimonials[currentTestimonial].quote}"
+                                </p>
+                                <p className="mt-4 text-sm text-gray-500">Add yours too!</p>
+                            </div>
                         </div>
-                        <div className="w-2/3">
-                            <p className="text-lg italic text-gray-700">"{testimonials[currentTestimonial].quote}"</p>
-                            <p className="mt-4 text-sm text-gray-500">Add yours too!</p>
-                        </div>
+
+                        <button
+                            onClick={nextTestimonial}
+                            className="p-2 bg-[#103c84] text-white rounded-full hover:bg-[#1e4a99] transition-all"
+                        >
+                            &#8594;
+                        </button>
                     </div>
                 </div>
             </section>
 
-            {/* SOCIAL MEDIA SECTION */}
+            {/* Social Media Section */}
             <section className="mt-20">
                 <div className="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-bold text-[#103c84] mb-8">Follow Us!</h2>
                     <div className="flex justify-center space-x-14">
-                        {/* Facebook */}
                         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
@@ -156,8 +155,6 @@ const About = () => {
                                 className="w-40 h-40 hover:scale-110 transition-transform"
                             />
                         </a>
-
-                        {/* X (formerly Twitter) */}
                         <a href="https://x.com" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="https://freepnglogo.com/images/all_img/1729449055_twitter-logo-square%20shape-png.png"
@@ -165,8 +162,6 @@ const About = () => {
                                 className="w-40 h-40 hover:scale-110 transition-transform"
                             />
                         </a>
-
-                        {/* Instagram */}
                         <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/512px-Instagram_logo_2022.svg.png"
@@ -182,6 +177,7 @@ const About = () => {
 };
 
 export default About;
+
 
 
 
