@@ -67,7 +67,7 @@ const About = () => {
                     {/* Row 1: Team Members 1, 2, and 3 */}
                     <div className="text-center">
                         <img
-                            src="/imagesforaboutpage/member1.png" // Replace with actual image
+                            src="/imagesforaboutpage/member1.png" 
                             alt="Team Member 1"
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
                         />
@@ -77,7 +77,7 @@ const About = () => {
 
                     <div className="text-center">
                         <img
-                            src="team-member2.jpg" // Replace with actual image
+                            src="/imagesforaboutpage/member2.png"
                             alt="Team Member 2"
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
                         />
@@ -87,7 +87,7 @@ const About = () => {
 
                     <div className="text-center">
                         <img
-                            src="team-member3.jpg" // Replace with actual image
+                            src="/imagesforaboutpage/member3.png"
                             alt="Team Member 3"
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
                         />
@@ -104,7 +104,7 @@ const About = () => {
                         }}
                     >
                         <img
-                            src="team-member4.jpg" // Replace with actual image
+                            src="/imagesforaboutpage/member4.png"
                             alt="Team Member 4"
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
                         />
@@ -120,7 +120,7 @@ const About = () => {
                         }}
                     >
                         <img
-                            src="team-member5.jpg" // Replace with actual image
+                            src="/imagesforaboutpage/member5.png"
                             alt="Team Member 5"
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
                         />
