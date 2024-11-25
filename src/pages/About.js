@@ -13,7 +13,7 @@ const About = () => {
             <section className="space-y-8 mt-10">
                 <h2 className="text-3xl font-bold text-gray-800 text-center">Meet Our Team</h2>
                 <div
-                    className="grid grid-cols-3 gap-y-10 gap-x-8 justify-items-center items-center"
+                    className="grid grid-cols-3 gap-y-10 gap-x-16 justify-items-center items-center" // Increased gap-x for horizontal spacing
                     style={{
                         gridTemplateRows: "auto auto", // Two rows
                         gridTemplateColumns: "1fr 1fr 1fr", // Three columns
