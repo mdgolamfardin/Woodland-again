@@ -28,7 +28,7 @@ const speak = (text) => {
 
 return (
   <div
-    className={`min-h-screen transition-colors duration-300 ${
+    className={`min-h-screen transition-colors duration-300 lg:px-28 ${
       darkMode ? "bg-gray-900 text-gray-100" : "bg-transparent text-gray-900"
     }`}
   >
