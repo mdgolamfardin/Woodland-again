@@ -1,10 +1,10 @@
 var loremIpsum =
   "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis interdum diamfinibus elit quam class per cras? Massa luctus ultrices quam portaturpis proin. Tristique euismod nec ornare blandit posuere non.";
 
-var picsum = "https://picsum.photos/400/200"
-var picsum2 = "https://picsum.photos/500/400"
-var picsum3 = "https://picsum.photos/400/400"
-var picsum4 = "https://picsum.photos/200/250"
+var picsum = "https://tse4.mm.bing.net/th?id=OIP.Jkr2YUCpBVwuZ80aBIbT1AHaEK&w=266&h=266&c=7"
+var picsum2 = "https://tse1.mm.bing.net/th?id=OIP.wezPWM0gMFPwo5LjNodYjwHaGp&w=425&h=425&c=7"
+var picsum3 = "https://tse2.mm.bing.net/th?id=OIP.fE8z9BA3t0hpjwPKbw5s0wHaE7&w=315&h=315&c=7"
+var picsum4 = "https://tse4.mm.bing.net/th?id=OIP.MXXcVA3-a55KwAUXCG5HAAHaE8&w=316&h=316&c=7"
 
 
 const floraData = [
