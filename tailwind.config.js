@@ -4,12 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        navbarBg: '#1F4529',
-        headingClr: '#47663B',
-        navClr: '#DCEEE1',
-        titleClr: "#EED3B1",
+        navbarBg: '#0A3981',
+        headingClr: '#0A3981',
+        navClr: '#0A3981',
+        titleClr: "#ffe0c7",
         subClr: "#393E46",
-        bgClr: "#edeeea"
+        bgClr: "#eaf3f7"
       },
       fontFamily: {
         nunito: ['Nunito', 'sans-serif'],
