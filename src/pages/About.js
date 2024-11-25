@@ -14,7 +14,7 @@ const About = () => {
             </section>
 
             {/* Render the imported Subcomponent */}
-            <Subcomponent />
+            
 
             {/* Team Members Section */}
             <section>
