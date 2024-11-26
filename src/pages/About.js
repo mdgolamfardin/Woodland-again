@@ -86,7 +86,7 @@ const About = () => {
                             src="/imagesforaboutpage/member1.png"
                             alt="Team Member 1"
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md cursor-pointer"
-                            onClick={() => setSelectedMember({
+                            onClick={() => setSelectedMember({ 
                                 name: "Fardin",
                                 role: "Team Leader",
                                 image: "/imagesforaboutpage/member1.png",
