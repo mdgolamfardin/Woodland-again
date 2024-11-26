@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaVolumeUp } from 'react-icons/fa';  // This should be at the top of your About.js file
+import { FaVolumeUp } from 'react-icons/fa'; 
 
 const About = () => {
 
@@ -51,11 +51,11 @@ const About = () => {
                 <div className="text-center md:text-left space-y-4 max-w-2xl">
                     <h1 className="text-4xl font-bold text-[#103c84]">Our Mission</h1>
                     <p className="text-xl text-gray-700">
-                    At Woodland Conservation, we protect biodiversity and historic woodlands, 
-                    including the vibrant ecosystems of Halifax's St. Margaret’s Bay Area. Through 
-                    sustainable practices and community engagement, we preserve the connection between nature 
-                    and heritage, safeguarding unique species and inspiring action to ensure these cherished 
-                    spaces thrive for future generations.
+                        At Woodland Conservation, we protect biodiversity and historic woodlands,
+                        including the vibrant ecosystems of Halifax's St. Margaret’s Bay Area. Through
+                        sustainable practices and community engagement, we preserve the connection between nature
+                        and heritage, safeguarding unique species and inspiring action to ensure these cherished
+                        spaces thrive for future generations.
                     </p>
 
                     {/* Speaker Icon Button */}
@@ -77,87 +77,87 @@ const About = () => {
 
 
             {/* Team Section */}
-<section className="space-y-8 mt-10">
-    <h2 className="text-3xl font-bold text-[#103c84] text-center">Meet Our Team</h2>
-    <div className="grid grid-cols-3 gap-y-10 gap-x-16 justify-items-center items-center">
-        {/* Team Leader (Fardin) with Description Card */}
-        <div className="text-center">
-            <img
-                src="/imagesforaboutpage/member1.png"
-                alt="Team Member 1"
-                className="w-40 h-40 mx-auto rounded-full object-cover shadow-md cursor-pointer"
-                onClick={() => setSelectedMember({
-                    name: "Fardin",
-                    role: "Team Leader",
-                    image: "/imagesforaboutpage/member1.png",
-                    achievements: "Fardin has led numerous successful conservation projects and has been a key figure in community engagement."
-                })}
-            />
-            <p className="mt-4 text-lg font-semibold">Fardin</p>
-            <p className="text-gray-500">Team Leader</p>
-        </div>
-        {/* Other Team Members */}
-        <div className="text-center">
-            <img
-                src="/imagesforaboutpage/member2.png"
-                alt="Team Member 2"
-                className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
-            />
-            <p className="mt-4 text-lg font-semibold">Mariam</p>
-            <p className="text-gray-500">Developer</p>
-        </div>
-        <div className="text-center">
-            <img
-                src="/imagesforaboutpage/member3.png"
-                alt="Team Member 3"
-                className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
-            />
-            <p className="mt-4 text-lg font-semibold">Tenisha</p>
-            <p className="text-gray-500">Developer</p>
-        </div>
-        <div className="text-center" style={{ gridColumn: "1 / span 2", gridRow: "2" }}>
-            <img
-                src="/imagesforaboutpage/member4.png"
-                alt="Team Member 4"
-                className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
-            />
-            <p className="mt-4 text-lg font-semibold">Himshree</p>
-            <p className="text-gray-500">Developer</p>
-        </div>
-        <div className="text-center" style={{ gridColumn: "2 / span 2", gridRow: "2" }}>
-            <img
-                src="/imagesforaboutpage/member5.png"
-                alt="Team Member 5"
-                className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
-            />
-            <p className="mt-4 text-lg font-semibold">Kelly</p>
-            <p className="text-gray-500">Developer</p>
-        </div>
-    </div>
-
-    {/* Modal for Team Member Description */}
-    {selectedMember && (
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
-            <div className="bg-white p-8 rounded-lg shadow-md max-w-sm w-full transition-transform transform scale-100">
-                <div className="flex justify-between items-center">
-                    <h3 className="text-2xl font-bold text-[#103c84]">{selectedMember.name}</h3>
-                    <button
-                        onClick={() => setSelectedMember(null)}
-                        className="text-[#103c84] hover:text-gray-700"
-                    >
-                        Close
-                    </button>
+            <section className="space-y-8 mt-10">
+                <h2 className="text-3xl font-bold text-[#103c84] text-center">Meet Our Team</h2>
+                <div className="grid grid-cols-3 gap-y-10 gap-x-16 justify-items-center items-center">
+                    {/* Team Leader (Fardin) with Description Card */}
+                    <div className="text-center">
+                        <img
+                            src="/imagesforaboutpage/member1.png"
+                            alt="Team Member 1"
+                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md cursor-pointer"
+                            onClick={() => setSelectedMember({
+                                name: "Fardin",
+                                role: "Team Leader",
+                                image: "/imagesforaboutpage/member1.png",
+                                achievements: "Fardin has led numerous successful conservation projects and has been a key figure in community engagement."
+                            })}
+                        />
+                        <p className="mt-4 text-lg font-semibold">Fardin</p>
+                        <p className="text-gray-500">Team Leader</p>
+                    </div>
+                    {/* Other Team Members */}
+                    <div className="text-center">
+                        <img
+                            src="/imagesforaboutpage/member2.png"
+                            alt="Team Member 2"
+                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
+                        />
+                        <p className="mt-4 text-lg font-semibold">Mariam</p>
+                        <p className="text-gray-500">Developer</p>
+                    </div>
+                    <div className="text-center">
+                        <img
+                            src="/imagesforaboutpage/member3.png"
+                            alt="Team Member 3"
+                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
+                        />
+                        <p className="mt-4 text-lg font-semibold">Tenisha</p>
+                        <p className="text-gray-500">Developer</p>
+                    </div>
+                    <div className="text-center" style={{ gridColumn: "1 / span 2", gridRow: "2" }}>
+                        <img
+                            src="/imagesforaboutpage/member4.png"
+                            alt="Team Member 4"
+                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
+                        />
+                        <p className="mt-4 text-lg font-semibold">Himshree</p>
+                        <p className="text-gray-500">Developer</p>
+                    </div>
+                    <div className="text-center" style={{ gridColumn: "2 / span 2", gridRow: "2" }}>
+                        <img
+                            src="/imagesforaboutpage/member5.png"
+                            alt="Team Member 5"
+                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
+                        />
+                        <p className="mt-4 text-lg font-semibold">Kelly</p>
+                        <p className="text-gray-500">Developer</p>
+                    </div>
                 </div>
-                <img
-                    src={selectedMember.image}
-                    alt={selectedMember.name}
-                    className="w-32 h-32 mx-auto rounded-full object-cover mt-4 mb-4"
-                />
-                <p className="text-lg">{selectedMember.achievements}</p>
-            </div>
-        </div>
-    )}
-</section>
+
+                {/* Modal for Team Member Description */}
+                {selectedMember && (
+                    <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
+                        <div className="bg-white p-8 rounded-lg shadow-md max-w-sm w-full transition-transform transform scale-100">
+                            <div className="flex justify-between items-center">
+                                <h3 className="text-2xl font-bold text-[#103c84]">{selectedMember.name}</h3>
+                                <button
+                                    onClick={() => setSelectedMember(null)}
+                                    className="text-[#103c84] hover:text-gray-700"
+                                >
+                                    Close
+                                </button>
+                            </div>
+                            <img
+                                src={selectedMember.image}
+                                alt={selectedMember.name}
+                                className="w-32 h-32 mx-auto rounded-full object-cover mt-4 mb-4"
+                            />
+                            <p className="text-lg">{selectedMember.achievements}</p>
+                        </div>
+                    </div>
+                )}
+            </section>
 
 
             {/* Testimonials Section */}
@@ -206,7 +206,7 @@ const About = () => {
                                                         window.speechSynthesis.speak(msg);
                                                     }}
                                                 >
-                                                    Add yours too!
+                                                    Add yours too! 
                                                 </Link>
                                             </p>
                                         </div>
