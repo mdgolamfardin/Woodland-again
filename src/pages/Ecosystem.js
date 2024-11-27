@@ -17,27 +17,36 @@ const toggleDarkMode = () => {
   setDarkMode(!darkMode);
 };
 
+// Text-to-Speech function
+const speak = (text) => {
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-US"; // Set the language
+  speech.rate = 1; // Set the speed of speech
+  speech.pitch = 1; // Set the pitch
+  window.speechSynthesis.speak(speech); // Speak the text
+};
+
 return (
   <div
     className={`min-h-screen transition-colors duration-300 ${
       darkMode ? "bg-gray-900 text-gray-100" : "bg-transparent text-gray-900"
     }`}
   >
-    {/* Dark Mode Toggle Button */}
-    <button
-      onClick={toggleDarkMode}
-      className={`fixed top-4 right-4 px-4 py-2 rounded-full shadow ${
-        darkMode
-          ? "bg-gray-100 text-gray-900 hover:bg-gray-200"
-          : "bg-gray-900 text-gray-100 hover:bg-gray-800"
-      }`}
-    >
-      {darkMode ? "Light Mode" : "Dark Mode"}
-    </button>
+    {/* Dark Mode Button */}
+  <div className="w-full flex justify-end p-4">
+      <button
+          onClick={toggleDarkMode}
+          className="bg-blue-600 px-4 py-2 rounded bg-blue-500 transition text-white"
+      >
+          {darkMode ? "Light Mode" : "Dark Mode"}
+      </button>
+  </div>
 
     {/* Main Title Section */}
     <div className="text-center py-8">
-    <h1 className="text-4xl font-bold text-[#103c84]">EcoSystem:A Living Testament to Nature and History</h1>
+    <h1 className={`text-4xl font-bold  no-shadow ${
+      darkMode ? "text-white" : "text-[#103c84]"
+    }`}>EcoSystem:A Living Testament to Nature and History</h1>
     </div>
 
     {/* Content Section */}
@@ -45,27 +54,42 @@ return (
       {/* Left Content Block */}
       <div>
         <p className="text-lg mb-4" style={{ fontSize: "20px" }}>
-        The Blue Mountain-Birch Cove Lakes Wilderness Area is a vital ecological treasure located near Halifax, Nova Scotia. Spanning over 1,767 hectares, this wilderness area is a mosaic of forests, lakes, wetlands, and rugged terrain, 
-        making it a rich and biodiverse ecosystem. Its natural features and high ecological value make it both a crucial habitat for wildlife and an essential recreational area for the community.
-          </p>
+        Saint Bay Area Woodland Conservation Site is a notable example of community-led environmental preservation in action. Nestled within the larger Bay Area, this site encompasses a significant expanse of native woodland, offering a critical habitat for local flora and fauna. The conservation efforts focus on protecting the indigenous plant species and wildlife, while also maintaining the natural landscapes that are vital for ecological balance.
+        </p>
+        {/* Speak Button */}
+        <button
+            onClick={() =>
+              speak(
+                "Saint Bay Area Woodland Conservation Site is a notable example of community-led environmental preservation in action. Nestled within the larger Bay Area, this site encompasses a significant expanse of native woodland, offering a critical habitat for local flora and fauna. The conservation efforts focus on protecting the indigenous plant species and wildlife, while also maintaining the natural landscapes that are vital for ecological balance."
+              )
+            }
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mb-4"
+          >
+            Speak
+          </button>
       
         <p className="text-lg mb-4" style={{ fontSize: "20px" }} >
-        The forests in the Blue Mountain-Birch Cove Lakes area are predominantly composed of mixed hardwood and softwood species.
-         Key tree species include red spruce, balsam fir, yellow birch, and sugar maple. The undergrowth features a diverse range of 
-         shrubs, mosses, ferns, and lichens, which play an essential role in maintaining soil stability and providing food and shelter for wildlife.
-
-The forest supports a variety of mammals, including white-tailed deer, red foxes, and snowshoe hares. Smaller mammals like squirrels, chipmunks, and voles also 
-thrive here, contributing to the ecosystem's balance.
+        The site serves multiple purposes: it acts as a research area for scientists studying ecological restoration and conservation techniques, an educational resource for schools and community groups, and a recreational space for the public who can explore its trails and learn about local biodiversity. Volunteers play a key role in the ongoing maintenance and protection of the area, participating in regular clean-up days, planting native species, and monitoring wildlife activity.
         </p>
+
+         {/* Speak Button */}
+         <button
+            onClick={() =>
+              speak(
+                "The site serves multiple purposes: it acts as a research area for scientists studying ecological restoration and conservation techniques, an educational resource for schools and community groups, and a recreational space for the public who can explore its trails and learn about local biodiversity. Volunteers play a key role in the ongoing maintenance and protection of the area, participating in regular clean-up days, planting native species, and monitoring wildlife activity."
+              )
+            }
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Speak
+          </button>
+
         <div className="relative">
           <img
             src="/imgforecosys/eco2.webp"
             alt="Woodland"
             className="rounded-lg"
           />
-          <button className="absolute bottom-2 left-2 bg-black text-white px-2 py-1 text-sm rounded">
-            Click on image for more details
-          </button>
         </div>
       </div>
 
@@ -77,21 +101,35 @@ thrive here, contributing to the ecosystem's balance.
             alt="EcoSystem Detail"
             className="rounded-lg"
           />
-          <button className="absolute bottom-2 left-2 bg-black text-white px-2 py-1 text-sm rounded">
-            Click on image for more details
-          </button>
         </div>
         <p className="text-lg mb-4" style={{ fontSize: "20px"  }}>
-          Beyond its natural beauty, this conservation site also holds
-            historical significance. Evidence of a farmhouse and ancient wells
-            provides a glimpse into the lives of those who lived here
-            generations ago. These artifacts are a testament to the human
-            connection with the land and serve as a reminder of the importance
-            of preserving history alongside nature. Visitors can explore these
-            relics, marveling at how the site weaves together past and present
-            in a truly unique way. Whether drawn by the Yellow Birch, wetlands,
-            or historical artifacts, there is something here for everyone.
+        Conservation projects at the site often involve removing invasive plant species that threaten the native vegetation, restoring streams and wetlands that are crucial for the local water cycle, and creating barriers to prevent human encroachment into sensitive areas. Educational programs designed to engage the community focus on the importance of sustainable practices and the role each individual can play in preserving their local environment.
         </p>
+
+          {/* Speak Button */}
+                  <button
+            onClick={() =>
+              speak(
+                "Conservation projects at the site often involve removing invasive plant species that threaten the native vegetation, restoring streams and wetlands that are crucial for the local water cycle, and creating barriers to prevent human encroachment into sensitive areas. Educational programs designed to engage the community focus on the importance of sustainable practices and the role each individual can play in preserving their local environment."
+              )
+            }
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Speak
+          </button>
+
+          <p className="text-lg mb-4" style={{ fontSize: "20px"  }}>The Saint Bay Area Woodland Conservation Site exemplifies how dedicated stewardship and community involvement can effectively preserve and enhance vital natural resources for future generations, fostering a deep connection between people and the natural world around them.</p>
+            {/* Speak Button */}
+                  <button
+            onClick={() =>
+              speak(
+                "The Saint Bay Area Woodland Conservation Site exemplifies how dedicated stewardship and community involvement can effectively preserve and enhance vital natural resources for future generations, fostering a deep connection between people and the natural world around them."
+              )
+            }
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Speak
+          </button>
       </div>
     </div>
 
@@ -100,7 +138,7 @@ thrive here, contributing to the ecosystem's balance.
   {/* Scroll to Top Button */}
   <button
     onClick={scrollToTop}
-    className={`fixed bottom-4 right-4 px-4 py-2 rounded-full shadow ${
+    className={`fixed bottom-4 right-4 bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition text-white${
       darkMode
         ? "bg-gray-100 text-gray-900 hover:bg-gray-200"
         : "bg-gray-900 text-gray-100 hover:bg-gray-800"

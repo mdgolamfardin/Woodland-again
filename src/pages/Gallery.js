@@ -2,6 +2,7 @@
 import FloraFaunaFungi from "./subcomponents/FloraFaunaFungi";
 import ImgUpload from "./subcomponents/ImgUpload";
 
+
 // Define the Gallery component as a functional component
 const Gallery = () => {
     return (
