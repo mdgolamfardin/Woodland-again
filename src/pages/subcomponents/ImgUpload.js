@@ -1,10 +1,31 @@
-// This is a subcomponent of the Gallery component.
 import { FileInput } from "flowbite-react";
-import { Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
+import { useState } from "react";
 
-export function Component() {
+export function ImgUpload() {
+  const [file, setFile] = useState(null);
+  const [formData, setFormData] = useState({
+    date: "",
+    location: "",
+    photographer: "",
+    email: "",
+  });
+
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = () => {
+    console.log("Form Submitted:", { file, ...formData });
+  };
+
   return (
-    <div className="flex w-full items-center justify-center">
+    <div className="flex flex-col items-center justify-center w-full">
       <Form.Label
         htmlFor="dropzone-file"
         className="flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-gray-500 dark:hover:bg-gray-600"
@@ -30,11 +51,67 @@ export function Component() {
           </p>
           <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
         </div>
-        <input id="dropzone-file" type="file" className="hidden" />
+        <input
+          id="dropzone-file"
+          type="file"
+          className="hidden"
+          onChange={handleFileChange}
+        />
       </Form.Label>
+
+      {file && (
+        <div className="mt-4">
+          <img
+            src={URL.createObjectURL(file)}
+            alt="Preview"
+            className="mb-4 max-w-sm rounded-lg"
+          />
+          <Form.Group className="mb-3">
+            <Form.Label>Date</Form.Label>
+            <Form.Control
+              type="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Location</Form.Label>
+            <Form.Control
+              type="text"
+              name="location"
+              placeholder="Enter location"
+              value={formData.location}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Photographer Name</Form.Label>
+            <Form.Control
+              type="text"
+              name="photographer"
+              placeholder="Photographer's Name"
+              value={formData.photographer}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              name="email"
+              placeholder="Photographer's Email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Button variant="primary" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </div>
+      )}
     </div>
   );
 }
-    export default Component;
 
-// Export the ImgUpload subcomponent so it can be used in other parts of the app
+export default ImgUpload;
