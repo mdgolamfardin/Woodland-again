@@ -1,14 +1,14 @@
 import { FileInput } from "flowbite-react";
 import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
+import axios from "axios";
 
 export function ImgUpload() {
   const [file, setFile] = useState(null);
   const [formData, setFormData] = useState({
-    date: "",
-    location: "",
     photographer: "",
     email: "",
+    description: "",
   });
 
   const handleFileChange = (event) => {
@@ -20,8 +20,28 @@ export function ImgUpload() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = () => {
-    console.log("Form Submitted:", { file, ...formData });
+  const handleSubmit = async () => {
+    if (!file) {
+      alert("Please upload a file!");
+      return;
+    }
+
+    const data = new FormData();
+    data.append("file", file);
+    data.append("photographer", formData.photographer);
+    data.append("email", formData.email);
+    data.append("description", formData.description);
+
+    try {
+      const response = await axios.post("http://ugdev.cs.smu.ca/~group25F/uploads", data, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      alert("File uploaded successfully!");
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+      alert("Error uploading file");
+    }
   };
 
   return (
@@ -105,9 +125,9 @@ export function ImgUpload() {
               onChange={handleChange}
             />
           </Form.Group>
-          <Button variant="primary" onClick={handleSubmit}>
-            Submit
-          </Button>
+          <button onClick={handleSubmit} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
+        Submit
+      </button>
         </div>
       )}
     </div>
