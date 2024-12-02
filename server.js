@@ -61,5 +61,5 @@ app.post("/submit", async (req, res) => {
 
 // Start the server
 app.listen(5000, () => {
-  console.log("Server is running on http://localhost:3022");
+  console.log("Server is running on http://ugdev.cs.smu.ca/~group25F:3022");
 });

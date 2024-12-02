@@ -1,11 +1,28 @@
-/*Author : Kelly Prince Rwanyange;
-Group: Assorted Donuts;
+/* 
+  Author: Kelly Prince Rwanyange
+  Group: Assorted Donuts
+  
+  Purpose:
+  This React component allows users to upload an image file along with metadata such as
+  the photographer's name, email, and a description. The uploaded file and metadata are sent 
+  to a server endpoint for storage.
 */
+
 import { FileInput } from "flowbite-react";
 import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
+
+/**
+ * ImgUpload Component
+ * 
+ * Purpose:
+ * A functional React component that provides a user interface for image upload and metadata entry.
+ * 
+ * @returns {JSX.Element} The rendered component.
+ */
 export function ImgUpload() {
+  // Local state for the selected file and form data
   const [file, setFile] = useState(null);
   const [formData, setFormData] = useState({
     photographer: "",
@@ -13,14 +30,37 @@ export function ImgUpload() {
     description: "",
   });
 
+  /**
+   * Updates the selected file in state.
+   * 
+   * @param {Event} event - The change event triggered by the file input.
+   */
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
   };
 
+  /**
+   * Updates form data state based on user input.
+   * 
+   * @param {Event} e - The change event triggered by input fields.
+   */
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  /**
+ * External API Reference:
+ * - API Endpoint: http://ugdev.cs.smu.ca/~group25F/uploads
+ * - Purpose: Upload files and metadata to the server.
+ * - Method: POST
+ * - Required Headers: Content-Type: multipart/form-data
+ * - Parameters:
+ *   - file: The image file to be uploaded.
+ *   - photographer: The name of the photographer.
+ *   - email: The email address of the photographer.
+ *   - description: A short description of the file.
+ */
 
   const handleSubmit = async () => {
     if (!file) {
@@ -35,9 +75,11 @@ export function ImgUpload() {
     data.append("description", formData.description);
 
     try {
-      const response = await axios.post("http://ugdev.cs.smu.ca/~group25F/uploads", data, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      const response = await axios.post(
+        "http://ugdev.cs.smu.ca/~group25F/uploads",
+        data,
+        { headers: { "Content-Type": "multipart/form-data" } }
+      );
       alert("File uploaded successfully!");
       console.log(response.data);
     } catch (error) {
@@ -128,8 +170,8 @@ export function ImgUpload() {
             />
           </Form.Group>
           <button onClick={handleSubmit} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
-        Submit
-      </button>
+            Submit
+          </button>
         </div>
       )}
     </div>
