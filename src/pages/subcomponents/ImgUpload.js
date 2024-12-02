@@ -1,8 +1,10 @@
+/*Author : Kelly Prince Rwanyange;
+Group: Assorted Donuts;
+*/
 import { FileInput } from "flowbite-react";
 import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
-
 export function ImgUpload() {
   const [file, setFile] = useState(null);
   const [formData, setFormData] = useState({
