@@ -131,7 +131,7 @@ export function ImgUpload() {
             className="mb-4 max-w-sm rounded-lg"
           />
           <Form.Group className="mb-3">
-            <Form.Label>Date</Form.Label>
+            <Form.Label>Date:</Form.Label>
             <Form.Control
               type="date"
               name="date"
@@ -140,7 +140,7 @@ export function ImgUpload() {
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>Location</Form.Label>
+            <Form.Label>Location:</Form.Label>
             <Form.Control
               type="text"
               name="location"
@@ -150,7 +150,7 @@ export function ImgUpload() {
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>Photographer Name</Form.Label>
+            <Form.Label>Photographer Name:</Form.Label>
             <Form.Control
               type="text"
               name="photographer"
@@ -160,7 +160,7 @@ export function ImgUpload() {
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>Email</Form.Label>
+            <Form.Label>Email:</Form.Label>
             <Form.Control
               type="email"
               name="email"
