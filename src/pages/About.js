@@ -75,7 +75,6 @@ const About = () => {
                 </div>
             </section>
 
-
             {/* Team Section */}
             <section className="space-y-8 mt-10">
                 <h2 className="text-3xl font-bold text-[#103c84] text-center">Meet Our Team</h2>
@@ -197,6 +196,18 @@ const About = () => {
                                 className="w-32 h-32 mx-auto rounded-full object-cover mt-4 mb-4"
                             />
                             <p className="text-lg">{selectedMember.achievements}</p>
+                            {/* Speaker Icon for Text-to-Speech */}
+                            <button
+                                onClick={() => {
+                                    const speech = new SpeechSynthesisUtterance(
+                                        `${selectedMember.name}. Role: ${selectedMember.role}. ${selectedMember.achievements}`
+                                    );
+                                    speechSynthesis.speak(speech);
+                                }}
+                                className="mt-4 flex items-center text-[#103c84] hover:text-gray-700"
+                            >
+                                <FaVolumeUp />  {/* React icon for speaker */}
+                            </button>
                         </div>
                     </div>
                 )}
