@@ -2,25 +2,27 @@
 import FloraFaunaFungi from "./subcomponents/FloraFaunaFungi";
 import ImgUpload from "./subcomponents/ImgUpload";
 
-
 // Define the Gallery component as a functional component
 const Gallery = () => {
     return (
-        // Return the JSX to render the Gallery component
-        <div className="flex-row items-center text-center lg:px-28 2xl:px-52">
-            {/* A heading to describe the Gallery component */}
-            <h1 className="break-normal text-4xl font-semibold lg:text-5xl text-headingClr mt-8 bm-4">
+        // Wrapper div with responsive classes
+        <div className="flex flex-col items-center text-center px-4 sm:px-8 md:px-12 lg:px-28 2xl:px-40">
+            {/* Heading */}
+            <h1 className="break-normal text-4xl lg:text-5xl font-semibold text-headingClr mt-8 mb-4">
                 Gallery
             </h1>
 
-            {/* Render the FloraFaunaFungi subcomponent */}
-            <FloraFaunaFungi />
+            {/* Subcomponents */}
+            <div className="w-full">
+                <FloraFaunaFungi />
+            </div>
 
-            {/* Render the ImgUpload subcomponent */}
-            <ImgUpload />
+            <div className="w-full mt-8">
+                <ImgUpload />
+            </div>
         </div>
     );
-}
+};
 
 // Export the Gallery component so it can be used in other parts of the app
 export default Gallery;
