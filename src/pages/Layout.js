@@ -19,7 +19,7 @@ export default function Layout() {
       {" "}
       {/* Container for the navigation and main content */}
       <nav className="flex bg-navbarBg w-full">
-        <h2 className="font-nunito text-titleClr text-3xl lg:text-4xl font-bold pl-6 lg:pl-32 w-full pt-6 pb-3">
+        <h2 className="font-nunito text-titleClr text-2xl lg:text-4xl font-bold pl-6 lg:pl-32 w-full pt-6 pb-3">
           <Link to="/" className="" onClick={() => handleTabClick("/")}>
             Woodland Conservation
           </Link>
