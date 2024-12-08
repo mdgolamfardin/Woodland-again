@@ -6,7 +6,7 @@ import fungiData from "../../data/fungiData";
 
 const FloraFaunaFungi = () => {
   return (
-    <div className="flex-row pt-2 pb-5 text-center items-center justify-center">
+    <div className="flex-row pt-2 pb-5">
       <Layer heading="Fauna" data={faunaData} />
       <Layer heading="Flora" data={floraData} />
       <Layer heading="Fungi" data={fungiData} />

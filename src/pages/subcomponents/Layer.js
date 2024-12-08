@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ImageCard from "./ImageCard";
 import { motion } from "framer-motion";
 
-
 function createImageCard(imgInfo) {
   return (
     <ImageCard
@@ -29,8 +28,8 @@ function Layer(props) {
   var baseHeight = 240;
 
   return (
-    <div className="mb-12 mt-2">
-      <h2 className="text-left text-3xl lg:text-4xl  font-bold text-subClr mb-2 pl-4">
+    <div className="mb-12 px-8 mt-2 md:px-12 sm:px-8">
+      <h2 className="text-left text-3xl lg:text-4xl font-bold text-subClr mb-2 pl-4">
         {props.heading }
       </h2>
       
@@ -41,19 +40,16 @@ function Layer(props) {
         className="overflow-hidden "
       >
         <div
-          className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-x-3 gap-y-1 px-2 md:px-4 lg:px-6 2xl:grid-cols-5 py-2 "
+          className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-x-3 gap-y-1 px-10 md:px-6 lg:px-3 2xl:grid-cols-5 py-2 "
         >
           {visibleData.map((imgInfo) => createImageCard(imgInfo))}
         </div>
       </motion.div>
       <button
         onClick={toggleShowMore}
-        className="mt-6 mb-4 bg-white text-lg px-5 py-3
-        lg:mt-8 lg:mb-6 lg:bg-white lg:text-xl lg:px-6 lg:py-3
-        xl:mt-8 xl:mb-6 xl:bg-white xl:text-xl xl:px-6 xl:py-3
-        text-gray-600 rounded-full hover:bg-gray-200"
+        className="mt-8 mb-6 bg-white text-xl text-gray-600 px-6 py-3 rounded-full hover:bg-gray-200"
       >
-        {showMore ? "Show Less"  : "Show More"}
+        {showMore ? "Show Less" : "Show More"}
       </button>
       
     </div>

@@ -12,7 +12,6 @@ import MyPages from './MyPages';
 
 import 'leaflet/dist/leaflet.css';
 
-
 // Get a reference to the HTML element with the ID 'root'
 // This is where the React app will be rendered
 const root = ReactDOM.createRoot(document.getElementById('root'));
