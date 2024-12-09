@@ -9,6 +9,7 @@ function ImageCard(props) {
   };
 
   const handleCloseModal = () => {
+    console.log(props.url);
     setIsModalOpen(false);
   };
 

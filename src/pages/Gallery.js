@@ -1,6 +1,7 @@
 // Import the FloraFaunaFungi and ImgUpload subcomponents from the subcomponents folder
 import FloraFaunaFungi from "./subcomponents/FloraFaunaFungi";
 import ImgUpload from "./subcomponents/ImgUpload";
+import Images from "./subcomponents/Images";
 
 // Define the Gallery component as a functional component
 const Gallery = () => {
@@ -11,6 +12,11 @@ const Gallery = () => {
             <h1 className="break-normal text-4xl lg:text-5xl font-semibold text-headingClr mt-8 mb-4">
                 Gallery
             </h1>
+            
+            {/* Images, this is the component you, chatgpt, write for me */}
+            <div className="w-full">
+                <Images /> 
+            </div>
 
             {/* Subcomponents */}
             <div className="w-full">

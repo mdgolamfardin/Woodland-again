@@ -29,7 +29,7 @@ function Layer(props) {
   var baseHeight = 240;
 
   return (
-    <div className="mb-12 lg:px-8 md:px-4 mt-2">
+    <div className="mb-12">
       <h2 className="text-left text-3xl lg:text-4xl  font-bold text-subClr mb-2 pl-4">
         {props.heading }
       </h2>
