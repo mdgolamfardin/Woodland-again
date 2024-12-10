@@ -75,15 +75,17 @@ const Images = () => {
       {/* Modal for Full Image Display */}
       {modalImage && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+          className="fixed object-contain w-full h-full inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[60]"
           onClick={() => setModalImage(null)} // Close modal on click
         >
-          <div className="relative">
+          <div className="relative max-w-[60%] max-h-[100%] object-contain ">
+            {/* Image with max height and max width applied */}
             <img
               src={modalImage}
-              alt="Full view"
-              className="max-w-full max-h-full rounded-lg"
+              alt="Full-size view"
+              className="rounded-lg"
             />
+            {/* Close button */}
             <button
               onClick={() => setModalImage(null)}
               className="absolute top-2 right-2 text-white text-2xl font-bold"

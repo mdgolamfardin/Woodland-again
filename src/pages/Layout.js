@@ -303,7 +303,7 @@ export default function Layout() {
       {showScrollButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-16 lg:bottom-20 right-3 lg:right-4 z-[70] bg-gray-600 text-white text-3xl px-2 lg:px-3 py-2 lg:py-3 rounded-full opacity-70 hover:opacity-100 transition-opacity duration-300"
+          className="fixed bottom-16 lg:bottom-20 right-3 lg:right-4 z-[70] bg-gray-600 text-white text-3xl px-2 lg:px-3 py-2 lg:py-3 rounded-full opacity-70 hover:opacity-100 transition-opacity duration-300 z-[50]"
           style={{ boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)" }}
         >
           <FaArrowUpLong />
@@ -313,7 +313,7 @@ export default function Layout() {
       {/* Dark Mode Toggle Button */}
       <button
         onClick={toggleDarkMode}
-        className={`fixed shadow-md bottom-3 lg:bottom-4 right-3 lg:right-4 z-[70] text-yellow-400 text-3xl px-2 lg:px-3 py-2 lg:py-3 rounded-full ${
+        className={`fixed shadow-md bottom-3 lg:bottom-4 right-3 lg:right-4 z-[70] text-yellow-400 text-3xl px-2 lg:px-3 py-2 lg:py-3 rounded-full z-[50] ${
           darkMode
             ? "bg-white hover:bg-gray-200"
             : "bg-gray-800 hover:bg-gray-700"
