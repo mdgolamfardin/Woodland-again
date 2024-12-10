@@ -1,18 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { FaVolumeUp } from "react-icons/fa";
+import { DarkModeContext } from "../DarkModeContext"; // Access dark mode context
 
 const Contact = () => {
+  // Access `darkMode` from context for consistent dark mode
+  const { darkMode } = useContext(DarkModeContext);
+
+  // State for form data
   const [formData, setFormData] = useState({
     fullName: "",
     lastName: "",
     email: "",
-    country: "Canada", // Default country
+    country: "Canada", // Default value for country
     phone: "",
     message: "",
   });
-  const [darkMode, setDarkMode] = useState(false);
-  const [showMessage, setShowMessage] = useState(""); // Submission message
 
-  // Handle input changes
+  // State to display a message upon form submission
+  const [showMessage, setShowMessage] = useState("");
+
+  /**
+   * Handle input changes in the form fields
+   * Updates the corresponding field in `formData`
+   */
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -21,7 +31,10 @@ const Contact = () => {
     }));
   };
 
-  // Handle form submission
+  /**
+   * Handle form submission
+   * Sends data to the server and provides feedback on success or failure
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -34,6 +47,7 @@ const Contact = () => {
 
       if (response.ok) {
         setShowMessage("Form submitted successfully!");
+        // Reset form data
         setFormData({
           fullName: "",
           lastName: "",
@@ -51,7 +65,10 @@ const Contact = () => {
     }
   };
 
-  // Text-to-speech function
+  /**
+   * Play text-to-speech for accessibility
+   * Reads an introductory message about the form
+   */
   const playAudio = () => {
     const text =
       "This is the contact section. Please fill out the form to get in touch.";
@@ -65,20 +82,16 @@ const Contact = () => {
     speechSynthesis.speak(speech);
   };
 
-  // Scroll to top function
-  const goToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <div
       className={`${
         darkMode ? "bg-gray-900 text-white" : "bg-BgClr text-black"
-      } flex-row items-center justify-center text-center min-h-screen`}
+      } flex-row items-center justify-center min-h-screen py-10`}
     >
+      {/* Page Title */}
       <h1
-        className={`text-4xl lg:text-5xl  font-bold  mb-10 no-shadow mt-8 ${
-          darkMode ? "text-white" : "text-[#103c84]"
+        className={`text-4xl lg:text-5xl text-center font-bold mb-10 pt-8 ${
+          darkMode ? "text-white shadow-none" : "text-[#103c84]"
         }`}
       >
         Contact Us
@@ -91,13 +104,15 @@ const Contact = () => {
             darkMode ? "bg-gray-800" : "bg-white"
           } rounded-lg shadow-lg p-8`}
         >
+          {/* Display submission status */}
           {showMessage && (
             <p className="text-center mb-4 text-lg font-bold">{showMessage}</p>
           )}
           <form
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="relative grid grid-cols-1 md:grid-cols-2 gap-6"
             onSubmit={handleSubmit}
           >
+            {/* Full Name Field */}
             <div>
               <label className="block text-lg font-medium mb-2">
                 Full Name:
@@ -107,11 +122,17 @@ const Contact = () => {
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2"
+                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                  darkMode
+                    ? "border-none bg-gray-500 text-white placeholder-gray-400"
+                    : "bg-white text-black"
+                }`}
                 placeholder="First Name"
                 required
               />
             </div>
+
+            {/* Last Name Field */}
             <div>
               <label className="block text-lg font-medium mb-2">
                 Last Name:
@@ -121,11 +142,17 @@ const Contact = () => {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2"
+                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                  darkMode
+                    ? "border-none bg-gray-500 text-white placeholder-gray-400"
+                    : "bg-white text-black"
+                }`}
                 placeholder="Last Name"
                 required
               />
             </div>
+
+            {/* Email Field */}
             <div>
               <label className="block text-lg font-medium mb-2">
                 Email ID:
@@ -135,23 +162,35 @@ const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2"
+                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                  darkMode
+                    ? "border-none bg-gray-500 text-white placeholder-gray-400"
+                    : "bg-white text-black"
+                }`}
                 placeholder="someone@gmail.com"
                 required
               />
             </div>
+
+            {/* Country Field */}
             <div>
               <label className="block text-lg font-medium mb-2">Country:</label>
               <select
                 name="country"
                 value={formData.country}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2"
+                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                  darkMode
+                    ? "border-none bg-gray-500 text-white placeholder-gray-400"
+                    : "bg-white text-black"
+                }`}
               >
                 <option value="Canada">Canada</option>
                 <option value="United States">United States</option>
               </select>
             </div>
+
+            {/* Phone Number Field */}
             <div>
               <label className="block text-lg font-medium mb-2">
                 Phone Number:
@@ -161,41 +200,61 @@ const Contact = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2"
+                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                  darkMode
+                    ? "border-none bg-gray-500 text-white placeholder-gray-400"
+                    : "bg-white text-black"
+                }`}
                 placeholder="(xxx)-xxx-xxxx"
               />
             </div>
+
+            {/* Message Field */}
             <div className="md:col-span-2">
               <label className="block text-lg font-medium mb-2">Message:</label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2"
+                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                  darkMode
+                    ? "border-none bg-gray-500 text-white placeholder-gray-400"
+                    : "bg-white text-black"
+                }`}
                 placeholder="Your thoughts..."
                 rows="4"
                 required
               ></textarea>
             </div>
+
+            {/* Submit Button */}
             <div className="md:col-span-2 flex justify-center">
               <button
                 type="submit"
-                className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-500 transition"
+                className={`shadow-sm font-bold mt-2 mb-2 text-lg px-8 py-4 text-white rounded-lg ${
+                  darkMode
+                    ? "bg-gray-700 hover:bg-gray-600"
+                    : "bg-blue-900 hover:bg-blue-800"
+                }`}
               >
                 Send
               </button>
             </div>
-          </form>
-        </div>
 
-        {/* Text-to-Speech Button */}
-        <div className="mt-8">
-          <button
-            onClick={playAudio}
-            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-500 transition"
-          >
-            Play Audio
-          </button>
+            {/* Text-to-Speech Button */}
+            <div className="absolute bottom-1 left-1">
+              <button
+                onClick={playAudio}
+                className={`shadow-md text-3xl px-3 py-3 rounded-full transition-bg duration-300 ${
+                  darkMode
+                    ? "bg-gray-700 text-white hover:bg-gray-600"
+                    : "bg-gray-100 text-blue-900 hover:bg-gray-200"
+                }`}
+              >
+                <FaVolumeUp />
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

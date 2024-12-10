@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaVolumeUp } from 'react-icons/fa';
+import { DarkModeContext } from "../DarkModeContext"; // Access dark mode context
 
 const About = () => {
+    //Use this to apply dark mode.
+    const { darkMode } = useContext(DarkModeContext);
 
     const [selectedMember, setSelectedMember] = useState(null);
 

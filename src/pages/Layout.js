@@ -14,6 +14,10 @@ export default function Layout() {
   const [showScrollButton, setShowScrollButton] = useState(false);
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext); // Access context
 
+  darkMode
+    ? (document.querySelector("body").style.backgroundColor = "#111827")
+    : (document.querySelector("body").style.backgroundColor = "#e7edf0");
+
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
   };
@@ -45,14 +49,18 @@ export default function Layout() {
     <div className="w-full">
       {" "}
       {/* Container for the navigation and main content */}
-      <nav className="flex bg-navbarBg w-full">
+      <nav
+        className={`flex w-full ${
+          darkMode ? "bg-[#1F2937]" : "bg-navbarBg"
+        } transition-colors duration-300`}
+      >
         <h2 className="font-nunito text-titleClr text-2xl lg:text-4xl font-bold pl-6 lg:pl-32 w-full pt-6 pb-3">
           <Link to="/" className="" onClick={() => handleTabClick("/")}>
             Woodland Conservation
           </Link>
         </h2>
         {/* MOBILE MENU SECTION */}
-        <section className="MOBILE-MENU flex lg:hidden flex justify-center">
+        <section className="MOBILE-MENU  flex lg:hidden flex justify-center">
           {/* Mobile menu visible only on small screens */}
           <div
             className="HAMBURGER-ICON space-y-2 pt-7 px-5 " // Hamburger menu icon styling
@@ -64,7 +72,7 @@ export default function Layout() {
             <span className="block h-0.5 w-8 bg-white"></span>
           </div>
           {/* Conditional rendering: Show/hide the mobile menu based on `isNavOpen` */}
-          <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
+          <div className={isNavOpen ? `${darkMode ? "bg-[#1F2937]" : "bg-[#0A3981]"} showMenuNav` : "hideMenuNav"}>
             <div
               className="CROSS-ICON absolute top-0 right-0 px-4 py-4"
               onClick={() => setIsNavOpen(false)} // Close the menu when the cross (X) icon is clicked
@@ -89,7 +97,7 @@ export default function Layout() {
                 <Link
                   to="/about"
                   className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                    activeTab === "/about" ? "highlight font-bold" : ""
+                    activeTab === "/about" ? `${darkMode ? "highlight-dark font-bold" : "highlight font-bold" }` : ""
                   }`}
                   onClick={() => handleTabClick("/about")}
                 >
@@ -100,7 +108,7 @@ export default function Layout() {
                 <Link
                   to="/ecosystem"
                   className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                    activeTab === "/ecosystem" ? "highlight font-bold" : ""
+                    activeTab === "/ecosystem" ? `${darkMode ? "highlight-dark font-bold" : "highlight font-bold" }` : ""
                   }`}
                   onClick={() => handleTabClick("/ecosystem")}
                 >
@@ -111,7 +119,7 @@ export default function Layout() {
                 <Link
                   to="/gallery"
                   className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                    activeTab === "/gallery" ? "highlight font-bold" : ""
+                    activeTab === "/gallery" ? `${darkMode ? "highlight-dark font-bold" : "highlight font-bold" }` : ""
                   }`}
                   onClick={() => handleTabClick("/gallery")}
                 >
@@ -122,7 +130,7 @@ export default function Layout() {
                 <Link
                   to="/sitemap"
                   className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                    activeTab === "/sitemap" ? "highlight font-bold" : ""
+                    activeTab === "/sitemap" ? `${darkMode ? "highlight-dark font-bold" : "highlight font-bold" }` : ""
                   }`}
                   onClick={() => handleTabClick("/sitemap")}
                 >
@@ -133,7 +141,7 @@ export default function Layout() {
                 <Link
                   to="/contact"
                   className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                    activeTab === "/contact" ? "highlight font-bold" : ""
+                    activeTab === "/contact" ? `${darkMode ? "highlight-dark font-bold" : "highlight font-bold" }` : ""
                   }`}
                   onClick={() => handleTabClick("/contact")}
                 >
@@ -152,7 +160,7 @@ export default function Layout() {
             <Link
               to="/about"
               className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                activeTab === "/about" ? "highlight font-bold" : ""
+                activeTab === "/about" ? `${darkMode ? "highlight-dark font-bold" : "highlight font-bold" }` : ""
               }`}
               onClick={() => handleTabClick("/about")}
             >
@@ -163,7 +171,7 @@ export default function Layout() {
             <Link
               to="/ecosystem"
               className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                activeTab === "/ecosystem" ? "highlight font-bold" : ""
+                activeTab === "/ecosystem" ? `${darkMode ? "highlight-dark font-bold" : "highlight font-bold" }` : ""
               }`}
               onClick={() => handleTabClick("/ecosystem")}
             >
@@ -174,7 +182,7 @@ export default function Layout() {
             <Link
               to="/gallery"
               className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                activeTab === "/gallery" ? "highlight font-bold" : ""
+                activeTab === "/gallery" ? `${darkMode ? "highlight-dark font-bold" : "highlight font-bold" }` : ""
               }`}
               onClick={() => handleTabClick("/gallery")}
             >
@@ -185,7 +193,7 @@ export default function Layout() {
             <Link
               to="/sitemap"
               className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                activeTab === "/sitemap" ? "highlight font-bold" : ""
+                activeTab === "/sitemap" ? `${darkMode ? "highlight-dark font-bold" : "highlight font-bold" }` : ""
               }`}
               onClick={() => handleTabClick("/sitemap")}
             >
@@ -196,7 +204,7 @@ export default function Layout() {
             <Link
               to="/contact"
               className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                activeTab === "/contact" ? "highlight font-bold" : ""
+                activeTab === "/contact" ? `${darkMode ? "highlight-dark font-bold" : "highlight font-bold" }` : ""
               }`}
               onClick={() => handleTabClick("/contact")}
             >
@@ -213,7 +221,7 @@ export default function Layout() {
       {showScrollButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-14 lg:bottom-20 right-3 lg:right-4 z-[70] bg-gray-600 text-white text-2xl lg:text-3xl px-2 lg:px-3 py-2 lg:py-3 rounded-full opacity-70 hover:opacity-100 transition-opacity duration-300"
+          className="fixed bottom-14 lg:bottom-20 right-3 lg:right-4 z-[70] bg-gray-600 text-white text-3xl px-2 lg:px-3 py-2 lg:py-3 rounded-full opacity-70 hover:opacity-100 transition-opacity duration-300"
           style={{ boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)" }}
         >
           <FaArrowUpLong />
@@ -221,13 +229,13 @@ export default function Layout() {
       )}
       <button
         onClick={toggleDarkMode}
-        className={`fixed shadow-md bottom-3 lg:bottom-4 right-3 lg:right-4 z-[70] text-yellow-400  text-2xl lg:text-3xl px-2 lg:px-3 py-2 lg:py-3 rounded-full  ${
+        className={`fixed shadow-md bottom-3 lg:bottom-4 right-3 lg:right-4 z-[70] text-yellow-400 text-3xl px-2 lg:px-3 py-2 lg:py-3 rounded-full  ${
           darkMode
-            ? "bg-gray-800 hover:bg-gray-700"
-            : "bg-white hover:bg-gray-100"
+            ? "bg-white hover:bg-gray-100"
+            : "bg-gray-800 hover:bg-gray-700"
         }     transition-bg duration-300`}
       >
-        {darkMode ? <MdDarkMode /> : <MdLightMode />}
+        {darkMode ? <MdLightMode /> : <MdDarkMode />}
       </button>
     </div>
   );

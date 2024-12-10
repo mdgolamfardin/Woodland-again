@@ -1,11 +1,13 @@
 // Import the Subcomponent component from the specified folder
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import FloraFaunaFungi from "./subcomponents/FloraFaunaFungi";
 import { FaVolumeUp } from "react-icons/fa";
+import { DarkModeContext } from "../DarkModeContext"; // Access dark mode context
+
 // Define the Ecosystem component as a functional component
 const Ecosystem = () => {
   // State for dark mode
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode } = useContext(DarkModeContext);
 
   // Text-to-Speech function
   const speak = (text) => {
@@ -19,10 +21,9 @@ const Ecosystem = () => {
   return (
     <div
       className={`min-h-screen transition-colors duration-300 px-2 md:px-10 lg:px-20 2xl:28 ${
-        darkMode ? "bg-gray-900 text-gray-100" : "bg-transparent text-gray-900"
+        darkMode ? "text-gray-200" : "text-gray-900"
       }`}
     >
-    
       {/* Main Title Section */}
       <div className="text-center py-8">
         <h1
@@ -34,7 +35,7 @@ const Ecosystem = () => {
         </h1>
         <h2
           className={`text-xl lg:text-2xl mb-5  font-bold  no-shadow ${
-            darkMode ? "text-white" : "text-gray-600"
+            darkMode ? "text-gray-400" : "text-gray-600"
           }`}
         >
           A Living Testament to Nature and History
@@ -60,7 +61,11 @@ const Ecosystem = () => {
                 "Saint Bay Area Woodland Conservation Site is a notable example of community-led environmental preservation in action. Nestled within the larger Bay Area, this site encompasses a significant expanse of native woodland, offering a critical habitat for local flora and fauna. The conservation efforts focus on protecting the indigenous plant species and wildlife, while also maintaining the natural landscapes that are vital for ecological balance."
               )
             }
-            className="bg-white text-blue-900 text-2xl p-2 rounded-full hover:bg-gray-300 mb-8"
+            className={`text-2xl p-2 rounded-full mb-8 ${
+              darkMode
+                ? "bg-gray-700 text-white hover:bg-gray-600"
+                : "bg-white text-blue-900 hover:bg-gray-200"
+            }`}
           >
             <FaVolumeUp />
           </button>
@@ -83,7 +88,11 @@ const Ecosystem = () => {
                 "Saint Bay Area Woodland Conservation Site is a notable example of community-led environmental preservation in action. Nestled within the larger Bay Area, this site encompasses a significant expanse of native woodland, offering a critical habitat for local flora and fauna. The conservation efforts focus on protecting the indigenous plant species and wildlife, while also maintaining the natural landscapes that are vital for ecological balance."
               )
             }
-            className="bg-white text-blue-900 text-2xl p-2 rounded-full hover:bg-gray-300 mb-8"
+            className={`text-2xl p-2 rounded-full mb-8 ${
+              darkMode
+                ? "bg-gray-700 text-white hover:bg-gray-600"
+                : "bg-white text-blue-900 hover:bg-gray-200"
+            }`}
           >
             <FaVolumeUp />
           </button>
@@ -123,7 +132,11 @@ const Ecosystem = () => {
                 "Saint Bay Area Woodland Conservation Site is a notable example of community-led environmental preservation in action. Nestled within the larger Bay Area, this site encompasses a significant expanse of native woodland, offering a critical habitat for local flora and fauna. The conservation efforts focus on protecting the indigenous plant species and wildlife, while also maintaining the natural landscapes that are vital for ecological balance."
               )
             }
-            className="bg-white text-blue-900 text-2xl p-2 rounded-full hover:bg-gray-300 mb-8"
+            className={`text-2xl p-2 rounded-full mb-8 ${
+              darkMode
+                ? "bg-gray-700 text-white hover:bg-gray-600"
+                : "bg-white text-blue-900 hover:bg-gray-200"
+            }`}
           >
             <FaVolumeUp />
           </button>
@@ -142,7 +155,11 @@ const Ecosystem = () => {
                 "Saint Bay Area Woodland Conservation Site is a notable example of community-led environmental preservation in action. Nestled within the larger Bay Area, this site encompasses a significant expanse of native woodland, offering a critical habitat for local flora and fauna. The conservation efforts focus on protecting the indigenous plant species and wildlife, while also maintaining the natural landscapes that are vital for ecological balance."
               )
             }
-            className="bg-white text-blue-900 text-2xl p-2 rounded-full hover:bg-gray-300 mb-8"
+            className={`text-2xl p-2 rounded-full mb-8 ${
+              darkMode
+                ? "bg-gray-700 text-white hover:bg-gray-600"
+                : "bg-white text-blue-900 hover:bg-gray-200"
+            }`}
           >
             <FaVolumeUp />
           </button>
@@ -155,17 +172,25 @@ const Ecosystem = () => {
             darkMode ? "border-gray-100" : "border-gray-400"
           } mb-6`}
         />
-        <h1 className="mb-10 break-normal text-4xl lg:text-5xl font-semibold text-headingClr mt-8 mb-10">
+        <h1
+          className={`text-4xl lg:text-5xl  font-bold  mb-10 pt-10 no-shadow ${
+            darkMode ? "text-white" : "text-[#103c84]"
+          }`}
+        >
           Species
         </h1>
         <h2
           className={`text-xl lg:text-2xl font-bold pb-10 no-shadow ${
-            darkMode ? "text-white" : "text-gray-600"
+            darkMode ? "text-gray-400" : "text-gray-600"
           }`}
         >
           Some of the species thriving at the Woodland Conservation Site.
         </h2>
-        <p className="relative left-5 text-left text-gray-400">
+        <p
+          className={`relative left-5 text-left ${
+            darkMode ? "text-gray-600" : "text-gray-400"
+          }`}
+        >
           *Pictures not taken at Woodland Conservation Site
         </p>
         <div className="w-full">
@@ -173,7 +198,6 @@ const Ecosystem = () => {
         </div>
       </div>
       {/* Footer Section */}
-
     </div>
   );
 };
