@@ -1,19 +1,50 @@
 // Import necessary components from "react-router-dom"
 import { Outlet, Link, useLocation } from "react-router-dom";
 // Import the `useState` hook from React to manage component state
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import { FaArrowUpLong } from "react-icons/fa6";
+import { DarkModeContext } from "../DarkModeContext";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 export default function Layout() {
-  // Define a state variable `isNavOpen` to track whether the mobile menu is open
-  // `setIsNavOpen` is used to update the value of `isNavOpen`
+  // Other state variables and functions remain the same
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const location = useLocation(); // Get the current URL path
-  const [activeTab, setActiveTab] = useState(location.pathname); // Default active tab
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState(location.pathname);
+  const [showScrollButton, setShowScrollButton] = useState(false);
+  const [showModeButton, setShowModeButton] = useState(true);
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext); // Access context
+
 
   const handleTabClick = (tabName) => {
-    setActiveTab(tabName); // Update the active tab
+    setActiveTab(tabName);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+
+
+  // Show/hide control buttons based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 580) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+
+      if (window.scrollY > 300) {
+        setShowModeButton(false);
+      } else {
+        setShowModeButton(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <div className="w-full">
       {" "}
@@ -182,6 +213,29 @@ export default function Layout() {
       <div className="">
         <Outlet /> {/* Placeholder for the child route components */}
       </div>
+      {/* Scroll-to-Top Button */}
+      {showScrollButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-2 lg:bottom-4 right-2 lg:right-4 z-[70] bg-gray-600 text-white text-xl lg:text-2xl px-2 py-2 rounded-md opacity-70 hover:opacity-100 transition-opacity duration-300"
+          style={{ boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)" }}
+        >
+          <FaArrowUpLong />
+        </button>
+      )}
+      {showModeButton && (
+        <button
+          onClick={toggleDarkMode}
+          className={`fixed shadow-md bottom-3 lg:bottom-4 right-3 lg:right-4 z-[70] text-yellow-400  text-2xl lg:text-3xl px-2 lg:px-3 py-2 lg:py-3 rounded-full  ${
+            darkMode
+              ? "bg-gray-800 hover:bg-gray-700"
+              : "bg-white hover:bg-gray-100"
+          }     transition-bg duration-300`}
+          
+        >
+          {darkMode ? <MdDarkMode /> : <MdLightMode />}
+        </button>
+      )}
     </div>
   );
 }

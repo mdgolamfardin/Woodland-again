@@ -1,7 +1,7 @@
 // Import the Subcomponent component from the specified folder
 import React, { useState } from "react";
 import FloraFaunaFungi from "./subcomponents/FloraFaunaFungi";
-import { FaVolumeUp } from 'react-icons/fa';
+import { FaVolumeUp } from "react-icons/fa";
 // Define the Ecosystem component as a functional component
 const Ecosystem = () => {
   // State for dark mode
@@ -35,12 +35,12 @@ const Ecosystem = () => {
       {/* Dark Mode Button */}
       <div className="fixed w-full flex justify-end p-4">
         <button
-        onClick={toggleDarkMode}
-        className="bg-blue-600 px-4 py-2 rounded bg-blue-500 transition text-white"
+          onClick={toggleDarkMode}
+          className="bg-blue-600 px-4 py-2 rounded bg-blue-500 transition text-white"
         >
-        {darkMode ? "Light Mode" : "Dark Mode"}
+          {darkMode ? "Light Mode" : "Dark Mode"}
         </button>
-        </div>
+      </div>
       {/* Main Title Section */}
       <div className="text-center py-8">
         <h1
@@ -48,7 +48,7 @@ const Ecosystem = () => {
             darkMode ? "text-white" : "text-[#103c84]"
           }`}
         >
-          EcoSystem
+          Ecosystem
         </h1>
         <h2
           className={`text-xl lg:text-2xl mb-5  font-bold  no-shadow ${
@@ -78,9 +78,9 @@ const Ecosystem = () => {
                 "Saint Bay Area Woodland Conservation Site is a notable example of community-led environmental preservation in action. Nestled within the larger Bay Area, this site encompasses a significant expanse of native woodland, offering a critical habitat for local flora and fauna. The conservation efforts focus on protecting the indigenous plant species and wildlife, while also maintaining the natural landscapes that are vital for ecological balance."
               )
             }
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mb-4"
+            className="bg-white text-blue-900 text-2xl p-2 rounded-full hover:bg-gray-300 mb-8"
           >
-            Speak
+            <FaVolumeUp />
           </button>
 
           <p className="text-lg mb-4" style={{ fontSize: "20px" }}>
@@ -98,12 +98,12 @@ const Ecosystem = () => {
           <button
             onClick={() =>
               speak(
-                "The site serves multiple purposes: it acts as a research area for scientists studying ecological restoration and conservation techniques, an educational resource for schools and community groups, and a recreational space for the public who can explore its trails and learn about local biodiversity. Volunteers play a key role in the ongoing maintenance and protection of the area, participating in regular clean-up days, planting native species, and monitoring wildlife activity."
+                "Saint Bay Area Woodland Conservation Site is a notable example of community-led environmental preservation in action. Nestled within the larger Bay Area, this site encompasses a significant expanse of native woodland, offering a critical habitat for local flora and fauna. The conservation efforts focus on protecting the indigenous plant species and wildlife, while also maintaining the natural landscapes that are vital for ecological balance."
               )
             }
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className="bg-white text-blue-900 text-2xl p-2 rounded-full hover:bg-gray-300 mb-8"
           >
-            Speak
+            <FaVolumeUp />
           </button>
 
           <div className="relative">
@@ -138,12 +138,12 @@ const Ecosystem = () => {
           <button
             onClick={() =>
               speak(
-                "Conservation projects at the site often involve removing invasive plant species that threaten the native vegetation, restoring streams and wetlands that are crucial for the local water cycle, and creating barriers to prevent human encroachment into sensitive areas. Educational programs designed to engage the community focus on the importance of sustainable practices and the role each individual can play in preserving their local environment."
+                "Saint Bay Area Woodland Conservation Site is a notable example of community-led environmental preservation in action. Nestled within the larger Bay Area, this site encompasses a significant expanse of native woodland, offering a critical habitat for local flora and fauna. The conservation efforts focus on protecting the indigenous plant species and wildlife, while also maintaining the natural landscapes that are vital for ecological balance."
               )
             }
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className="bg-white text-blue-900 text-2xl p-2 rounded-full hover:bg-gray-300 mb-8"
           >
-            Speak
+            <FaVolumeUp />
           </button>
 
           <p className="text-lg mb-4" style={{ fontSize: "20px" }}>
@@ -157,12 +157,12 @@ const Ecosystem = () => {
           <button
             onClick={() =>
               speak(
-                "The Saint Bay Area Woodland Conservation Site exemplifies how dedicated stewardship and community involvement can effectively preserve and enhance vital natural resources for future generations, fostering a deep connection between people and the natural world around them."
+                "Saint Bay Area Woodland Conservation Site is a notable example of community-led environmental preservation in action. Nestled within the larger Bay Area, this site encompasses a significant expanse of native woodland, offering a critical habitat for local flora and fauna. The conservation efforts focus on protecting the indigenous plant species and wildlife, while also maintaining the natural landscapes that are vital for ecological balance."
               )
             }
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className="bg-white text-blue-900 text-2xl p-2 rounded-full hover:bg-gray-300 mb-8"
           >
-            Speak
+            <FaVolumeUp />
           </button>
         </div>
       </div>
@@ -183,7 +183,9 @@ const Ecosystem = () => {
         >
           Some of the species thriving at the Woodland Conservation Site.
         </h2>
-        <p className="relative left-5 text-left text-gray-400">*Pictures not taken at Woodland Conservation Site</p>
+        <p className="relative left-5 text-left text-gray-400">
+          *Pictures not taken at Woodland Conservation Site
+        </p>
         <div className="w-full">
           <FloraFaunaFungi />
         </div>
