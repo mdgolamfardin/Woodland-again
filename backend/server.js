@@ -1,6 +1,8 @@
 // Author: Md Golam Fardin, Rwanyange Kelly Prince, Tenisha Bajagain
 // Purpose: Express server to handle file uploads, form submissions, and serve static files for the Woodland Conservation Site
 
+// New image uploads for the moment, will be stored in temp uploads direcotry and will not be shown on the website.
+
 const express = require("express");
 const cors = require("cors");
 const ExcelJS = require("exceljs");
