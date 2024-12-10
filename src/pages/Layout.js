@@ -12,9 +12,7 @@ export default function Layout() {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState(location.pathname);
   const [showScrollButton, setShowScrollButton] = useState(false);
-  const [showModeButton, setShowModeButton] = useState(true);
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext); // Access context
-
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
@@ -23,8 +21,6 @@ export default function Layout() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
-
 
   // Show/hide control buttons based on scroll position
   useEffect(() => {
@@ -35,11 +31,11 @@ export default function Layout() {
         setShowScrollButton(false);
       }
 
-      if (window.scrollY > 300) {
-        setShowModeButton(false);
-      } else {
-        setShowModeButton(true);
-      }
+      // if (window.scrollY > 300) {
+      //   setShowModeButton(false);
+      // } else {
+      //   setShowModeButton(true);
+      // }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -102,17 +98,6 @@ export default function Layout() {
               </li>
               <li>
                 <Link
-                  to="/gallery"
-                  className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                    activeTab === "/gallery" ? "highlight font-bold" : ""
-                  }`}
-                  onClick={() => handleTabClick("/gallery")}
-                >
-                  Gallery
-                </Link>
-              </li>
-              <li>
-                <Link
                   to="/ecosystem"
                   className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
                     activeTab === "/ecosystem" ? "highlight font-bold" : ""
@@ -120,6 +105,17 @@ export default function Layout() {
                   onClick={() => handleTabClick("/ecosystem")}
                 >
                   Ecosystem
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/gallery"
+                  className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
+                    activeTab === "/gallery" ? "highlight font-bold" : ""
+                  }`}
+                  onClick={() => handleTabClick("/gallery")}
+                >
+                  Gallery
                 </Link>
               </li>
               <li>
@@ -165,17 +161,6 @@ export default function Layout() {
           </li>
           <li>
             <Link
-              to="/gallery"
-              className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
-                activeTab === "/gallery" ? "highlight font-bold" : ""
-              }`}
-              onClick={() => handleTabClick("/gallery")}
-            >
-              Gallery
-            </Link>
-          </li>
-          <li>
-            <Link
               to="/ecosystem"
               className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
                 activeTab === "/ecosystem" ? "highlight font-bold" : ""
@@ -183,6 +168,17 @@ export default function Layout() {
               onClick={() => handleTabClick("/ecosystem")}
             >
               Ecosystem
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/gallery"
+              className={`pb-1 text-white text-xl hover:text-gray-300 transition-colors duration-200 ${
+                activeTab === "/gallery" ? "highlight font-bold" : ""
+              }`}
+              onClick={() => handleTabClick("/gallery")}
+            >
+              Gallery
             </Link>
           </li>
           <li>
@@ -217,25 +213,22 @@ export default function Layout() {
       {showScrollButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-2 lg:bottom-4 right-2 lg:right-4 z-[70] bg-gray-600 text-white text-xl lg:text-2xl px-2 py-2 rounded-md opacity-70 hover:opacity-100 transition-opacity duration-300"
+          className="fixed bottom-14 lg:bottom-20 right-3 lg:right-4 z-[70] bg-gray-600 text-white text-2xl lg:text-3xl px-2 lg:px-3 py-2 lg:py-3 rounded-full opacity-70 hover:opacity-100 transition-opacity duration-300"
           style={{ boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)" }}
         >
           <FaArrowUpLong />
         </button>
       )}
-      {showModeButton && (
-        <button
-          onClick={toggleDarkMode}
-          className={`fixed shadow-md bottom-3 lg:bottom-4 right-3 lg:right-4 z-[70] text-yellow-400  text-2xl lg:text-3xl px-2 lg:px-3 py-2 lg:py-3 rounded-full  ${
-            darkMode
-              ? "bg-gray-800 hover:bg-gray-700"
-              : "bg-white hover:bg-gray-100"
-          }     transition-bg duration-300`}
-          
-        >
-          {darkMode ? <MdDarkMode /> : <MdLightMode />}
-        </button>
-      )}
+      <button
+        onClick={toggleDarkMode}
+        className={`fixed shadow-md bottom-3 lg:bottom-4 right-3 lg:right-4 z-[70] text-yellow-400  text-2xl lg:text-3xl px-2 lg:px-3 py-2 lg:py-3 rounded-full  ${
+          darkMode
+            ? "bg-gray-800 hover:bg-gray-700"
+            : "bg-white hover:bg-gray-100"
+        }     transition-bg duration-300`}
+      >
+        {darkMode ? <MdDarkMode /> : <MdLightMode />}
+      </button>
     </div>
   );
 }

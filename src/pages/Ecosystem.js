@@ -7,16 +7,6 @@ const Ecosystem = () => {
   // State for dark mode
   const [darkMode, setDarkMode] = useState(false);
 
-  // Function to scroll to the top of the page
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  // Function to toggle dark mode
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-
   // Text-to-Speech function
   const speak = (text) => {
     const speech = new SpeechSynthesisUtterance(text);
@@ -32,15 +22,7 @@ const Ecosystem = () => {
         darkMode ? "bg-gray-900 text-gray-100" : "bg-transparent text-gray-900"
       }`}
     >
-      {/* Dark Mode Button */}
-      <div className="fixed w-full flex justify-end p-4">
-        <button
-          onClick={toggleDarkMode}
-          className="bg-blue-600 px-4 py-2 rounded bg-blue-500 transition text-white"
-        >
-          {darkMode ? "Light Mode" : "Dark Mode"}
-        </button>
-      </div>
+    
       {/* Main Title Section */}
       <div className="text-center py-8">
         <h1
@@ -173,7 +155,7 @@ const Ecosystem = () => {
             darkMode ? "border-gray-100" : "border-gray-400"
           } mb-6`}
         />
-        <h1 className="mb-10 break-normal text-4xl lg:text-5xl font-semibold text-headingClr mt-8 mb-4">
+        <h1 className="mb-10 break-normal text-4xl lg:text-5xl font-semibold text-headingClr mt-8 mb-10">
           Species
         </h1>
         <h2
@@ -191,19 +173,7 @@ const Ecosystem = () => {
         </div>
       </div>
       {/* Footer Section */}
-      <footer className="relative text-center">
-        {/* Scroll to Top Button */}
-        <button
-          onClick={scrollToTop}
-          className={`fixed bottom-4 right-4 bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition text-white${
-            darkMode
-              ? "bg-gray-100 text-gray-900 hover:bg-gray-200"
-              : "bg-gray-900 text-gray-100 hover:bg-gray-800"
-          }`}
-        >
-          ↑ Go to Top
-        </button>
-      </footer>
+
     </div>
   );
 };
