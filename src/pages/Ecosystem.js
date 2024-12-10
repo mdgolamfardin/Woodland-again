@@ -27,7 +27,7 @@ const Ecosystem = () => {
       {/* Main Title Section */}
       <div className="text-center py-8">
         <h1
-          className={`text-4xl lg:text-5xl  font-bold  mb-10 no-shadow ${
+          className={`text-4xl lg:text-5xl  font-bold pt-6  mb-10 no-shadow ${
             darkMode ? "text-white" : "text-[#103c84]"
           }`}
         >
@@ -85,7 +85,7 @@ const Ecosystem = () => {
           <button
             onClick={() =>
               speak(
-                "Saint Bay Area Woodland Conservation Site is a notable example of community-led environmental preservation in action. Nestled within the larger Bay Area, this site encompasses a significant expanse of native woodland, offering a critical habitat for local flora and fauna. The conservation efforts focus on protecting the indigenous plant species and wildlife, while also maintaining the natural landscapes that are vital for ecological balance."
+                "The site serves multiple purposes: it acts as a research area for scientists studying ecological restoration and conservation techniques, an educational resource for schools and community groups, and a recreational space for the public who can explore its trails and learn about local biodiversity. Volunteers play a key role in the ongoing maintenance and protection of the area, participating in regular clean-up days, planting native species, and monitoring wildlife activity."
               )
             }
             className={`text-2xl p-2 rounded-full mb-8 ${
@@ -129,7 +129,7 @@ const Ecosystem = () => {
           <button
             onClick={() =>
               speak(
-                "Saint Bay Area Woodland Conservation Site is a notable example of community-led environmental preservation in action. Nestled within the larger Bay Area, this site encompasses a significant expanse of native woodland, offering a critical habitat for local flora and fauna. The conservation efforts focus on protecting the indigenous plant species and wildlife, while also maintaining the natural landscapes that are vital for ecological balance."
+                "Conservation projects at the site often involve removing invasive plant species that threaten the native vegetation, restoring streams and wetlands that are crucial for the local water cycle, and creating barriers to prevent human encroachment into sensitive areas. Educational programs designed to engage the community focus on the importance of sustainable practices and the role each individual can play in preserving their local environment."
               )
             }
             className={`text-2xl p-2 rounded-full mb-8 ${
@@ -152,7 +152,7 @@ const Ecosystem = () => {
           <button
             onClick={() =>
               speak(
-                "Saint Bay Area Woodland Conservation Site is a notable example of community-led environmental preservation in action. Nestled within the larger Bay Area, this site encompasses a significant expanse of native woodland, offering a critical habitat for local flora and fauna. The conservation efforts focus on protecting the indigenous plant species and wildlife, while also maintaining the natural landscapes that are vital for ecological balance."
+                "The Saint Bay Area Woodland Conservation Site exemplifies how dedicated stewardship and community involvement can effectively preserve and enhance vital natural resources for future generations, fostering a deep connection between people and the natural world around them."
               )
             }
             className={`text-2xl p-2 rounded-full mb-8 ${

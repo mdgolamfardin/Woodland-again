@@ -9,7 +9,9 @@ import axios from "axios";
  * Displays images in a grid with uniform size, and shows the full image on click.
  *
  * @returns {JSX.Element} The rendered component.
+ * @author Md Golam Fardin
  */
+
 const Images = () => {
   const [images, setImages] = useState([]); // State to store image URLs
   const [error, setError] = useState(null); // State to handle errors

@@ -1,27 +1,41 @@
+/**
+ * ImageCard Component
+ * 
+ * This component displays an image card that, when clicked, opens a modal to display a larger version
+ * of the image along with the title, description, and an audio player. The modal can be closed by clicking
+ * anywhere outside of it or using the close button. The component also includes a smooth transition animation
+ * for both opening and closing the modal.
+ * 
+ * Author: Md Golam Fardin
+ */
+
 import React, { useState, useEffect } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 
 function ImageCard(props) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for controlling the modal visibility
 
+  // Handles the image click event to open the modal
   const handleImageClick = () => {
     setIsModalOpen(true);
   };
 
+  // Handles the closing of the modal
   const handleCloseModal = () => {
-    console.log(props.url);
-    setIsModalOpen(false);
+    console.log(props.url); // Log the image URL to the console (for debugging)
+    setIsModalOpen(false); // Close the modal
   };
 
+  // Handles disabling the page scroll when the modal is open
   useEffect(() => {
     if (isModalOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden"; // Prevent page scroll when modal is open
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "auto"; // Restore page scroll when modal is closed
     }
 
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "auto"; // Clean up on component unmount
     };
   }, [isModalOpen]);
 
@@ -29,7 +43,7 @@ function ImageCard(props) {
     <div className="relative flex-row space-y-4 bg-white rounded-xl my-2">
       {/* Main Image Container */}
       <div
-        className="custom-scale relative group h-52 overflow-hidden rounded-xl transition-transform duration-300 hover:cursor-pointer"
+        className="custom-scale relative group h-52 overflow-hidden rounded-xl transition-transform duration-300 hover:cursor-pointer hover:shadow-md"
         onClick={handleImageClick}
       >
         <img
@@ -52,9 +66,9 @@ function ImageCard(props) {
         >
           <div
             className="bg-bgClr w-[95%] h-[98%] lg:w-[1100px] lg:h-[700px] rounded-2xl flex flex-col lg:flex-row items-stretch shadow-2xl transition-all duration-300"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()} // Prevent closing the modal when clicking inside it
           >
-            {/* Left Black Section */}
+            {/* Left Black Section (Large Image) */}
             <div className="relative bg-black basis-4/5 lg:basis-2/3 rounded-2xl border-[1px] border-gray-300 flex items-center justify-center overflow-hidden">
               <button
                 onClick={handleCloseModal}
@@ -62,7 +76,6 @@ function ImageCard(props) {
               >
                 <IoIosCloseCircle />
               </button>
-              {/* Use object-contain to ensure full image is visible */}
               <img
                 className="big-img object-contain w-full h-full"
                 src={props.url}
@@ -70,8 +83,9 @@ function ImageCard(props) {
               />
             </div>
 
+            {/* Right Section (Title, Description, Audio) */}
             <div className="bg-bgClr relative lg:basis-1/3 h-full rounded-b-2xl lg:rounded-r-2xl p-6 flex flex-col justify-start lg:justify-between overflow-y-auto">
-              {/* Top Right "X" Button */}
+              {/* Close Button in Desktop View */}
               <div className="hidden lg:flex justify-end">
                 <button
                   onClick={handleCloseModal}
@@ -88,13 +102,14 @@ function ImageCard(props) {
                 </button>
               </div>
 
+              {/* Mobile Title */}
               <div className="lg:hidden bg-bgClr max-h-[8%] py-2 flex justify-center items-center text-center">
                 <h2 className="text-2xl font-bold text-gray-800 tracking-wide">
                   {props.title}
                 </h2>
               </div>
 
-              {/* Centered Title and Description */}
+              {/* Title and Description */}
               <div className="bg-white my-5 rounded-xl py-8 px-6 flex flex-col items-center text-center shadow-md">
                 <h2 className="hidden lg:flex text-3xl font-bold text-gray-800 tracking-wide">
                   {props.title}
@@ -104,8 +119,8 @@ function ImageCard(props) {
                 </p>
               </div>
 
-              {/* Bottom Audio Player */}
-              <div className=" fixed lg:relative bottom-4 lg:bottom-1 w-full left-0 px-4 lg:px-0">
+              {/* Audio Player */}
+              <div className="fixed lg:relative bottom-4 lg:bottom-1 w-full left-0 px-4 lg:px-0">
                 <audio
                   src={props.aud}
                   className="w-full rounded-full bg-gray-200 shadow-md"

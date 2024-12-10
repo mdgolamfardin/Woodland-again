@@ -1,3 +1,6 @@
+// Author: Md Golam Fardin, Rwanyange Kelly Prince, Tenisha Bajagain
+// Purpose: Express server to handle file uploads, form submissions, and serve static files for the Woodland Conservation Site
+
 const express = require("express");
 const cors = require("cors");
 const ExcelJS = require("exceljs");
@@ -9,41 +12,46 @@ const bodyParser = require("body-parser");
 const app = express();
 
 // Enable CORS for your frontend domain
+// The frontend domain (localhost:3022) is allowed to make requests to this server.
 app.use(
   cors({
     origin: "http://localhost:3022", // Adjust this for your production domain
   })
 );
 
-// Serve Static Files
-app.use("/uploads", express.static(path.join(__dirname, "../src/uploads")));
+// Serve Static Files for images (uploads)
+app.use("/uploads", express.static(path.join(__dirname, "../src/uploads"))); // Serve uploaded files
+
+// Serve the built React app
+app.use(express.static(path.join(__dirname, "../build"))); // Serve the React app build
 
 // Middleware to parse JSON and URL-encoded request bodies
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // ----------------------
-// Multer Configuration
+// Multer Configuration for file upload
 // ----------------------
 const uploadPath = path.join(__dirname, "../src/uploads");
 if (!fs.existsSync(uploadPath)) {
-  fs.mkdirSync(uploadPath, { recursive: true }); // Ensure directory exists
+  fs.mkdirSync(uploadPath, { recursive: true }); // Ensure the upload directory exists
 }
 
+// Set up the multer storage configuration for saving uploaded files
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, uploadPath);
+    cb(null, uploadPath); // Specify the directory for file storage
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, `${uniqueSuffix}-${file.originalname}`);
+    cb(null, `${uniqueSuffix}-${file.originalname}`); // Unique file names
   },
 });
 
 const upload = multer({ storage });
 
 // ----------------------
-// POST: File Upload
+// POST: File Upload Route
 // ----------------------
 app.post("/upload", upload.single("file"), (req, res) => {
   console.log("Handling file upload...");
@@ -59,7 +67,7 @@ app.post("/upload", upload.single("file"), (req, res) => {
 
     console.log("File uploaded successfully:", file.originalname);
 
-    // Prepare upload metadata
+    // Prepare metadata for the uploaded file
     const uploadData = {
       filePath: file.path,
       fileName: file.originalname,
@@ -95,6 +103,9 @@ app.post("/upload", upload.single("file"), (req, res) => {
   }
 });
 
+// ----------------------
+// POST: Form Submission Route
+// ----------------------
 app.post("/formSubmit", async (req, res) => {
   const filePath = path.join(__dirname, "../src/data/messages.xlsx");
   console.log("Excel File Path:", filePath);
@@ -155,6 +166,9 @@ app.post("/formSubmit", async (req, res) => {
   }
 });
 
+// ----------------------
+// GET: Fetch Image Metadata
+// ----------------------
 app.get("/images", (req, res) => {
   const imgJsonPath = path.join(__dirname, "../src/uploads/uploads.json");
 
@@ -181,6 +195,12 @@ app.get("/images", (req, res) => {
       res.status(500).json({ error: "Failed to parse image metadata." });
     }
   });
+});
+
+// For any route that doesn't match, serve the React app
+// This handles navigation within the React app when accessing any unmatched route
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build", "index.html"));
 });
 
 // Start the server

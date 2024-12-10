@@ -1,3 +1,13 @@
+/**
+ * React Routing Configuration
+ * 
+ * This component sets up all the routing for the application using `react-router-dom`.
+ * It defines the main routes of the app, including sub-routes for different pages.
+ * 
+ * @fileoverview This file handles the setup of routes using React Router.
+ * @author Md Golam Fardin
+ */
+
 // Import necessary modules and components from the "react-router-dom" library
 // `BrowserRouter` provides the routing context for the application
 // `Routes` is a container for all the route definitions
@@ -24,9 +34,10 @@ export default function MyPages() {
         {/* Main route for the application, with `Layout` as the parent component */}
         <Route path="/" element={<Layout />}>
           {/* Sub-route for the homepage (`index` represents the default path `/`) */}
-          <Route index element ={<Home />} />
-          {/* Route for the `/gallery` path, displaying the `Gallery` component */}
+          <Route index element={<Home />} />
+          {/* Route for the `/about` path, displaying the `About` component */}
           <Route path="about" element={<About />} />
+          {/* Route for the `/gallery` path, displaying the `Gallery` component */}
           <Route path="gallery" element={<Gallery />} />
           {/* Route for the `/ecosystem` path, displaying the `Ecosystem` component */}
           <Route path="ecosystem" element={<Ecosystem />} />

@@ -90,7 +90,7 @@ const Contact = () => {
     >
       {/* Page Title */}
       <h1
-        className={`text-4xl lg:text-5xl text-center font-bold mb-10 pt-8 ${
+        className={`text-4xl lg:text-5xl text-center font-bold mb-10 pt-4 ${
           darkMode ? "text-white shadow-none" : "text-[#103c84]"
         }`}
       >
@@ -122,10 +122,10 @@ const Contact = () => {
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                className={` w-full px-4 py-2 focus:border rounded-lg focus:outline-none  ${
                   darkMode
-                    ? "border-none bg-gray-500 text-white placeholder-gray-400"
-                    : "bg-white text-black"
+                    ? " bg-gray-500 text-white placeholder-gray-400"
+                    : "focus:ring-2 border bg-white text-black"
                 }`}
                 placeholder="First Name"
                 required
@@ -142,10 +142,10 @@ const Contact = () => {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                className={`w-full focus:border px-4 py-2  rounded-lg focus:outline-none  ${
                   darkMode
-                    ? "border-none bg-gray-500 text-white placeholder-gray-400"
-                    : "bg-white text-black"
+                    ? "bg-gray-500 text-white placeholder-gray-400"
+                    : "focus:ring-2 border bg-white text-black"
                 }`}
                 placeholder="Last Name"
                 required
@@ -162,10 +162,10 @@ const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                className={`w-full px-4 focus:border  py-2 rounded-lg focus:outline-none ${
                   darkMode
-                    ? "border-none bg-gray-500 text-white placeholder-gray-400"
-                    : "bg-white text-black"
+                    ? " bg-gray-500 text-white placeholder-gray-400"
+                    : "focus:ring-2 border bg-white text-black"
                 }`}
                 placeholder="someone@gmail.com"
                 required
@@ -179,10 +179,10 @@ const Contact = () => {
                 name="country"
                 value={formData.country}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                className={`w-full focus:border px-4 py-2 rounded-lg focus:outline-none ${
                   darkMode
-                    ? "border-none bg-gray-500 text-white placeholder-gray-400"
-                    : "bg-white text-black"
+                    ? " bg-gray-500 text-white placeholder-gray-400"
+                    : " focus:ring-2 border bg-white text-black"
                 }`}
               >
                 <option value="Canada">Canada</option>
@@ -200,10 +200,10 @@ const Contact = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                className={`w-full px-4 py-2 focus:border rounded-lg focus:outline-none ${
                   darkMode
-                    ? "border-none bg-gray-500 text-white placeholder-gray-400"
-                    : "bg-white text-black"
+                    ? " bg-gray-500 text-white placeholder-gray-400"
+                    : " focus:ring-2 border bg-white text-black"
                 }`}
                 placeholder="(xxx)-xxx-xxxx"
               />
@@ -216,10 +216,10 @@ const Contact = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                className={`w-full px-4 py-2 focus:border rounded-lg focus:outline-none ${
                   darkMode
-                    ? "border-none bg-gray-500 text-white placeholder-gray-400"
-                    : "bg-white text-black"
+                    ? " bg-gray-500 text-white placeholder-gray-400"
+                    : "focus:ring-2 border bg-white text-black"
                 }`}
                 placeholder="Your thoughts..."
                 rows="4"
@@ -234,7 +234,7 @@ const Contact = () => {
                 className={`shadow-sm font-bold mt-2 mb-2 text-lg px-8 py-4 text-white rounded-lg ${
                   darkMode
                     ? "bg-gray-700 hover:bg-gray-600"
-                    : "bg-blue-900 hover:bg-blue-800"
+                    : "border bg-blue-900 hover:bg-blue-800"
                 }`}
               >
                 Send
