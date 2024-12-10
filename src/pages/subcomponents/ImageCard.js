@@ -1,66 +1,56 @@
+/**
+ * ImageCard Component
+ * 
+ * This component displays an image card that, when clicked, opens a modal to display a larger version
+ * of the image along with the title, description, and an audio player. The modal can be closed by clicking
+ * anywhere outside of it or using the close button. The component also includes a smooth transition animation
+ * for both opening and closing the modal.
+ * 
+ * Author: Md Golam Fardin
+ */
+
 import React, { useState, useEffect } from "react";
+import { IoIosCloseCircle } from "react-icons/io";
 
 function ImageCard(props) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [imageClass, setImageClass] = useState(""); // Dynamically apply `w-full` or `h-full`
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for controlling the modal visibility
 
+  // Handles the image click event to open the modal
   const handleImageClick = () => {
-    setIsModalOpen(true); // Open the modal when the image is clicked
+    setIsModalOpen(true);
   };
 
+  // Handles the closing of the modal
   const handleCloseModal = () => {
-    setIsModalOpen(false); // Close the modal when clicking outside
+    console.log(props.url); // Log the image URL to the console (for debugging)
+    setIsModalOpen(false); // Close the modal
   };
 
+  // Handles disabling the page scroll when the modal is open
   useEffect(() => {
-    // Disable/enable body scrolling based on modal state
     if (isModalOpen) {
-      document.body.style.overflow = "hidden"; // Disable scrolling
+      document.body.style.overflow = "hidden"; // Prevent page scroll when modal is open
     } else {
-      document.body.style.overflow = "auto"; // Enable scrolling
+      document.body.style.overflow = "auto"; // Restore page scroll when modal is closed
     }
 
-    // Cleanup to reset overflow style on component unmount
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "auto"; // Clean up on component unmount
     };
   }, [isModalOpen]);
 
-  useEffect(() => {
-    // Dynamically check dimensions of the image
-    const imgElement = document.querySelector(".big-img");
-    if (imgElement) {
-      if (imgElement.complete) {
-        updateImageClass(imgElement);
-      } else {
-        imgElement.onload = () => updateImageClass(imgElement);
-      }
-    }
-  }, [isModalOpen]);
-
-  const updateImageClass = (imgElement) => {
-    if (imgElement.naturalWidth > imgElement.naturalHeight) {
-      setImageClass("w-full"); // Take full width
-    } else {
-      setImageClass("h-full"); // Take full height
-    }
-  };
-
   return (
-    <div className="relative flex-row space-y-4 bg-white smshadow rounded-xl my-2 ">
+    <div className="relative flex-row space-y-4 bg-white rounded-xl my-2">
       {/* Main Image Container */}
       <div
-        className="custom-scale relative group h-52 overflow-hidden rounded-xl transition-transform duration-300 hover:cursor-pointer"
-        onClick={handleImageClick} // Open modal on click
+        className="custom-scale relative group h-52 overflow-hidden rounded-xl transition-transform duration-300 hover:cursor-pointer hover:shadow-md"
+        onClick={handleImageClick}
       >
-        {/* Image */}
         <img
-          className="w-full h-full object-cover object-[50%_50%] rounded-md"
+          className="w-full h-full object-cover object-center rounded-md"
           src={props.url}
           alt="img"
         />
-
-        {/* Title Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
           <h3 className="text-white text-2xl font-bold mb-4 transform translate-y-10 group-hover:translate-y-0 transition-transform duration-500">
             {props.title}
@@ -72,27 +62,33 @@ function ImageCard(props) {
       {isModalOpen && (
         <div
           className="fixed bottom-0 left-0 w-full h-full bg-black bg-opacity-60 backdrop-blur-md flex items-center justify-center z-50"
-          onClick={handleCloseModal} // Close modal on clicking outside
+          onClick={handleCloseModal}
         >
           <div
-            className="bg-white w-[1100px] h-[700px] rounded-2xl flex lg:flex-row flex-column items-stretch shadow-2xl transition-all duration-300"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+            className="bg-bgClr w-[95%] h-[98%] lg:w-[1100px] lg:h-[700px] rounded-2xl flex flex-col lg:flex-row items-stretch shadow-2xl transition-all duration-300"
+            onClick={(e) => e.stopPropagation()} // Prevent closing the modal when clicking inside it
           >
-            {/* Left Black Section */}
-            <div className="bg-black basis-2/3 rounded-l-2xl border-[1px] border-gray-300 flex items-center justify-center overflow-hidden">
+            {/* Left Black Section (Large Image) */}
+            <div className="relative bg-black basis-4/5 lg:basis-2/3 rounded-2xl border-[1px] border-gray-300 flex items-center justify-center overflow-hidden">
+              <button
+                onClick={handleCloseModal}
+                className="lg:hidden absolute right-2 top-2 text-5xl text-white opacity-60 hover:text-gray-300 transition-colors"
+              >
+                <IoIosCloseCircle />
+              </button>
               <img
-                className={`big-img ${imageClass} object-cover`}
+                className="big-img object-contain w-full h-full"
                 src={props.url}
                 alt="modal-img"
               />
             </div>
 
-            {/* Right White Section */}
-            <div className="bg-bgClr basis-1/3 h-full rounded-r-2xl p-6 flex flex-col justify-between overflow-hidden">
-              {/* Top Right "X" Button */}
-              <div className="flex justify-end">
+            {/* Right Section (Title, Description, Audio) */}
+            <div className="bg-bgClr relative lg:basis-1/3 h-full rounded-b-2xl lg:rounded-r-2xl p-6 flex flex-col justify-start lg:justify-between overflow-y-auto">
+              {/* Close Button in Desktop View */}
+              <div className="hidden lg:flex justify-end">
                 <button
-                  onClick={handleCloseModal} // Close the modal when the button is clicked
+                  onClick={handleCloseModal}
                   className="text-gray-400 hover:text-gray-700 transition-colors"
                 >
                   <svg
@@ -101,23 +97,30 @@ function ImageCard(props) {
                     height="32"
                     viewBox="0 0 16 16"
                   >
-                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 1 1-.708-.708L7.293 8z" />
                   </svg>
                 </button>
               </div>
 
-              {/* Centered Title and Description */}
-              <div className="bg-white rounded-xl py-8 px-6 flex flex-col items-center text-center shadow-md">
-                <h2 className="text-3xl font-bold text-gray-800 tracking-wide">
+              {/* Mobile Title */}
+              <div className="lg:hidden bg-bgClr max-h-[8%] py-2 flex justify-center items-center text-center">
+                <h2 className="text-2xl font-bold text-gray-800 tracking-wide">
                   {props.title}
                 </h2>
-                <p className="mt-6 text-gray-600 text-lg leading-relaxed">
+              </div>
+
+              {/* Title and Description */}
+              <div className="bg-white my-5 rounded-xl py-8 px-6 flex flex-col items-center text-center shadow-md">
+                <h2 className="hidden lg:flex text-3xl font-bold text-gray-800 tracking-wide">
+                  {props.title}
+                </h2>
+                <p className="lg:mt-6 text-gray-600 text-lg leading-relaxed">
                   {props.description}
                 </p>
               </div>
 
-              {/* Bottom Audio Player */}
-              <div className="w-full mt-4">
+              {/* Audio Player */}
+              <div className="fixed lg:relative bottom-4 lg:bottom-1 w-full left-0 px-4 lg:px-0">
                 <audio
                   src={props.aud}
                   className="w-full rounded-full bg-gray-200 shadow-md"

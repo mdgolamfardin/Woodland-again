@@ -1,13 +1,19 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polygon } from 'react-leaflet';
 import L from 'leaflet';
 import { FaLocationArrow } from 'react-icons/fa'; // Icon for the button
 import { useState } from 'react';
+import { DarkModeContext } from "../DarkModeContext"; // Access dark mode context
+
 
 const SiteMap = () => {
     const mapRef = useRef();
     const [lat, setLat] = useState(null);
     const [lon, setLon] = useState(null);
+
+    //Use this for dark mode
+    const { darkMode } = useContext(DarkModeContext);
+
 
     const handleLocateMe = () => {
         if (navigator.geolocation) {

@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { FaVolumeUp } from 'react-icons/fa'; 
+import { FaVolumeUp } from 'react-icons/fa';
+import { DarkModeContext } from "../DarkModeContext"; // Access dark mode context
 
 const About = () => {
+    //Use this to apply dark mode.
+    const { darkMode } = useContext(DarkModeContext);
 
     const [selectedMember, setSelectedMember] = useState(null);
 
@@ -75,7 +78,6 @@ const About = () => {
                 </div>
             </section>
 
-
             {/* Team Section */}
             <section className="space-y-8 mt-10">
                 <h2 className="text-3xl font-bold text-[#103c84] text-center">Meet Our Team</h2>
@@ -86,49 +88,92 @@ const About = () => {
                             src="/imagesforaboutpage/member1.png"
                             alt="Team Member 1"
                             className="w-40 h-40 mx-auto rounded-full object-cover shadow-md cursor-pointer"
-                            onClick={() => setSelectedMember({ 
-                                name: "Fardin",
-                                role: "Team Leader",
-                                image: "/imagesforaboutpage/member1.png",
-                                achievements: "Fardin has led numerous successful conservation projects and has been a key figure in community engagement."
-                            })}
+                            onClick={() =>
+                                setSelectedMember({
+                                    name: "Fardin",
+                                    role: "Team Leader",
+                                    image: "/imagesforaboutpage/member1.png",
+                                    achievements: "Fardin has led numerous successful conservation projects and has been a key figure in community engagement.",
+                                })
+                            }
                         />
                         <p className="mt-4 text-lg font-semibold">Fardin</p>
                         <p className="text-gray-500">Team Leader</p>
                     </div>
-                    {/* Other Team Members */}
+                    {/* Mariam */}
                     <div className="text-center">
                         <img
                             src="/imagesforaboutpage/member2.png"
                             alt="Team Member 2"
-                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
+                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md cursor-pointer"
+                            onClick={() =>
+                                setSelectedMember({
+                                    name: "Mariam",
+                                    role: "Developer",
+                                    image: "/imagesforaboutpage/member2.png",
+                                    achievements: "Mariam specializes in developing user-friendly interfaces and has a passion for innovative web design.",
+                                })
+                            }
                         />
                         <p className="mt-4 text-lg font-semibold">Mariam</p>
                         <p className="text-gray-500">Developer</p>
                     </div>
+                    {/* Tenisha */}
                     <div className="text-center">
                         <img
                             src="/imagesforaboutpage/member3.png"
                             alt="Team Member 3"
-                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
+                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md cursor-pointer"
+                            onClick={() =>
+                                setSelectedMember({
+                                    name: "Tenisha",
+                                    role: "Developer",
+                                    image: "/imagesforaboutpage/member3.png",
+                                    achievements: "Tenisha has a knack for backend development and ensures seamless system integration.",
+                                })
+                            }
                         />
                         <p className="mt-4 text-lg font-semibold">Tenisha</p>
                         <p className="text-gray-500">Developer</p>
                     </div>
-                    <div className="text-center" style={{ gridColumn: "1 / span 2", gridRow: "2" }}>
+                    {/* Himshree */}
+                    <div
+                        className="text-center"
+                        style={{ gridColumn: "1 / span 2", gridRow: "2" }}
+                    >
                         <img
                             src="/imagesforaboutpage/member4.png"
                             alt="Team Member 4"
-                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
+                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md cursor-pointer"
+                            onClick={() =>
+                                setSelectedMember({
+                                    name: "Himshree",
+                                    role: "Developer",
+                                    image: "/imagesforaboutpage/member4.png",
+                                    achievements: "Himshree focuses on creating responsive designs and improving accessibility for all users.",
+                                })
+                            }
                         />
                         <p className="mt-4 text-lg font-semibold">Himshree</p>
                         <p className="text-gray-500">Developer</p>
                     </div>
-                    <div className="text-center" style={{ gridColumn: "2 / span 2", gridRow: "2" }}>
+                    {/* Kelly */}
+                    <div
+                        className="text-center"
+                        style={{ gridColumn: "2 / span 2", gridRow: "2" }}
+                    >
                         <img
                             src="/imagesforaboutpage/member5.png"
                             alt="Team Member 5"
-                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md"
+                            className="w-40 h-40 mx-auto rounded-full object-cover shadow-md cursor-pointer"
+                            onClick={() =>
+                                setSelectedMember({
+                                    name: "Kelly",
+                                    role: "Developer",
+                                    image: "/imagesforaboutpage/member5.png",
+                                    achievements: "Kelly excels in database management and ensures data integrity across all systems.",
+                                })
+                            }
                         />
                         <p className="mt-4 text-lg font-semibold">Kelly</p>
                         <p className="text-gray-500">Developer</p>
@@ -154,11 +199,22 @@ const About = () => {
                                 className="w-32 h-32 mx-auto rounded-full object-cover mt-4 mb-4"
                             />
                             <p className="text-lg">{selectedMember.achievements}</p>
+                            {/* Speaker Icon for Text-to-Speech */}
+                            <button
+                                onClick={() => {
+                                    const speech = new SpeechSynthesisUtterance(
+                                        `${selectedMember.name}. Role: ${selectedMember.role}. ${selectedMember.achievements}`
+                                    );
+                                    speechSynthesis.speak(speech);
+                                }}
+                                className="mt-4 flex items-center text-[#103c84] hover:text-gray-700"
+                            >
+                                <FaVolumeUp />  {/* React icon for speaker */}
+                            </button>
                         </div>
                     </div>
                 )}
             </section>
-
 
             {/* Testimonials Section */}
             <section className="mt-12 p-8">
@@ -206,7 +262,7 @@ const About = () => {
                                                         window.speechSynthesis.speak(msg);
                                                     }}
                                                 >
-                                                    Add yours too! 
+                                                    Add yours too!
                                                 </Link>
                                             </p>
                                         </div>
