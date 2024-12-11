@@ -7,6 +7,13 @@ const About = () => {
     //Use this to apply dark mode.
     const { darkMode } = useContext(DarkModeContext);
 
+    // Automatically apply the dark mode styles globally
+    if (darkMode) {
+        document.body.style.color = "white"; // Set all text to white
+    } else {
+        document.body.style.color = "black"; // Set all text to black
+    }
+
     const [selectedMember, setSelectedMember] = useState(null);
 
     const testimonials = [
