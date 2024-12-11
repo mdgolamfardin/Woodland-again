@@ -1,5 +1,7 @@
 /**
+ * 
  * Purpose: This file defines the 'About' page of the website. It includes the following sections:
+ *          - A slideshow showcasing images related to the website's mission.
  *          - A mission statement with a translucent background.
  *          - A grid layout for team member introductions.
  *          - A testimonials section with an interactive carousel feature and a button to add new testimonials.
@@ -13,10 +15,11 @@
  * - The dark mode feature has potential to be optimized. 
  * - Potential to add softer, realistic, feminine voice to hover-based speech functionality and mission 
  *   statement speech API. Probably for a price.
+ * 
  */
 
 
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext, } from "react";
 import { Link } from "react-router-dom";
 import { FaVolumeUp } from 'react-icons/fa';
 import { DarkModeContext } from "../DarkModeContext";
@@ -67,6 +70,21 @@ const About = () => {
         );
     };
 
+    const [imageIndex, setImageIndex] = useState(0);
+    const images = [
+        "/imagesforaboutpage/nature1.png",
+        "/imagesforaboutpage/nature2.png",
+        "/imagesforaboutpage/nature3.png",
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }, 5000); // 5000ms = 5 seconds
+
+        return () => clearInterval(interval); // Clean up interval on unmount
+    }, [images.length]);
+
     // Function to read the mission statement
     const readMissionStatement = () => {
         const msg = new SpeechSynthesisUtterance(
@@ -102,9 +120,10 @@ const About = () => {
                 </div>
                 <div className="relative w-[600px] h-[250px] overflow-hidden rounded-lg shadow-md mt-6 md:mt-0">
                     <img
-                        src="/imagesforaboutpage/nature1.png"
+                        src={images[imageIndex]}
                         alt="Mission Image"
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
+                        style={{ opacity: 0.8 }} // Adjust opacity for smooth transition
                     />
                 </div>
             </section>

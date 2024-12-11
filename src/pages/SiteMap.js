@@ -1,4 +1,5 @@
 /**
+ * 
  * Purpose: The `SiteMap.js` component is used to display an interactive map of the 
  *          St. Margaret's Bay Woodland Conservation Site:
  *            - It utilizes the `react-leaflet` library to render the map and places markers and polygons to highlight 
