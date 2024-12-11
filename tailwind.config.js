@@ -6,6 +6,7 @@
  * 
  * @fileoverview TailwindCSS configuration with custom theme extensions.
  * @author Md Golam Fardin
+ * @author Mariam Nasir (A00460192)
  */
 
 /** @type {import('tailwindcss').Config} */

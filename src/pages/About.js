@@ -6,7 +6,7 @@
  *          - A social media section with icons for Facebook, Twitter, and Instagram that include hover-based 
  *            speech functionality.
  *
- * Author(s): Mariam Nasir (A00460192)
+ * @author Mariam Nasir (A00460192)
  * 
  * Notes for future development:
  * - The 'Add yours too!' button in the testimonials section and the social media icons include hover functionality.

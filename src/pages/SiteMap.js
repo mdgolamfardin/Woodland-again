@@ -7,7 +7,7 @@
  *              the browser's geolocation API to center the map on the user's current location. 
  *            - Additionally, it includes markers for specific points of interest, like the farmhouse foundation and wells.
  *            
- * Author(s): Mariam Nasir (A00460192)
+ * @author Mariam Nasir (A00460192)
  * 
  * Notes for future development:
  * 
