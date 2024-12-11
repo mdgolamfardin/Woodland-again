@@ -78,8 +78,7 @@ const Images = () => {
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
           onClick={() => setModalImage(null)} // Close modal on click
         >
-          <div className="relative max-w-[60%] max-h-[100%] object-contain ">
-            {/* Image with max height and max width applied */}
+          <div className="relative">
             <img
               src={modalImage}
               alt="Full view"
