@@ -1,3 +1,29 @@
+/**
+ * Purpose: The `SiteMap.js` component is used to display an interactive map of the 
+ *          St. Margaret's Bay Woodland Conservation Site:
+ *            - It utilizes the `react-leaflet` library to render the map and places markers and polygons to highlight 
+ *              various areas of the site, such as the site border, rewilding area, yellow birch area, and wetland area. 
+ *            - The map is interactive, allowing users to zoom and pan, and includes a "Locate Me" button that uses 
+ *              the browser's geolocation API to center the map on the user's current location. 
+ *            - Additionally, it includes markers for specific points of interest, like the farmhouse foundation and wells.
+ *            
+ * Author(s): Mariam Nasir (A00460192)
+ * 
+ * Notes for future development:
+ * 
+ * - The sitemap page has not been optimized. Lots of work to be done in order for sitemap.js to function as expected.
+ * - Sitemap does not render when coded for only the area of the Woodland Conservation Site to be accessible.
+ * - Issues with rendering the right coordinates.
+ * - Locate me feature is accurate, but should be optimized to warn user they are not in the site when out of bounds.
+ * - Sitemap should be optimized to not render in the middle of the ocean.
+ * - Sitemap needs to be optimized to have highlighted areas accurately define specific locations on the site. 
+ * - Icons for sitemap markers need to be added. Please ensure changes don't disrupt rendering of the map.
+ * - Leaflet may not be suitable for the sitemap with such specific requirements. May need to switch to Google API.
+ * - If sitemap features above have been implemented, this could be very unique and helpful.
+ * 
+ */
+
+
 import React, { useRef, useContext } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polygon } from 'react-leaflet';
 import L from 'leaflet';
