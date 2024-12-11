@@ -1,45 +1,69 @@
+/**
+ * Purpose: This file defines the 'About' page of the website. It includes the following sections:
+ *          - A mission statement with a translucent background.
+ *          - A grid layout for team member introductions.
+ *          - A testimonials section with an interactive carousel feature and a button to add new testimonials.
+ *          - A social media section with icons for Facebook, Twitter, and Instagram that include hover-based 
+ *            speech functionality.
+ *
+ * Author(s): Mariam Nasir (A00460192)
+ * 
+ * Notes for future development:
+ * - The 'Add yours too!' button in the testimonials section and the social media icons include hover functionality.
+ * - The dark mode feature has potential to be optimized. 
+ * - Potential to add softer, realistic, feminine voice to hover-based speech functionality and mission 
+ *   statement speech API. Probably for a price.
+ */
+
+
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaVolumeUp } from 'react-icons/fa';
-import { DarkModeContext } from "../DarkModeContext"; // Access dark mode context
+import { DarkModeContext } from "../DarkModeContext";
 
 const About = () => {
-    //Use this to apply dark mode.
+
+    // Accessing darkMode value from DarkModeContext
     const { darkMode } = useContext(DarkModeContext);
 
-    // Automatically apply the dark mode styles globally
+    // Changing text color based on darkMode state
     if (darkMode) {
-        document.body.style.color = "white"; // Set all text to white
+        document.body.style.color = "white";  // Set text color to white for dark mode
     } else {
-        document.body.style.color = "black"; // Set all text to black
+        document.body.style.color = "black";  // Set text color to black for light mode
     }
 
+    // State to track which team member is selected (if any)
     const [selectedMember, setSelectedMember] = useState(null);
 
+    // Array of testimonials with image and quote for each
     const testimonials = [
         {
-            image: "/imagesforaboutpage/testimonial1.png",
+            image: "/imagesforaboutpage/testimonial1.png", // Path to the first testimonial image
             quote: "This is an amazing project! It really makes a difference in preserving nature and history.",
         },
         {
-            image: "/imagesforaboutpage/testimonial2.png",
+            image: "/imagesforaboutpage/testimonial2.png", // Path to the second testimonial image
             quote: "I love how this project brings the community together to protect our sacred spaces.",
         },
         {
-            image: "/imagesforaboutpage/testimonial3.png",
+            image: "/imagesforaboutpage/testimonial3.png", // Path to the third testimonial image
             quote: "The Woodland Conservation initiative is truly inspiring. I can't wait to see its impact on future generations.",
         },
     ];
 
+    // State to manage the current testimonial index
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+    // Function to show the next testimonial in the array
     const nextTestimonial = () => {
-        setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+        setCurrentTestimonial((prev) => (prev + 1) % testimonials.length); // Loops back to the first testimonial after the last one
     };
 
+    // Function to show the previous testimonial in the array
     const prevTestimonial = () => {
         setCurrentTestimonial(
-            (prev) => (prev - 1 + testimonials.length) % testimonials.length
+            (prev) => (prev - 1 + testimonials.length) % testimonials.length // Loops back to the last testimonial after the first one
         );
     };
 
@@ -100,7 +124,7 @@ const About = () => {
                                     name: "Fardin",
                                     role: "Team Leader",
                                     image: "/imagesforaboutpage/member1.png",
-                                    achievements: <span className="text-gray-700">"Fardin has led numerous successful conservation projects and has been a key figure in community engagement."</span> ,
+                                    achievements: "Fardin has led numerous successful conservation projects and has been a key figure in community engagement.",
                                 })
                             }
                         />
