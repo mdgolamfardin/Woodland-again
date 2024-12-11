@@ -100,7 +100,7 @@ const About = () => {
                                     name: "Fardin",
                                     role: "Team Leader",
                                     image: "/imagesforaboutpage/member1.png",
-                                    achievements: "Fardin has led numerous successful conservation projects and has been a key figure in community engagement.",
+                                    achievements: <span className="text-gray-700">"Fardin has led numerous successful conservation projects and has been a key figure in community engagement."</span> ,
                                 })
                             }
                         />
