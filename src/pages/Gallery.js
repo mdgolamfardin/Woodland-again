@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-// Import the FloraFaunaFungi and ImgUpload subcomponents from the subcomponents folder
-import FloraFaunaFungi from "./subcomponents/FloraFaunaFungi";
-import ImgUpload from "./subcomponents/ImgUpload";
-import React, { useEffect, useState } from 'react';
-import 'tailwindcss/tailwind.css';
-=======
 /**
  * Gallery Component
  * 
@@ -17,7 +10,6 @@ import 'tailwindcss/tailwind.css';
  * with styling adjustments for dark mode.
  * @author Md Golam Fardin
  */
->>>>>>> a084acec5f86c0a9a0fa130591b56033b1292a82
 
 // Import the ImgUpload and Images subcomponents for displaying and uploading images
 import ImgUpload from "./subcomponents/ImgUpload";
