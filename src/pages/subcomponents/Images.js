@@ -68,7 +68,9 @@ const Images = () => {
           </div>
         ))}
         {!error && validImages.length === 0 && (
-          <div className="col-span-full text-gray-500">No images available.</div>
+          <div className="col-span-full text-gray-500">
+            No images available.
+          </div>
         )}
       </div>
 
@@ -78,11 +80,11 @@ const Images = () => {
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
           onClick={() => setModalImage(null)} // Close modal on click
         >
-          <div className="relative">
+          <div className="relative max-w-[95%] lg:max-w-[60%] max-h-[100%] object-contain ">
             <img
               src={modalImage}
-              alt="Full view"
-              className="max-w-full max-h-full rounded-lg"
+              alt="Full-size view"
+              className="w-full h-full rounded-lg"
             />
             <button
               onClick={() => setModalImage(null)}
