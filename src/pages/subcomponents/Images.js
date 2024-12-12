@@ -76,25 +76,25 @@ const Images = () => {
 
       {/* Modal for Full Image Display */}
       {modalImage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-          onClick={() => setModalImage(null)} // Close modal on click
-        >
-          <div className="relative max-w-[95%] lg:max-w-[60%] max-h-[100%] object-contain ">
-            <img
-              src={modalImage}
-              alt="Full-size view"
-              className="w-full h-full rounded-lg"
-            />
-            <button
-              onClick={() => setModalImage(null)}
-              className="absolute top-2 right-2 text-white text-2xl font-bold"
-            >
-              &times;
-            </button>
-          </div>
-        </div>
-      )}
+  <div
+    className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+    onClick={() => setModalImage(null)} // Close modal on click
+  >
+    <div className="relative max-h-[90%] max-w-[95%] lg:max-w-[60%] flex items-center justify-center overflow-hidden">
+      <img
+        src={modalImage}
+        alt="Full-size view"
+        className="max-h-full max-w-full object-contain rounded-lg"
+      />
+      <button
+        onClick={() => setModalImage(null)}
+        className="absolute top-2 right-2 text-white text-2xl font-bold"
+      >
+        &times;
+      </button>
+    </div>
+  </div>
+)}
     </div>
   );
 };

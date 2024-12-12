@@ -27,7 +27,6 @@
 
 import React, { useRef, useContext } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polygon } from 'react-leaflet';
-import L from 'leaflet';
 import { FaLocationArrow } from 'react-icons/fa'; // Icon for the button
 import { useState } from 'react';
 import { DarkModeContext } from "../DarkModeContext"; // Access dark mode context

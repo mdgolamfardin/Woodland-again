@@ -178,7 +178,7 @@ const About = () => {
                                 setSelectedMember({
                                     name: "Tenisha",
                                     role: "Developer",
-                                    image: "/imagesforaboutpage/member3.png",
+                                    image: "/imagesforaboutpage/member3.PNG",
                                     achievements: "Tenisha has a knack for backend development and ensures seamless system integration.",
                                 })
                             }

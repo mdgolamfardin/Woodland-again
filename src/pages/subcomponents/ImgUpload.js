@@ -8,11 +8,9 @@
   The uploaded file and metadata are sent to a server endpoint for storage.
 */
 
-import { FileInput } from "flowbite-react";
 import { Form, Button } from "react-bootstrap";
 import { useState, useContext } from "react";
 import axios from "axios";
-import { use } from "react";
 import { DarkModeContext } from "../../DarkModeContext";
 
 /**
