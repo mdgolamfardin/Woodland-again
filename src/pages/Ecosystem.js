@@ -1,3 +1,13 @@
+/**
+ * Ecosystem Component
+ * 
+ * The purpose of Ecosystem.js is it describes about the ecosystem of Woodland conservationsite.
+ * It has two images which are ai generated and the images show how the ecosystem should look
+ * in real life with audio description of each paragraph.
+ *            
+ * @author Himshree Upreti(A00459394)
+ */
+
 // Import the Subcomponent component from the specified folder
 import React, { useState, useContext } from "react";
 import FloraFaunaFungi from "./subcomponents/FloraFaunaFungi";
