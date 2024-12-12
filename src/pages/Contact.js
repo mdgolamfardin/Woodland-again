@@ -80,8 +80,7 @@ const Contact = () => {
    * Reads an introductory message about the form
    */
   const playAudio = () => {
-    const text =
-      "This is the contact section. Please fill out the form to get in touch.";
+    const text = generateTextToSpeak();
     const speech = new SpeechSynthesisUtterance(text);
     speech.voice = speechSynthesis
       .getVoices()
@@ -124,7 +123,7 @@ const Contact = () => {
           >
             {/* Full Name Field */}
             <div>
-              <label className="block text-lg font-medium mb-2">
+              <label className="block text-lg font-medium font-bold mb-2">
                 Full Name:
               </label>
               <input
@@ -144,7 +143,7 @@ const Contact = () => {
 
             {/* Last Name Field */}
             <div>
-              <label className="block text-lg font-medium mb-2">
+              <label className="block text-lg font-bold font-medium mb-2">
                 Last Name:
               </label>
               <input
@@ -164,7 +163,7 @@ const Contact = () => {
 
             {/* Email Field */}
             <div>
-              <label className="block text-lg font-medium mb-2">
+              <label className="block text-lg font-bold font-medium mb-2">
                 Email ID:
               </label>
               <input
@@ -184,7 +183,7 @@ const Contact = () => {
 
             {/* Country Field */}
             <div>
-              <label className="block text-lg font-medium mb-2">Country:</label>
+              <label className="block text-lg font-bold font-medium mb-2">Country:</label>
               <select
                 name="country"
                 value={formData.country}
@@ -202,7 +201,7 @@ const Contact = () => {
 
             {/* Phone Number Field */}
             <div>
-              <label className="block text-lg font-medium mb-2">
+              <label className="block text-lg font-bold font-medium mb-2">
                 Phone Number:
               </label>
               <input
@@ -221,7 +220,7 @@ const Contact = () => {
 
             {/* Message Field */}
             <div className="md:col-span-2">
-              <label className="block text-lg font-medium mb-2">Message:</label>
+              <label className="block text-lg font-bold font-medium mb-2">Message:</label>
               <textarea
                 name="message"
                 value={formData.message}
