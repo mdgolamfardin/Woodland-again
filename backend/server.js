@@ -105,11 +105,8 @@ app.post("/upload", upload.single("file"), (req, res) => {
   }
 });
 
-// ----------------------
-// POST: Form Submission Route
-// ----------------------
 app.post("/formSubmit", async (req, res) => {
-  const filePath = path.join(__dirname, "../src/data/messages.xlsx");
+  const filePath = path.resolve(__dirname, "../src/data/messages.xlsx");
   console.log("Excel File Path:", filePath);
 
   // Initialize the Excel file if it doesn't exist
@@ -129,12 +126,19 @@ app.post("/formSubmit", async (req, res) => {
       await workbook.xlsx.writeFile(filePath);
       console.log("Excel file initialized successfully.");
     } catch (error) {
-      console.error("Error initializing Excel file:", error);
+      console.error("Error initializing Excel file:", error.stack || error);
       return res.status(500).send("Error initializing Excel file.");
     }
   }
 
   console.log("Received form data:", req.body);
+
+  // Validate form data
+  const { fullName, lastName, email, phone, message } = req.body;
+  if (!fullName || !lastName || !email || !phone || !message) {
+    console.error("Invalid form data:", req.body);
+    return res.status(400).send("Invalid form data.");
+  }
 
   try {
     // Read the existing Excel file
@@ -149,11 +153,11 @@ app.post("/formSubmit", async (req, res) => {
 
     // Add a new row to the sheet
     sheet.addRow([
-      req.body.fullName,
-      req.body.lastName,
-      req.body.email,
-      req.body.phone,
-      req.body.message,
+      fullName,
+      lastName,
+      email,
+      phone,
+      message,
       new Date().toISOString(),
     ]);
 
@@ -163,7 +167,7 @@ app.post("/formSubmit", async (req, res) => {
 
     res.status(201).send("Form submitted successfully!");
   } catch (error) {
-    console.error("Error writing to Excel file:", error);
+    console.error("Error writing to Excel file:", error.stack || error);
     res.status(500).send("An error occurred while saving the form data.");
   }
 });

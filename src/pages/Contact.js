@@ -47,17 +47,18 @@ const Contact = () => {
    */
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch("/formSubmit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
+  
+      const result = await response.json();
+      console.log("Response from server:", result);
+  
       if (response.ok) {
         setShowMessage("Form submitted successfully!");
-        // Reset form data
         setFormData({
           fullName: "",
           lastName: "",
@@ -74,13 +75,13 @@ const Contact = () => {
       setShowMessage("An error occurred. Please try again.");
     }
   };
-
+  
   /**
    * Play text-to-speech for accessibility
    * Reads an introductory message about the form
    */
   const playAudio = () => {
-    const text = generateTextToSpeak();
+    const text = "This is the contact form section. Please review the fields below.";
     const speech = new SpeechSynthesisUtterance(text);
     speech.voice = speechSynthesis
       .getVoices()
