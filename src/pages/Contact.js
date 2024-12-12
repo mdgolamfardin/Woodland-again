@@ -1,3 +1,12 @@
+/**
+ * Contact Component
+ * 
+ * @author Tenisha Bajagain
+ * @studentId A00448988
+ * @file contact.js
+ * @description Contact form component with dark mode and text-to-speech functionality.
+ */
+
 import React, { useState, useContext } from "react";
 import { FaVolumeUp } from "react-icons/fa";
 import { DarkModeContext } from "../DarkModeContext"; // Access dark mode context
