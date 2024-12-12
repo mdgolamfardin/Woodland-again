@@ -72,9 +72,9 @@ const About = () => {
 
     const [imageIndex, setImageIndex] = useState(0);
     const images = [
-        "/imagesforaboutpage/nature1.png",
-        "/imagesforaboutpage/nature2.png",
-        "/imagesforaboutpage/nature3.png",
+        "/imagesforaboutpage/nature1.jpg",
+        "/imagesforaboutpage/nature2.jpg",
+        "/imagesforaboutpage/nature3.jpg",
     ];
 
     useEffect(() => {
