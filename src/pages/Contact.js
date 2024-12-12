@@ -4,7 +4,8 @@
  * @author Tenisha Bajagain
  * @studentId A00448988
  * @file contact.js
- * @description Contact form component with dark mode and text-to-speech functionality.
+ * @description Contact form component for woodland conservation site.The 
+ * purpose of this form is to answer questions and get in touch with users who has visited or is planning to visit the woodland conservation site.
  */
 
 import React, { useState, useContext } from "react";
